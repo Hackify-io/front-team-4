@@ -1,3 +1,4 @@
+//App Routes
 export const LOGIN_URL = "/login";
 export const ADMIN_LOGIN_URL = "/admin/login";
 export const UNAUTHORIZE_URL = "/unauthorize";
