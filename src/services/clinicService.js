@@ -1,9 +1,9 @@
-import Auth from "./../api/Medical";
+import API from "./../api/Medical";
 
 class ClinicService {
   static async login(login) {
     try {
-      const loginResponse = await Auth.post("/logins/clinic", login);
+      const loginResponse = await API.post("/logins/clinic", login);
       if (loginResponse.data.isSuccess) {
         return loginResponse.data.result;
       }
@@ -60,6 +60,10 @@ class ClinicService {
       procedures: procedures
     };
     return dummyClinic;
+  }
+
+  static submitAppointment(userId, clinicId, appointment) {
+    return null;
   }
 }
 
