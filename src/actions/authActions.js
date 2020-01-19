@@ -1,4 +1,5 @@
 import { SET_CURRENT_USER } from "./";
+import UserService from "./../services/userService";
 
 export const loginUser = loginData => dispatch => {
   let logedUser = {
@@ -20,4 +21,8 @@ export const setCurrentUser = user => {
 export const logoutUser = () => dispatch => {
   // Set the Auth State to Initial State
   dispatch(setCurrentUser({}));
+};
+
+export const register = register => async dispatch => {
+  await UserService.register(register);
 };

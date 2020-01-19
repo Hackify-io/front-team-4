@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { TextInput, Button } from 'react-materialize';
-
+import React, { Component } from "react";
+import { TextInput, Button } from "react-materialize";
+import { register } from "./../../actions/authActions";
+import { connect } from "react-redux";
 //browser history
-import history from '../../history';
-// import { connect } from 'react-redux';
+import history from "../../history";
 
 class UserRegister extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     };
   }
 
@@ -28,8 +28,12 @@ class UserRegister extends Component {
   };
 
   handleOnSubmit = () => {
-    alert('User registered successfully');
-    history.push('/');
+    let newRegister = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.register(newRegister);
+    history.push("/");
   };
 
   render() {
@@ -55,5 +59,4 @@ class UserRegister extends Component {
   }
 }
 
-export default UserRegister;
-// connect(null, { registerUser })(UserRegister)
+export default connect(null, { register })(UserRegister);
