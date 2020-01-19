@@ -11,11 +11,12 @@ import store from './../store';
 import history from './../history';
 
 //Import Routes
-import { MAIN_APP_URL, LOGIN_URL } from './../routes';
+import { MAIN_APP_URL, LOGIN_URL, REGISTER_URL } from './../routes';
 
 //Import Components
 import Main from './Main';
 import LoginForm from './Auth/LoginForm';
+import UserRegister from './Auth/UserRegister';
 
 class App extends Component {
   render() {
@@ -26,6 +27,7 @@ class App extends Component {
             <Switch>
               <Route exact path={MAIN_APP_URL} component={Main} />
               <Route exact path={LOGIN_URL} component={LoginForm} />
+              <Route exact path={REGISTER_URL} component={UserRegister} />
             </Switch>
           </div>
         </Router>
