@@ -5,7 +5,7 @@ class ClinicProcedures extends Component {
     const { procedures } = this.props;
     return procedures.map(p => {
       return (
-        <Col s={4}>
+        <Col key={p.name} s={4}>
           <Row className="center-align">
             <Icon>{p.icon}</Icon>
           </Row>

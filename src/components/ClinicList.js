@@ -1,13 +1,17 @@
 import React, { Component, Fragment } from "react";
-
+import { Link } from "react-router-dom";
 export default class ClinicList extends Component {
   renderClinics = () => {
     const { clinics } = this.props;
     return clinics.map(c => {
       return (
-        <h3 key={c.id} className="center-align">
+        <Link
+          key={c.id}
+          to={`/clinic/${c.id}`}
+          className="btn btn-large center-align"
+        >
           {c.id}
-        </h3>
+        </Link>
       );
     });
   };
@@ -15,7 +19,7 @@ export default class ClinicList extends Component {
     return (
       <Fragment>
         <h1>Search Results</h1>
-        {this.renderClinics()};
+        {this.renderClinics()}
       </Fragment>
     );
   }

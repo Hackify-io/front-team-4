@@ -1,7 +1,9 @@
 import { SET_CURRENT_USER } from "./";
 import UserService from "./../services/userService";
 
-export const loginUser = loginData => dispatch => {
+export const loginUser = loginData => async dispatch => {
+  let token = await UserService.login(loginData);
+  console.log(token);
   let logedUser = {
     name: "Jhonnatan",
     lastname: "Guerrero"

@@ -14,7 +14,6 @@ class Clinic extends Component {
 
   renderClinic = () => {
     const { clinic } = this.props;
-    console.log(clinic);
     let total = 0;
     clinic.feedback.forEach(f => {
       total = total + f.rate;
