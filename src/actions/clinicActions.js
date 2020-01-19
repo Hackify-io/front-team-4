@@ -18,3 +18,7 @@ export const getAppointments = id => {
     payload: appointments
   };
 };
+
+export const submitAppointment = appointment => {
+  ClinicService.submitAppointment(appointment);
+};
