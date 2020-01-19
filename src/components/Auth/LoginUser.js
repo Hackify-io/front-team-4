@@ -1,17 +1,15 @@
 //Import Modules
-import React, { Component, Fragment } from "react";
-import { Button } from "react-materialize";
+import React, { Component } from "react";
+import { Button, NavItem } from "react-materialize";
 //Import Utils
 import { MAIN_COLOR_FONT } from "./../../utils/colors";
 class LoginUser extends Component {
   render() {
     return (
-      <Fragment>
+      <NavItem>
         Jhonnatan Guerrero
-        <Button flat className={MAIN_COLOR_FONT}>
-          Logout
-        </Button>
-      </Fragment>
+        <Button className={MAIN_COLOR_FONT}>Logout</Button>
+      </NavItem>
     );
   }
 }

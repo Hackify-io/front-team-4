@@ -12,6 +12,7 @@ class LayoutNav extends Component {
     return (
       <Navbar
         alignLinks="right"
+        fixed
         className={MAIN_COLOR_CLASS}
         brand={
           <a className="brand-logo" href="/">

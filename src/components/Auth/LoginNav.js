@@ -1,7 +1,6 @@
 //Import Modules
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-
 //Import Components
 import LoginButtons from "./LoginButtons";
 import LoginUser from "./LoginUser";
