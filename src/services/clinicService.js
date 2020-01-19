@@ -1,9 +1,9 @@
-import Auth from "./../api/Medical";
+import API from "./../api/Medical";
 
 class ClinicService {
   static async login(login) {
     try {
-      const loginResponse = await Auth.post("/logins/clinic", login);
+      const loginResponse = await API.post("/logins/clinic", login);
       if (loginResponse.data.isSuccess) {
         return loginResponse.data.result;
       }
@@ -11,6 +11,27 @@ class ClinicService {
     } catch (err) {
       return null;
     }
+  }
+
+  static getAppointments(clinicId) {
+    const appointments = [
+      {
+        id: "Medical",
+        date: new Date("January 20 2020 12:00"),
+        status: "Pending"
+      },
+      {
+        id: "Medical",
+        date: new Date("January 20 2020 14:00"),
+        status: "Accepted"
+      },
+      {
+        id: "Other",
+        date: new Date("January 20 1980 19:00"),
+        status: "Accepted"
+      }
+    ];
+    return appointments.filter(a => a.id === clinicId);
   }
 
   static getClinic(id) {
@@ -39,6 +60,10 @@ class ClinicService {
       procedures: procedures
     };
     return dummyClinic;
+  }
+
+  static submitAppointment(userId, clinicId, appointment) {
+    return null;
   }
 }
 
