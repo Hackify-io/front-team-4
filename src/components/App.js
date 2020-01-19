@@ -11,8 +11,7 @@ import store from './../store';
 import history from './../history';
 
 //Import Routes
-import { MAIN_APP_URL } from './../routes';
-import { LOGIN_URL } from './../routes';
+import { MAIN_APP_URL, LOGIN_URL } from './../routes';
 
 //Import Components
 import Main from './Main';
@@ -25,8 +24,8 @@ class App extends Component {
         <Router history={history}>
           <div className="App-Main">
             <Switch>
-              <Route path={MAIN_APP_URL} component={Main} />
-              <Route path={LOGIN_URL} component={LoginForm} />
+              <Route exact path={MAIN_APP_URL} component={Main} />
+              <Route exact path={LOGIN_URL} component={LoginForm} />
             </Switch>
           </div>
         </Router>
