@@ -1,14 +1,25 @@
 import { SET_CURRENT_USER } from "./";
 import UserService from "./../services/userService";
+import setAuthToken from "./../utils/setAuthToken";
+import jwt_decode from "jwt-decode";
 
 export const loginUser = loginData => async dispatch => {
-  //let token = await UserService.login(loginData);
-  //console.log(token);
-  let logedUser = {
-    name: "Jhonnatan",
-    lastname: "Guerrero"
-  };
-  dispatch(setCurrentUser(logedUser));
+  let loginResponse = await UserService.login(loginData);
+  if (loginResponse) {
+    const token = loginResponse;
+    // Save Token
+    localStorage.setItem("jwt", token);
+    // Set token to Auth Header
+    setAuthToken(token);
+    // Decode Token to get Data
+    const decoded = jwt_decode(token);
+    const { email } = decoded;
+    const user = {
+      name: email,
+      lastname: email
+    };
+    dispatch(setCurrentUser(user));
+  }
 };
 
 // Set Logged in User

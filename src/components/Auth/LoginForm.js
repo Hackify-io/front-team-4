@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { TextInput, Button } from 'react-materialize';
-import { loginUser } from '../../actions/authActions';
+import React, { Component } from "react";
+import { TextInput, Button } from "react-materialize";
+import { loginUser } from "../../actions/authActions";
 
-import history from '../../history';
-import { connect } from 'react-redux';
+import history from "../../history";
+import { connect } from "react-redux";
 
 class LoginForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     };
   }
   handleEmail = e => {
@@ -26,8 +26,13 @@ class LoginForm extends Component {
   };
 
   handleOnSubmit = () => {
-    this.props.loginUser();
-    history.push('/');
+    const { email, password } = this.state;
+    const login = {
+      email,
+      password
+    };
+    this.props.loginUser(login);
+    history.push("/");
   };
 
   render() {

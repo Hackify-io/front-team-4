@@ -24,7 +24,8 @@ if (localStorage.jwt) {
   const { email, id } = decoded;
   const user = {
     id,
-    email
+    email,
+    name: email
   };
   store.dispatch(setCurrentUser(user));
   //Check if the Token expired

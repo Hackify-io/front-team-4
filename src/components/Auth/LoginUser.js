@@ -10,9 +10,10 @@ class LoginUser extends Component {
     this.props.logoutUser();
   };
   render() {
+    const { currentUser } = this.props;
     return (
       <NavItem>
-        Jhonnatan Guerrero
+        {currentUser}
         <Button onClick={this.onLogoutClick} className={MAIN_COLOR_FONT}>
           Logout
         </Button>
@@ -21,4 +22,9 @@ class LoginUser extends Component {
   }
 }
 
-export default connect(null, { logoutUser })(LoginUser);
+const mapStateToProps = state => {
+  return {
+    currentUser: state.auth.user.name
+  };
+};
+export default connect(mapStateToProps, { logoutUser })(LoginUser);

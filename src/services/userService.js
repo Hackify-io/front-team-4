@@ -15,7 +15,10 @@ class UserService {
 
   static async register(register) {
     try {
-      const registerResponse = await Medical.post("/logins/register", register);
+      const registerResponse = await Medical.post(
+        "/logins/users/register",
+        register
+      );
       return registerResponse;
     } catch (err) {
       return null;
