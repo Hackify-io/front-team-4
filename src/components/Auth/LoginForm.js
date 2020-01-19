@@ -14,12 +14,11 @@ class LoginForm extends Component {
   }
   handleEmail(e) {
     // let email = this.state.email;
-
-    // email = e.
-    console.log(e.target.value);
+    // email = e.target.value;
+    // this.setState(email);
   }
   handlePass(e) {
-    console.log(e.target.value);
+    console.log(e);
   }
 
   render() {
@@ -36,10 +35,10 @@ class LoginForm extends Component {
           value={this.state.email}
         />
         <TextInput
-          pasword
+          password
           label="password"
-          validate
           onChange={this.handlePass}
+          validate
         />
         <Button>Sign in</Button>
       </div>
