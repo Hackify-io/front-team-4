@@ -17,13 +17,20 @@ class SearchFields extends Component {
     this.setState({ selectedProcedure: procedure });
   };
 
+  onSearchSubmit = () => {
+    const { onSearchClick } = this.props;
+    const { procedure, place } = this.state;
+    console.log(this.state.procedure, place);
+    onSearchClick(procedure, this.state.place);
+  };
+
   render() {
     return (
       <Row className=" center-align valign-wrapper">
         <ProceduresAutocomplete onAutocomplete={this.onProcedureAutoComplete} />
         <PlacesAutocomplete onAutocomplete={this.onPlacesAutoComplete} />
         <Col s={2}>
-          <Button>Search</Button>
+          <Button onClick={this.onSearchSubmit}>Search</Button>
         </Col>
       </Row>
     );

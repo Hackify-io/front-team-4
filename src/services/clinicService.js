@@ -1,4 +1,5 @@
 import API from "./../api/Medical";
+import { getClinic } from "../actions/clinicActions";
 
 class ClinicService {
   static async login(login) {
@@ -62,6 +63,11 @@ class ClinicService {
     return dummyClinic;
   }
 
+  static getClinics(procedure, place) {
+    const clinic = getClinic("Medical");
+    const clinics = [clinic.payload];
+    return clinics;
+  }
   static submitAppointment(userId, clinicId, appointment) {
     return null;
   }
