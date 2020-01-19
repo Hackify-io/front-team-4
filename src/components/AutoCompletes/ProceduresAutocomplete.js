@@ -13,6 +13,12 @@ class ProceduresAutocomplete extends Component {
     procedures.forEach(p => {
       procedureData[p.name] = null;
     });
+    procedureData = {
+      Surgery: null,
+      Chemotaxis: null,
+      "Strees Terapia": null,
+      "Thooth Surgery": null
+    };
     return (
       <Autocomplete
         s={5}
@@ -21,7 +27,6 @@ class ProceduresAutocomplete extends Component {
         options={{
           data: procedureData,
           onAutocomplete: procedure => {
-            this.setValue(procedure);
             onAutocomplete(procedure);
           }
         }}

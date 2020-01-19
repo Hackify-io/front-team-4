@@ -13,6 +13,27 @@ class ClinicService {
     }
   }
 
+  static getAppointments(clinicId) {
+    const appointments = [
+      {
+        id: "Medical",
+        date: new Date("January 20 2020 12:00"),
+        status: "Pending"
+      },
+      {
+        id: "Medical",
+        date: new Date("January 20 2020 14:00"),
+        status: "Accepted"
+      },
+      {
+        id: "Other",
+        date: new Date("January 20 1980 19:00"),
+        status: "Accepted"
+      }
+    ];
+    return appointments.filter(a => a.id === clinicId);
+  }
+
   static getClinic(id) {
     const procedures = [
       { name: "Surgery", icon: "star" },

@@ -9,3 +9,4 @@ export const GET_PROCEDURES = "GET_PROCEDURES";
 
 //Clinic Actions
 export const GET_CLINIC = "GET_CLINIC";
+export const GET_APPOINTMENTS = "GET_APPOINTMENTS";

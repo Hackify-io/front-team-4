@@ -1,7 +1,8 @@
-import { GET_CLINIC } from "../actions/";
+import { GET_CLINIC, GET_APPOINTMENTS } from "../actions/";
 
 const initialState = {
-  currentClinic: null
+  currentClinic: null,
+  appointments: []
 };
 
 export default function(state = initialState, action) {
@@ -10,6 +11,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         currentClinic: action.payload
+      };
+    case GET_APPOINTMENTS:
+      return {
+        ...state,
+        appointments: action.payload
       };
     default:
       return state;

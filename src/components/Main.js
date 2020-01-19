@@ -7,7 +7,7 @@ import Navbar from "./Layout/LayoutNav";
 import Footer from "./Layout/LayoutFooter";
 import Landing from "./Landing";
 import Clinic from "./Clinic/Clinic";
-
+import Appointment from "./Appointment";
 //Imprt Routes
 import { MAIN_APP_URL, CLINICS_URL } from "./../routes";
 
@@ -18,6 +18,11 @@ class Main extends Component {
         <Navbar />
         <Switch>
           <Route exact path={MAIN_APP_URL} component={Landing} />
+          <Route
+            exact
+            path={MAIN_APP_URL + CLINICS_URL + "/:clinicId/appointment"}
+            component={Appointment}
+          />
           <Route
             exact
             path={MAIN_APP_URL + CLINICS_URL + "/:clinicId"}

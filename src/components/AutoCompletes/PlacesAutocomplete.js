@@ -13,6 +13,12 @@ class PlacesAutocomplete extends Component {
     places.forEach(p => {
       placesData[p] = null;
     });
+    placesData = {
+      Tijuana: null,
+      Guadalajara: null,
+      Cancun: null,
+      Monterrey: null
+    };
     return (
       <Autocomplete
         s={3}
