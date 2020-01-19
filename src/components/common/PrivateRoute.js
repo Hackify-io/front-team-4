@@ -8,7 +8,7 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => (
     {...rest}
     render={props =>
       //TODO: Remove HARDCODE true if JWT is enabled
-      auth.isAuthenticated === true || true ? (
+      auth.isAuthenticated === true ? (
         <Component {...props} />
       ) : (
         <Redirect to={LOGIN_URL} />

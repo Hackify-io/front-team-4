@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { getClinic } from "./../../actions/clinicActions";
 import Spinner from "./../common/Spinner";
 import Section from "./../common/Section";
@@ -28,6 +29,14 @@ class Clinic extends Component {
         </Section>
         <Section name="clinic-procedures">
           <ClinicProcedures procedures={clinic.procedures} />
+        </Section>
+        <Section name="appointment">
+          <Link
+            to={`/clinic/${clinic.id}/appointment`}
+            className="btn btn-large"
+          >
+            Schedule an appointment
+          </Link>
         </Section>
       </div>
     );
