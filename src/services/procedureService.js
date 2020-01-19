@@ -1,10 +1,10 @@
 class ProcedureService {
   static getProcedures() {
     const procedures = [
-      "Surgery",
-      "Chemotaxis",
-      "Cancer Treatment",
-      "Stress Controll"
+      { name: "Surgery", icon: "star" },
+      { name: "Chemotaxis", icon: "star" },
+      { name: "Strees Terapia", icon: "star" },
+      { name: "Thooth Surgery", icon: "star" }
     ];
     return procedures;
   }

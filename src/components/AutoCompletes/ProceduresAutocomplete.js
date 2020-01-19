@@ -11,7 +11,7 @@ class ProceduresAutocomplete extends Component {
     const { onAutocomplete, procedures } = this.props;
     let procedureData = {};
     procedures.forEach(p => {
-      procedureData[p] = null;
+      procedureData[p.name] = null;
     });
     return (
       <Autocomplete

@@ -6,7 +6,10 @@ class Section extends Component {
   render() {
     const { name, header, className, ...other } = this.props;
     return (
-      <section {...other} className={cx(`section-${name}`, className)}>
+      <section
+        {...other}
+        className={cx("section", `section-${name}`, className)}
+      >
         {header && <h4 className="header">{header}</h4>}
         {this.props.children}
       </section>

@@ -7,9 +7,6 @@ import { Autocomplete, Icon } from "react-materialize";
 import { MAIN_COLOR_FONT } from "./../../utils/colors";
 
 class PlacesAutocomplete extends Component {
-  componentDidMount() {
-    this.props.getPlaces();
-  }
   render() {
     const { onAutocomplete, places } = this.props;
     let placesData = {};
