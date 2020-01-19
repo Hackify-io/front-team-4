@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { TextInput, Button } from 'react-materialize';
-import { loginUser } from '../../actions/authActions';
 
+//browser history
 import history from '../../history';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
-class LoginForm extends Component {
+class UserRegister extends Component {
   constructor(props) {
     super(props);
 
@@ -14,11 +14,13 @@ class LoginForm extends Component {
       password: ''
     };
   }
+
   handleEmail = e => {
-    let appState = this.state;
-    appState.email = e.target.value;
-    this.setState(appState);
+    let state = this.state;
+    state.email = e.target.value;
+    this.setState(state);
   };
+
   handlePass = e => {
     let state = this.state;
     state.password = e.target.value;
@@ -26,14 +28,14 @@ class LoginForm extends Component {
   };
 
   handleOnSubmit = () => {
-    this.props.loginUser();
+    alert('User registered successfully');
     history.push('/');
   };
 
   render() {
     return (
       <div>
-        <h2>Login in your account</h2>
+        <h2>User register form</h2>
         <TextInput
           email
           label="Email"
@@ -47,10 +49,11 @@ class LoginForm extends Component {
           onChange={this.handlePass}
           validate
         />
-        <Button onClick={this.handleOnSubmit}>Sign in</Button>
+        <Button onClick={this.handleOnSubmit}>Register</Button>
       </div>
     );
   }
 }
 
-export default connect(null, { loginUser })(LoginForm);
+export default UserRegister;
+// connect(null, { registerUser })(UserRegister)
