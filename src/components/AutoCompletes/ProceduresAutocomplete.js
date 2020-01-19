@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import { Autocomplete, Icon } from "react-materialize";
 
 //Import Utils
@@ -6,20 +8,18 @@ import { MAIN_COLOR_FONT } from "./../../utils/colors";
 
 class ProceduresAutocomplete extends Component {
   render() {
-    const { onAutocomplete } = this.props;
-    console.log(this.state);
+    const { onAutocomplete, procedures } = this.props;
+    let procedureData = {};
+    procedures.forEach(p => {
+      procedureData[p] = null;
+    });
     return (
       <Autocomplete
         s={5}
         className={MAIN_COLOR_FONT}
         icon={<Icon>healing</Icon>}
         options={{
-          data: {
-            "Plastic Surgery": null,
-            "Weight Loss": null,
-            Chemotherapy: null,
-            "Lymphatic Drainage": null
-          },
+          data: procedureData,
           onAutocomplete: procedure => {
             this.setValue(procedure);
             onAutocomplete(procedure);
@@ -31,4 +31,9 @@ class ProceduresAutocomplete extends Component {
   }
 }
 
-export default ProceduresAutocomplete;
+const mapStateToProps = state => {
+  return {
+    procedures: state.procedure.procedures
+  };
+};
+export default connect(mapStateToProps, {})(ProceduresAutocomplete);
