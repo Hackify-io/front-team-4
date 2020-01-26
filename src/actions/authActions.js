@@ -1,14 +1,14 @@
-import { SET_CURRENT_USER } from "./";
-import UserService from "./../services/userService";
-import setAuthToken from "./../utils/setAuthToken";
-import jwt_decode from "jwt-decode";
+import { SET_CURRENT_USER } from './';
+import UserService from './../services/userService';
+import setAuthToken from './../utils/setAuthToken';
+import jwt_decode from 'jwt-decode';
 
 export const loginUser = loginData => async dispatch => {
   let loginResponse = await UserService.login(loginData);
   if (loginResponse) {
     const token = loginResponse;
     // Save Token
-    localStorage.setItem("jwt", token);
+    localStorage.setItem('jwt', token);
     // Set token to Auth Header
     setAuthToken(token);
     // Decode Token to get Data
@@ -33,6 +33,7 @@ export const setCurrentUser = user => {
 // Log out user
 export const logoutUser = () => dispatch => {
   // Set the Auth State to Initial State
+  localStorage.removeItem('jwt');
   dispatch(setCurrentUser({}));
 };
 
