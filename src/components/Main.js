@@ -15,7 +15,6 @@ import PrivateRoute from './common/PrivateRoute';
 //Imprt Routes
 import { MAIN_APP_URL, CLINICS_URL, LOGIN_URL } from './../routes';
 //Check For Token
-console.log(localStorage.jwt);
 if (localStorage.jwt) {
   //Decode the Token and get Info
   const decoded = jwt_decode(localStorage.jwt);
