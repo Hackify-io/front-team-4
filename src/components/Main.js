@@ -6,8 +6,7 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from './../utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './../actions/authActions';
 //Import Components
-import Navbar from './Layout/LayoutNav';
-import Footer from './Layout/LayoutFooter';
+
 import Landing from './Landing';
 import Clinic from './Clinic/Clinic';
 import Appointment from './Appointment';
@@ -44,7 +43,6 @@ class Main extends Component {
   render() {
     return (
       <Fragment>
-        <Navbar />
         <Switch>
           <Route exact path={MAIN_APP_URL} component={Landing} />
           <PrivateRoute
@@ -57,7 +55,6 @@ class Main extends Component {
             component={Clinic}
           />
         </Switch>
-        <Footer />
       </Fragment>
     );
   }
