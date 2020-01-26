@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import { PRIMARY_BUTTON_COLOR } from "./../utils/colors";
 export default class ClinicList extends Component {
   renderClinics = () => {
     const { clinics } = this.props;
@@ -8,7 +9,7 @@ export default class ClinicList extends Component {
         <Link
           key={c.id}
           to={`/clinic/${c.id}`}
-          className="btn btn-large center-align"
+          className={`btn btn-large ${PRIMARY_BUTTON_COLOR} center-align`}
         >
           {c.id}
         </Link>

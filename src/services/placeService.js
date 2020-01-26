@@ -1,7 +1,16 @@
+import Medical from './../api/Medical';
+
 class PlaceService {
-  static getPlaces() {
-    const places = ["Tijuana", "Guadalajara", "Cancun", "Monterrey"];
-    return places;
+  static async getPlaces() {
+    try {
+      const placesResponse = await Medical.get('/places');
+      if (placesResponse.data.isSuccess) {
+        return placesResponse.data.result;
+      }
+      return null;
+    } catch (err) {
+      return null;
+    }
   }
 }
 

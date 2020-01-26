@@ -1,12 +1,16 @@
+import Medical from './../api/Medical';
+
 class ProcedureService {
-  static getProcedures() {
-    const procedures = [
-      { name: "Surgery", icon: "star" },
-      { name: "Chemotaxis", icon: "star" },
-      { name: "Strees Terapia", icon: "star" },
-      { name: "Thooth Surgery", icon: "star" }
-    ];
-    return procedures;
+  static async getProcedures() {
+    try {
+      const proceduresResponse = await Medical.get('/procedures');
+      if (proceduresResponse.data.isSuccess) {
+        return proceduresResponse.data.result;
+      }
+      return null;
+    } catch (err) {
+      return null;
+    }
   }
 }
 

@@ -1,38 +1,36 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { Autocomplete, Icon } from "react-materialize";
-
+import { Icon } from 'react-materialize';
+import Autocomplete from './Autocomplete';
 //Import Utils
-import { MAIN_COLOR_FONT } from "./../../utils/colors";
+import { MAIN_COLOR_FONT } from './../../utils/colors';
 
 class ProceduresAutocomplete extends Component {
   render() {
     const { onAutocomplete, procedures } = this.props;
     let procedureData = {};
-    procedures.forEach(p => {
-      procedureData[p.name] = null;
-    });
-    procedureData = {
-      Surgery: null,
-      Chemotaxis: null,
-      "Strees Terapia": null,
-      "Thooth Surgery": null
+    if (procedures) {
+      procedures.forEach(p => {
+        procedureData[p.name] = null;
+      });
+    }
+    const options = {
+      data: procedureData,
+      onAutocomplete: procedure => {
+        const selectedProcedure = procedures.find(p => p.name === procedure);
+        onAutocomplete(selectedProcedure);
+      }
     };
-    return (
+    return procedures ? (
       <Autocomplete
-        s={5}
-        className={MAIN_COLOR_FONT}
+        id="proceduresAutocomplete"
+        className={`${MAIN_COLOR_FONT} s5`}
         icon={<Icon>healing</Icon>}
-        options={{
-          data: procedureData,
-          onAutocomplete: procedure => {
-            onAutocomplete(procedure);
-          }
-        }}
+        options={options}
         placeholder="Find your treatment..."
       />
-    );
+    ) : null;
   }
 }
 

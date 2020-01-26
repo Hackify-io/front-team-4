@@ -1,11 +1,17 @@
-import { GET_PLACES } from "./";
-import PlaceService from "./../services/placeService";
+import { GET_PLACES } from './';
+import PlaceService from './../services/placeService';
 
 // Get Places
-export const getPlaces = () => {
-  const places = PlaceService.getPlaces();
-  return {
+export const getPlaces = () => async dispatch => {
+  const places = await PlaceService.getPlaces();
+  const appPlaces = places.map(p => {
+    return {
+      place: p,
+      display: `${p.city} ${p.state} - ${p.country}`
+    };
+  });
+  dispatch({
     type: GET_PLACES,
-    payload: places
-  };
+    payload: appPlaces
+  });
 };

@@ -1,21 +1,21 @@
 //Import Modules
-import React, { Component, Fragment } from "react";
-import { Route, Switch } from "react-router-dom";
-import store from "./../store";
-import jwt_decode from "jwt-decode";
-import setAuthToken from "./../utils/setAuthToken";
-import { setCurrentUser, logoutUser } from "./../actions/authActions";
+import React, { Component, Fragment } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import store from './../store';
+import jwt_decode from 'jwt-decode';
+import setAuthToken from './../utils/setAuthToken';
+import { setCurrentUser, logoutUser } from './../actions/authActions';
 //Import Components
-import Navbar from "./Layout/LayoutNav";
-import Footer from "./Layout/LayoutFooter";
-import Landing from "./Landing";
-import Clinic from "./Clinic/Clinic";
-import Appointment from "./Appointment";
-import PrivateRoute from "./common/PrivateRoute";
+import Navbar from './Layout/LayoutNav';
+import Footer from './Layout/LayoutFooter';
+import Landing from './Landing';
+import Clinic from './Clinic/Clinic';
+import Appointment from './Appointment';
+import PrivateRoute from './common/PrivateRoute';
 //Imprt Routes
-import { MAIN_APP_URL, CLINICS_URL, LOGIN_URL } from "./../routes";
+import { MAIN_APP_URL, CLINICS_URL, LOGIN_URL } from './../routes';
 //Check For Token
-if (localStorage.jwt) {
+if (localStorage.jwt === 1) {
   //Set Auth Token header Auth
   setAuthToken(localStorage.jwt);
   //Decode the Token and get Info
@@ -46,12 +46,12 @@ class Main extends Component {
         <Switch>
           <Route exact path={MAIN_APP_URL} component={Landing} />
           <PrivateRoute
-            path={MAIN_APP_URL + CLINICS_URL + "/:clinicId/appointment"}
+            path={MAIN_APP_URL + CLINICS_URL + '/:clinicId/appointment'}
             component={Appointment}
           />
           <Route
             exact
-            path={MAIN_APP_URL + CLINICS_URL + "/:clinicId"}
+            path={MAIN_APP_URL + CLINICS_URL + '/:clinicId'}
             component={Clinic}
           />
         </Switch>
