@@ -10,6 +10,9 @@ export default class Home extends Component {
       >
         <Row>
           <Col s={12}>
+            <h2>Are you a patient or a clinic?</h2>
+          </Col>
+          <Col s={12}>
             <Row>
               <Col s={6}>
                 <Button>
