@@ -60,6 +60,8 @@ class Main extends Component {
           <Route exact path={MAIN_APP_URL} component={Landing} />
           <PrivateRoute
             path={MAIN_APP_URL + CLINICS_URL + '/:clinicId/appointment'}
+            privateRole="member"
+            loginUrl={LOGIN_URL}
             component={Appointment}
           />
           <Route

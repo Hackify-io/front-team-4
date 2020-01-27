@@ -1,17 +1,21 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import { LOGIN_URL } from "./../../routes";
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const PrivateRoute = ({ component: Component, auth, ...rest }) => (
+const PrivateRoute = ({
+  component: Component,
+  auth,
+  privateRole,
+  loginUrl,
+  ...rest
+}) => (
   <Route
     {...rest}
     render={props =>
-      //TODO: Remove HARDCODE true if JWT is enabled
-      auth.isAuthenticated === true ? (
+      auth.isAuthenticated === true && auth.user.role === privateRole ? (
         <Component {...props} />
       ) : (
-        <Redirect to={LOGIN_URL} />
+        <Redirect to={loginUrl} />
       )
     }
   />

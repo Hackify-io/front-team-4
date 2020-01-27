@@ -8,13 +8,14 @@ import { setCurrentUser, logoutUser } from './../actions/authActions';
 //Import Components
 import Navbar from './Admin/Layout/LayoutNav';
 import Footer from './Admin/Layout/LayoutFooter';
+import Landing from './Admin/Landing';
 import LoginClinic from './Admin/Auth/LoginClinic';
 //import UserRegister from './Auth/UserRegister';
 //import Landing from './Landing';
-//import PrivateRoute from './common/PrivateRoute';
+import PrivateRoute from './common/PrivateRoute';
 //Imprt Routes
 import {
-  // MAIN_ADMIN_APP_URL,
+  ADMIN_MAIN_APP_URL,
   ADMIN_LOGIN_URL
   //ADMIN_REGISTER_URL
 } from './../routes';
@@ -53,6 +54,12 @@ class Main extends Component {
         <Navbar />
         <Switch>
           <Route exact path={ADMIN_LOGIN_URL} component={LoginClinic} />
+          <PrivateRoute
+            privateRole="clinic"
+            loginUrl={ADMIN_LOGIN_URL}
+            path={ADMIN_MAIN_APP_URL}
+            component={Landing}
+          />
           {/* <Route exact path={REGISTER_URL} component={UserRegister} />
           <Route exact path={MAIN_APP_URL} component={Landing} /> */}
         </Switch>
