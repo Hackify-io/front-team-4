@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 // eslint-disable-next-line
 import M from 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
-
+import './App.css';
 //Import Config Files
 import store from './../store';
 import history from './../history';

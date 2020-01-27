@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { loginClinic } from '../../../actions/authActions';
-import { MAIN_APP_URL } from '../../../routes';
+import { ADMIN_MAIN_APP_URL } from '../../../routes';
 import './LoginClinic.css';
 
-import LoginForm from '../../Auth/LoginForm';
+import LoginForm from '../../Admin/Auth/LoginClinicForm';
 
 class Login extends Component {
   onSubmit = async formValues => {
     await this.props.loginClinic(formValues);
-    this.props.history.push(MAIN_APP_URL);
+    this.props.history.push(ADMIN_MAIN_APP_URL);
   };
 
   render() {

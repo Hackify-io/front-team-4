@@ -1,35 +1,10 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import classnames from 'classnames';
+import { Row, Col, Button } from 'react-materialize';
 import IconTextInput from '../../common/Inputs/IconTextInput';
 import { validateLoginClinicInput } from '../../../validations/admin/auth/loginClinicFormValidator';
 
 class LoginClinicForm extends Component {
-  renderError = ({ error, touched }) => {
-    if (error && touched) {
-      return (
-        <div>
-          <div className="error">{error}</div>
-        </div>
-      );
-    }
-  };
-  renderInput = ({ icon, input, label, meta }) => {
-    const className = classnames('', {
-      error: meta.error && meta.touched,
-      valid: !meta.error && meta.touched
-    });
-    return (
-      <div className="input-field col s12">
-        <i className="material-icons prefix pt-2">{icon}</i>
-        <input className={className} {...input} autoComplete="off" />
-        <label htmlFor="title" className="center-align">
-          {label}
-        </label>
-      </div>
-    );
-  };
-
   onSubmit = formValues => {
     this.props.onSubmit(formValues);
   };
@@ -40,12 +15,12 @@ class LoginClinicForm extends Component {
         className="login-form"
         onSubmit={this.props.handleSubmit(this.onSubmit)}
       >
-        <div className="row">
-          <div className="input-field col s12">
+        <Row>
+          <Col s={12} className="input-field">
             <h5 className="ml-4">Sign in</h5>
-          </div>
-        </div>
-        <div className="row margin">
+          </Col>
+        </Row>
+        <Row className="margin">
           <Field
             type="text"
             name="email"
@@ -54,8 +29,8 @@ class LoginClinicForm extends Component {
             icon="person_outline"
             label="Username"
           />
-        </div>
-        <div className="row margin">
+        </Row>
+        <Row className="margin">
           <Field
             type="password"
             name="password"
@@ -64,14 +39,14 @@ class LoginClinicForm extends Component {
             icon="lock_outline"
             label="Password"
           />
-        </div>
-        <div className="row">
-          <div className="input-field col s12">
-            <button className="btn waves-effect waves-light border-round gradient-45deg-blue-grey-blue col s12">
+        </Row>
+        <Row>
+          <Col className="input-field" s={12}>
+            <Button waves="light" className="extended">
               Login
-            </button>
-          </div>
-        </div>
+            </Button>
+          </Col>
+        </Row>
       </form>
     );
   }

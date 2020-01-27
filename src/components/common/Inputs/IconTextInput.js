@@ -1,45 +1,42 @@
 import React, { Component } from 'react';
+import { Col, Icon, TextInput } from 'react-materialize';
 import classnames from 'classnames';
 
 class IconTextInput extends Component {
   render() {
-    const { identifier, icon, label, name, meta, input, type } = this.props;
-    const renderError = ({ error, touched }) => {
-      if (error && touched) {
-        return (
-          <div>
-            <div id={`${name}-error`} className="error">
-              {error}
-            </div>
-          </div>
-        );
-      }
-    };
+    const {
+      identifier,
+      icon,
+      label,
+      name,
+      meta,
+      input,
+      type,
+      ...rest
+    } = this.props;
 
     const inputClassName = classnames('validate', {
       invalid: meta.error && meta.touched,
       valid: !meta.error && meta.touched
     });
 
-    const iconClassName = classnames('material-icons prefix pt-2', {
+    const iconClassName = classnames('prefix', {
       'red-text': meta.error && meta.touched,
       'green-text': !meta.error && meta.touched
     });
     return (
-      <div className="input-field col s12">
-        <i className={iconClassName}>{icon}</i>
-        <input
-          className={inputClassName}
-          {...input}
+      <Col className="input-field" s={12}>
+        <TextInput
+          s={12}
+          icon={<Icon className={iconClassName}>{icon}</Icon>}
+          inputClassName={inputClassName}
           id={identifier}
-          name={name}
-          type={type}
+          label={label}
+          error={meta.error}
+          {...rest}
+          {...input}
         />
-        <label htmlFor={identifier} className="center-align">
-          {label}
-        </label>
-        {renderError(meta)}
-      </div>
+      </Col>
     );
   }
 }
