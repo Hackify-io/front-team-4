@@ -9,7 +9,6 @@ import LoginForm from '../../Auth/LoginForm';
 
 class Login extends Component {
   onSubmit = async formValues => {
-    console.log(formValues);
     await this.props.loginClinic(formValues);
     this.props.history.push(MAIN_APP_URL);
   };
