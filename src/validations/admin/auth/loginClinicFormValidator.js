@@ -4,11 +4,11 @@ import { isRequired } from '../../is-empty';
 export const validateLoginClinicInput = data => {
   let errors = {};
 
-  data.username = isRequired(data.username);
+  data.email = isRequired(data.email);
   data.password = isRequired(data.password);
 
-  if (validator.isEmpty(data.username)) {
-    errors.username = 'Username field is required';
+  if (validator.isEmpty(data.email)) {
+    errors.email = 'Email field is required';
   }
 
   if (validator.isEmpty(data.password)) {
