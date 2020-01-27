@@ -2,32 +2,32 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Section, Row, Col } from 'react-materialize';
-import { loginClinic } from '../../../actions/authActions';
+import { registerClinic } from '../../../actions/authActions';
 import { ADMIN_MAIN_APP_URL } from '../../../routes';
-import './LoginClinic.css';
+import './RegisterClinic.css';
 
-import LoginForm from '../../Admin/Auth/LoginClinicForm';
+import RegisterClinicForm from '../../Admin/Auth/RegisterClinicForm';
 
 class Login extends Component {
   onSubmit = async formValues => {
-    await this.props.loginClinic(formValues);
-    this.props.history.push(ADMIN_MAIN_APP_URL);
+    console.log(formValues, ADMIN_MAIN_APP_URL);
+    //await this.props.registerClinic(formValues);
+    //this.props.history.push(ADMIN_MAIN_APP_URL);
   };
 
   render() {
     return (
-      <Section className="login-bg">
-        <Row>
+      <Section className="register-bg">
+        <Row className="row">
           <Col s={12}>
             <div className="container">
-              <Row id="login-page">
+              <Row id="register-page">
                 <Col
                   s={12}
                   m={6}
-                  l={4}
                   className="z-depth-4 card-panel border-radius-6 login-card bg-opacity-8"
                 >
-                  <LoginForm onSubmit={this.onSubmit} />
+                  <RegisterClinicForm onSubmit={this.onSubmit} />
                 </Col>
               </Row>
             </div>
@@ -39,7 +39,7 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  loginClinic: PropTypes.func.isRequired,
+  registerClinic: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -47,4 +47,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { loginClinic })(Login);
+export default connect(mapStateToProps, { registerClinic })(Login);

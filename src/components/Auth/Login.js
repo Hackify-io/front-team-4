@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Section, Row, Col } from 'react-materialize';
 import { loginUser } from './../../actions/authActions';
 import { MAIN_APP_URL } from './../../routes';
 import './Login.css';
@@ -15,19 +16,24 @@ class Login extends Component {
 
   render() {
     return (
-      <section className="login-bg">
-        <div className="row">
-          <div className="col s12">
+      <Section className="login-bg">
+        <Row className="row">
+          <Col s={12}>
             <div className="container">
-              <div id="login-page" className="row">
-                <div className="col s12 m6 l4 z-depth-4 card-panel border-radius-6 login-card bg-opacity-8">
+              <Row id="login-page">
+                <Col
+                  s={12}
+                  m={6}
+                  l={4}
+                  className="z-depth-4 card-panel border-radius-6 login-card bg-opacity-8"
+                >
                   <LoginForm onSubmit={this.onSubmit} />
-                </div>
-              </div>
+                </Col>
+              </Row>
             </div>
-          </div>
-        </div>
-      </section>
+          </Col>
+        </Row>
+      </Section>
     );
   }
 }

@@ -24,6 +24,7 @@ class LoginForm extends Component {
           <Field
             type="text"
             name="email"
+            size="12"
             component={IconTextInput}
             identifier="email"
             icon="person_outline"
@@ -33,7 +34,9 @@ class LoginForm extends Component {
         <Row className="margin">
           <Field
             type="password"
+            password
             name="password"
+            size="12"
             component={IconTextInput}
             identifier="password"
             icon="lock_outline"

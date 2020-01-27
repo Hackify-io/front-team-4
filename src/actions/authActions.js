@@ -63,3 +63,7 @@ export const logoutUser = () => dispatch => {
 export const register = register => async dispatch => {
   await UserService.register(register);
 };
+
+export const registerClinic = register => async dispatch => {
+  await ClinicService.register(register);
+};

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Row, Col, Button } from 'react-materialize';
 import IconTextInput from '../../common/Inputs/IconTextInput';
-import { validateLoginClinicInput } from '../../../validations/admin/auth/loginClinicFormValidator';
+import { validateRegisterClinicInput } from '../../../validations/admin/auth/registerClinicFormValidator';
 
 class LoginClinicForm extends Component {
   onSubmit = formValues => {
@@ -12,7 +12,7 @@ class LoginClinicForm extends Component {
   render() {
     return (
       <form
-        className="login-form"
+        className="register-form"
         onSubmit={this.props.handleSubmit(this.onSubmit)}
       >
         <Row>
@@ -34,19 +34,41 @@ class LoginClinicForm extends Component {
         <Row className="margin">
           <Field
             type="password"
-            name="password"
             password
-            size="12"
+            name="password"
+            size="6"
             component={IconTextInput}
             identifier="password"
             icon="lock_outline"
             label="Password"
           />
+          <Field
+            type="password"
+            password
+            name="confirmPassword"
+            size="6"
+            component={IconTextInput}
+            identifier="confirmPassword"
+            icon="lock_outline"
+            label="Confirm Password"
+          />
+        </Row>
+
+        <Row className="margin">
+          <Field
+            type="text"
+            name="name"
+            size="12"
+            component={IconTextInput}
+            identifier="name"
+            icon="personal_video"
+            label="Clinic Name"
+          />
         </Row>
         <Row>
           <Col className="input-field" s={12}>
             <Button waves="light" className="extended">
-              Login
+              Register
             </Button>
           </Col>
         </Row>
@@ -56,7 +78,7 @@ class LoginClinicForm extends Component {
 }
 
 const validate = formValues => {
-  return validateLoginClinicInput(formValues);
+  return validateRegisterClinicInput(formValues);
 };
 
 export default reduxForm({

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Icon, TextInput } from 'react-materialize';
+import { Icon, TextInput } from 'react-materialize';
 import classnames from 'classnames';
 
 class IconTextInput extends Component {
@@ -7,6 +7,7 @@ class IconTextInput extends Component {
     const {
       identifier,
       icon,
+      size,
       label,
       name,
       meta,
@@ -25,18 +26,16 @@ class IconTextInput extends Component {
       'green-text': !meta.error && meta.touched
     });
     return (
-      <Col className="input-field" s={12}>
-        <TextInput
-          s={12}
-          icon={<Icon className={iconClassName}>{icon}</Icon>}
-          inputClassName={inputClassName}
-          id={identifier}
-          label={label}
-          error={meta.error}
-          {...rest}
-          {...input}
-        />
-      </Col>
+      <TextInput
+        s={size}
+        icon={<Icon className={iconClassName}>{icon}</Icon>}
+        inputClassName={inputClassName}
+        id={identifier}
+        label={label}
+        error={meta.error}
+        {...rest}
+        {...input}
+      />
     );
   }
 }

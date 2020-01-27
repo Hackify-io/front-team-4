@@ -10,14 +10,15 @@ import Navbar from './Admin/Layout/LayoutNav';
 import Footer from './Admin/Layout/LayoutFooter';
 import Landing from './Admin/Landing';
 import LoginClinic from './Admin/Auth/LoginClinic';
+import RegisterClinic from './Admin/Auth/RegisterClinic';
 //import UserRegister from './Auth/UserRegister';
 //import Landing from './Landing';
 import PrivateRoute from './common/PrivateRoute';
 //Imprt Routes
 import {
   ADMIN_MAIN_APP_URL,
-  ADMIN_LOGIN_URL
-  //ADMIN_REGISTER_URL
+  ADMIN_LOGIN_URL,
+  ADMIN_REGISTER_URL
 } from './../routes';
 //Check For Token
 if (localStorage.jwt) {
@@ -54,6 +55,7 @@ class Main extends Component {
         <Navbar />
         <Switch>
           <Route exact path={ADMIN_LOGIN_URL} component={LoginClinic} />
+          <Route exact path={ADMIN_REGISTER_URL} component={RegisterClinic} />
           <PrivateRoute
             privateRole="clinic"
             loginUrl={ADMIN_LOGIN_URL}
