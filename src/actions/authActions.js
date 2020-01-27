@@ -1,5 +1,6 @@
 import { SET_CURRENT_USER } from './';
 import UserService from './../services/userService';
+import ClinicService from './../services/clinicService';
 import setAuthToken from './../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
 
@@ -25,7 +26,7 @@ export const loginUser = loginData => async dispatch => {
 };
 
 export const loginClinic = loginData => async dispatch => {
-  let loginResponse = await UserService.login(loginData);
+  let loginResponse = await ClinicService.login(loginData);
   if (loginResponse) {
     const token = loginResponse;
     // Save Token

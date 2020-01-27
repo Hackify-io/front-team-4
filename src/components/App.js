@@ -11,29 +11,25 @@ import store from './../store';
 import history from './../history';
 
 //Import Routes
-import { MAIN_APP_URL, LOGIN_URL, REGISTER_URL } from './../routes';
+import { MAIN_APP_URL, ADMIN_MAIN_APP_URL } from './../routes';
 
 //Import Components
-import Navbar from './Layout/LayoutNav';
-import Footer from './Layout/LayoutFooter';
+import Home from './Home';
 import Main from './Main';
-import Login from './Auth/Login';
-import UserRegister from './Auth/UserRegister';
+import Admin from './Admin';
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <Router history={history}>
-          <Navbar />
           <div className="App-Main">
             <Switch>
-              <Route exact path={LOGIN_URL} component={Login} />
-              <Route exact path={REGISTER_URL} component={UserRegister} />
+              <Route exact path="/" component={Home} />
               <Route path={MAIN_APP_URL} component={Main} />
+              <Route path={ADMIN_MAIN_APP_URL} component={Admin} />
             </Switch>
           </div>
-          <Footer />
         </Router>
       </Provider>
     );
