@@ -13,8 +13,10 @@ export const loginUser = loginData => async dispatch => {
     setAuthToken(token);
     // Decode Token to get Data
     const decoded = jwt_decode(token);
-    const { email } = decoded;
+    const { id, role, email } = decoded;
     const user = {
+      id: id,
+      role: role,
       name: email,
       lastname: email
     };
@@ -22,6 +24,26 @@ export const loginUser = loginData => async dispatch => {
   }
 };
 
+export const loginClinic = loginData => async dispatch => {
+  let loginResponse = await UserService.login(loginData);
+  if (loginResponse) {
+    const token = loginResponse;
+    // Save Token
+    localStorage.setItem('jwt', token);
+    // Set token to Auth Header
+    setAuthToken(token);
+    // Decode Token to get Data
+    const decoded = jwt_decode(token);
+    const { id, role, email } = decoded;
+    const user = {
+      id: id,
+      role: role,
+      name: email,
+      lastname: email
+    };
+    dispatch(setCurrentUser(user));
+  }
+};
 // Set Logged in User
 export const setCurrentUser = user => {
   return {
