@@ -2,7 +2,7 @@ import {
   GET_CLINIC,
   GET_APPOINTMENTS,
   GET_FILTERED_CLINICS
-} from "../actions/";
+} from '../actions/';
 
 const initialState = {
   currentClinic: null,

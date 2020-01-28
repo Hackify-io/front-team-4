@@ -1,10 +1,10 @@
 import Medical from './../api/Medical';
-import { getClinic } from '../actions/clinicActions';
+//import { getClinic } from '../actions/clinicActions';
 
 class ClinicService {
   static async login(login) {
     try {
-      const loginResponse = await Medical.post('/logins/clinic', login);
+      const loginResponse = await Medical.post('/logins/clinics', login);
       if (loginResponse.data.isSuccess) {
         return loginResponse.data.result;
       }
@@ -21,6 +21,15 @@ class ClinicService {
         register
       );
       return registerResponse;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  static async create(clinic) {
+    try {
+      const createResponse = await Medical.post('/clinics', clinic);
+      return createResponse;
     } catch (err) {
       return null;
     }
@@ -47,7 +56,17 @@ class ClinicService {
     return appointments.filter(a => a.id === clinicId);
   }
 
-  static getClinic(id) {
+  static async getClinic(id) {
+    try {
+      const getResponse = await Medical.get(`/clinics/${id}`);
+      const clinic = getResponse.data.result;
+      return clinic;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  createDummyClinic(id) {
     const procedures = [
       { name: 'Surgery', icon: 'star' },
       { name: 'Chemotaxis', icon: 'star' },
@@ -76,8 +95,8 @@ class ClinicService {
   }
 
   static getClinics(procedure, place) {
-    const clinic = getClinic('Medical');
-    const clinics = [clinic.payload];
+    //const clinic = getClinic('Medical');
+    const clinics = [];
     return clinics;
   }
   static submitAppointment(userId, clinicId, appointment) {

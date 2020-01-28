@@ -35,9 +35,10 @@ export const loginClinic = loginData => async dispatch => {
     setAuthToken(token);
     // Decode Token to get Data
     const decoded = jwt_decode(token);
-    const { id, role, email } = decoded;
+    const { id, clinicId, role, email } = decoded;
     const user = {
       id: id,
+      clinicId: clinicId,
       role: role,
       name: email,
       lastname: email
@@ -65,5 +66,11 @@ export const register = register => async dispatch => {
 };
 
 export const registerClinic = register => async dispatch => {
-  await ClinicService.register(register);
+  const registerResponse = await ClinicService.register(register);
+  const newClinic = {
+    loginId: registerResponse.data.result._id,
+    name: register.name,
+    createdUser: register.name
+  };
+  await ClinicService.create(newClinic);
 };

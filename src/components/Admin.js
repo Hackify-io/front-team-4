@@ -37,9 +37,10 @@ if (localStorage.jwt) {
     setAuthToken(localStorage.jwt);
 
     //Set User and isAuthenticated
-    const { email, id, role } = decoded;
+    const { email, id, clinicId, role } = decoded;
     const user = {
       id,
+      clinicId,
       role,
       email,
       name: email

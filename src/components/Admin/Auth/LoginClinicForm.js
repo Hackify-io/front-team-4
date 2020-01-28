@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Row, Col, Button } from 'react-materialize';
+import { Link } from 'react-router-dom';
 import IconTextInput from '../../common/Inputs/IconTextInput';
+import { ADMIN_REGISTER_URL } from './../../../routes';
 import { validateLoginClinicInput } from '../../../validations/admin/auth/loginClinicFormValidator';
 
 class LoginClinicForm extends Component {
@@ -48,6 +50,13 @@ class LoginClinicForm extends Component {
             <Button waves="light" className="extended">
               Login
             </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col s={6} m={6} l={6} className="input-field">
+            <p className="margin medium-small">
+              <Link to={ADMIN_REGISTER_URL}>Register Now!</Link>
+            </p>
           </Col>
         </Row>
       </form>
