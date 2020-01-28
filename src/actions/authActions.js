@@ -65,5 +65,11 @@ export const register = register => async dispatch => {
 };
 
 export const registerClinic = register => async dispatch => {
-  await ClinicService.register(register);
+  const registerResponse = await ClinicService.register(register);
+  const newClinic = {
+    loginId: registerResponse.data.result._id,
+    name: register.name,
+    createdUser: register.name
+  };
+  await ClinicService.create(newClinic);
 };

@@ -10,9 +10,8 @@ import RegisterClinicForm from '../../Admin/Auth/RegisterClinicForm';
 
 class Login extends Component {
   onSubmit = async formValues => {
-    console.log(formValues, ADMIN_MAIN_APP_URL);
-    //await this.props.registerClinic(formValues);
-    //this.props.history.push(ADMIN_MAIN_APP_URL);
+    await this.props.registerClinic(formValues);
+    this.props.history.push(ADMIN_MAIN_APP_URL);
   };
 
   render() {

@@ -13,11 +13,15 @@ export const validateRegisterClinicInput = data => {
     errors.email = 'Email field is required';
   }
 
+  if (!validator.isEmail(data.email)) {
+    errors.email = 'Invalid Email format';
+  }
+
   if (validator.isEmpty(data.password)) {
     errors.password = 'Password field is required';
   }
 
-  if (validator.equals(data.password, data.confirmPassword)) {
+  if (!validator.equals(data.password, data.confirmPassword)) {
     errors.confirmPassword = 'Password does not match';
   }
 

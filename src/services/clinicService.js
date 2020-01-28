@@ -4,7 +4,7 @@ import { getClinic } from '../actions/clinicActions';
 class ClinicService {
   static async login(login) {
     try {
-      const loginResponse = await Medical.post('/logins/clinic', login);
+      const loginResponse = await Medical.post('/logins/clinics', login);
       if (loginResponse.data.isSuccess) {
         return loginResponse.data.result;
       }
@@ -21,6 +21,15 @@ class ClinicService {
         register
       );
       return registerResponse;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  static async create(clinic) {
+    try {
+      const createResponse = await Medical.post('/clinics', clinic);
+      return createResponse;
     } catch (err) {
       return null;
     }
