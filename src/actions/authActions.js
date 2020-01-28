@@ -35,9 +35,10 @@ export const loginClinic = loginData => async dispatch => {
     setAuthToken(token);
     // Decode Token to get Data
     const decoded = jwt_decode(token);
-    const { id, role, email } = decoded;
+    const { id, clinicId, role, email } = decoded;
     const user = {
       id: id,
+      clinicId: clinicId,
       role: role,
       name: email,
       lastname: email
