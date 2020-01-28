@@ -1,13 +1,13 @@
-import { GET_CLINIC, GET_APPOINTMENTS, GET_FILTERED_CLINICS } from "./";
-import ClinicService from "./../services/clinicService";
+import { GET_CLINIC, GET_APPOINTMENTS, GET_FILTERED_CLINICS } from './';
+import ClinicService from './../services/clinicService';
 
 // Get Clinics
-export const getClinic = id => {
-  const clinic = ClinicService.getClinic(id);
-  return {
+export const getClinic = id => async dispatch => {
+  const clinic = await ClinicService.getClinic(id);
+  return dispatch({
     type: GET_CLINIC,
     payload: clinic
-  };
+  });
 };
 
 // Get Appointments

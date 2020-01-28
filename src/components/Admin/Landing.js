@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class Landing extends Component {
+import { getClinic } from './../../actions/clinicActions';
+class Landing extends Component {
+  async componentDidMount() {
+    const { currentUser } = this.props;
+    await this.props.getClinic(currentUser.clinicId);
+  }
   render() {
     return (
       <div>
@@ -9,3 +15,11 @@ export default class Landing extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    currentClinic: state.clinic.currentClinic,
+    currentUser: state.auth.user
+  };
+};
+export default connect(mapStateToProps, { getClinic })(Landing);
