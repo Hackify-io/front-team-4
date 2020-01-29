@@ -24,10 +24,8 @@ class Main extends Component {
   componentWillMount() {
     //Check For Token
     if (localStorage.jwt) {
-      console.log(localStorage);
       //Decode the Token and get Info
       const decoded = jwt_decode(localStorage.jwt);
-      console.log(decoded);
       const { role } = decoded;
       //Check if the Token expired
       const currentTime = Date.now() / 1000;
