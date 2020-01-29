@@ -10,6 +10,8 @@ import { setCurrentUser, logoutUser } from './../actions/authActions';
 import Navbar from './Admin/Layout/LayoutNav';
 import Footer from './Admin/Layout/LayoutFooter';
 import Landing from './Admin/Landing';
+import ClinicInfo from './Admin/ClinicInfo';
+import ClinicAppointments from './Admin/ClinicAppointments';
 import LoginClinic from './Admin/Auth/LoginClinic';
 import RegisterClinic from './Admin/Auth/RegisterClinic';
 import PrivateRoute from './common/PrivateRoute';
@@ -17,7 +19,9 @@ import PrivateRoute from './common/PrivateRoute';
 import {
   ADMIN_MAIN_APP_URL,
   ADMIN_LOGIN_URL,
-  ADMIN_REGISTER_URL
+  ADMIN_REGISTER_URL,
+  ADMIN_EDIT_CLINIC,
+  ADMIN_APPOINTMENTS_CLINIC
 } from './../routes';
 
 class Main extends Component {
@@ -61,8 +65,23 @@ class Main extends Component {
           <PrivateRoute
             privateRole="clinic"
             loginUrl={ADMIN_LOGIN_URL}
+            exact
             path={ADMIN_MAIN_APP_URL}
             component={Landing}
+          />
+          <PrivateRoute
+            privateRole="clinic"
+            loginUrl={ADMIN_LOGIN_URL}
+            exact
+            path={ADMIN_EDIT_CLINIC}
+            component={ClinicInfo}
+          />
+          <PrivateRoute
+            privateRole="clinic"
+            loginUrl={ADMIN_LOGIN_URL}
+            exact
+            path={ADMIN_APPOINTMENTS_CLINIC}
+            component={ClinicAppointments}
           />
           {/* <Route exact path={REGISTER_URL} component={UserRegister} />
           <Route exact path={MAIN_APP_URL} component={Landing} /> */}
