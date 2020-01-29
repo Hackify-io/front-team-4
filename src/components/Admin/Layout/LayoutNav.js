@@ -1,6 +1,7 @@
 //Import Modules
 import React, { Component } from 'react';
-import { Navbar, Icon, NavItem } from 'react-materialize';
+import { Link } from 'react-router-dom';
+import { Navbar, Icon } from 'react-materialize';
 
 //Import Utils
 import { MAIN_COLOR_CLASS } from './../../../utils/colors';
@@ -35,8 +36,8 @@ export default class LayoutNav extends Component {
           preventScrolling: true
         }}
       >
-        <NavItem href={ADMIN_EDIT_CLINIC}>Edit</NavItem>
-        <NavItem href={ADMIN_APPOINTMENTS_CLINIC}>View Appointments</NavItem>
+        <Link to={ADMIN_EDIT_CLINIC}>Edit</Link>
+        <Link to={ADMIN_APPOINTMENTS_CLINIC}>Appointments</Link>
       </Navbar>
     );
   }

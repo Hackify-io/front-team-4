@@ -6,6 +6,7 @@ import store from './../store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './../utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './../actions/authActions';
+import { getClinic } from './../actions/clinicActions';
 //Import Components
 import Navbar from './Admin/Layout/LayoutNav';
 import Footer from './Admin/Layout/LayoutFooter';
@@ -52,9 +53,11 @@ class Main extends Component {
           name: email
         };
         store.dispatch(setCurrentUser(user));
+        store.dispatch(getClinic(clinicId));
       }
     }
   }
+
   render() {
     return (
       <Fragment>
@@ -83,8 +86,6 @@ class Main extends Component {
             path={ADMIN_APPOINTMENTS_CLINIC}
             component={ClinicAppointments}
           />
-          {/* <Route exact path={REGISTER_URL} component={UserRegister} />
-          <Route exact path={MAIN_APP_URL} component={Landing} /> */}
         </Switch>
         <Footer />
       </Fragment>
