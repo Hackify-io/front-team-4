@@ -21,35 +21,35 @@ import {
   LOGIN_URL,
   REGISTER_URL
 } from './../routes';
-//Check For Token
-if (localStorage.jwt) {
-  //Decode the Token and get Info
-  const decoded = jwt_decode(localStorage.jwt);
-  const { role } = decoded;
-  //Check if the Token expired
-  const currentTime = Date.now() / 1000;
-  if (!decoded || role !== 'member' || decoded.exp < currentTime) {
-    //Logout user
-    store.dispatch(logoutUser());
-    //Redirect to Login
-    window.location.href = LOGIN_URL;
-  } else {
-    //Set Auth Token header Auth
-    setAuthToken(localStorage.jwt);
-
-    //Set User and isAuthenticated
-    const { email, id, role } = decoded;
-    const user = {
-      id,
-      role,
-      email,
-      name: email
-    };
-    store.dispatch(setCurrentUser(user));
-  }
-}
 
 class Main extends Component {
+  componentWillMount() {
+    //Check For Token
+    if (localStorage.jwt) {
+      //Decode the Token and get Info
+      const decoded = jwt_decode(localStorage.jwt);
+      const { role } = decoded;
+      //Check if the Token expired
+      const currentTime = Date.now() / 1000;
+      if (!decoded || role !== 'member' || decoded.exp < currentTime) {
+        //Logout user
+        store.dispatch(logoutUser());
+      } else {
+        //Set Auth Token header Auth
+        setAuthToken(localStorage.jwt);
+
+        //Set User and isAuthenticated
+        const { email, id, role } = decoded;
+        const user = {
+          id,
+          role,
+          email,
+          name: email
+        };
+        store.dispatch(setCurrentUser(user));
+      }
+    }
+  }
   render() {
     return (
       <Fragment>

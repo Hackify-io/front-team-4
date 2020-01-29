@@ -57,7 +57,7 @@ export const setCurrentUser = user => {
 // Log out user
 export const logoutUser = () => dispatch => {
   // Set the Auth State to Initial State
-  localStorage.removeItem('jwt');
+  //localStorage.removeItem('jwt');
   dispatch(setCurrentUser({}));
 };
 
