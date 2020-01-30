@@ -11,21 +11,31 @@ import {
   updateClinic
 } from './../../actions/clinicActions';
 import { getProcedures } from './../../actions/procedureActions';
+import { getPlaces } from './../../actions/placeActions';
 import ProceduresAutocomplete from './../AutoCompletes/ProceduresAutocomplete';
+import PlacesAutocomplete from './../AutoCompletes/PlacesAutocomplete';
 
 class ClinicInfoForm extends Component {
   state = {
-    selectedProcedure: null
+    selectedProcedure: null,
+    selectedPlace: null
   };
   async componentDidMount() {
-    const { procedures } = this.props;
+    const { procedures, places } = this.props;
     if (procedures.length === 0) {
       await this.props.getProcedures();
+    }
+    if (places.length === 0) {
+      await this.props.getPlaces();
     }
   }
 
   onProcedureAutoComplete = procedure => {
     this.setState({ selectedProcedure: procedure });
+  };
+
+  onPlacesAutoComplete = place => {
+    this.setState({ selectedPlace: place.place });
   };
 
   onAddProcedureButtonClick = async () => {
@@ -39,7 +49,7 @@ class ClinicInfoForm extends Component {
     this.props.removeProcedureFromClinic(clinic._id, procedureId);
   };
 
-  renderAutocomplete = () => {
+  renderProcedureAutocomplete = () => {
     return (
       <Row className="valign-wrapper">
         <ProceduresAutocomplete
@@ -51,6 +61,17 @@ class ClinicInfoForm extends Component {
             Add Procedure{' '}
           </Button>
         </Col>
+      </Row>
+    );
+  };
+
+  renderPlacesAutocomplete = () => {
+    return (
+      <Row className="valign-wrapper">
+        <PlacesAutocomplete
+          size={12}
+          onAutocomplete={this.onPlacesAutoComplete}
+        />
       </Row>
     );
   };
@@ -79,15 +100,22 @@ class ClinicInfoForm extends Component {
   onSubmit = async formValues => {
     const { description, telephone, address } = formValues;
     let { clinic } = this.props;
+    const { selectedPlace } = this.state;
     clinic.description = description;
     clinic.telephone = telephone;
     clinic.address = address;
+    clinic.location = selectedPlace._id;
     await this.props.updateClinic(clinic);
     history.push(ADMIN_MAIN_APP_URL);
   };
 
   renderClinicForm = () => {
-    const { clinic } = this.props;
+    const { clinic, places } = this.props;
+    let searchPlace =
+      places.length !== 0
+        ? places.find(p => p.place._id === clinic.location._id)
+        : null;
+    let currentPlace = searchPlace ? searchPlace.display : null;
     return (
       <div>
         <Row>
@@ -96,7 +124,7 @@ class ClinicInfoForm extends Component {
           </Col>
         </Row>
         <Row className="valign-wrapper">{this.renderProcedures()}</Row>
-        {this.renderAutocomplete()}
+        {this.renderProcedureAutocomplete()}
         <form
           className="login-form"
           onSubmit={this.props.handleSubmit(this.onSubmit)}
@@ -105,6 +133,22 @@ class ClinicInfoForm extends Component {
             <Col s={12} className="input-field">
               <h5 className="ml-4">Name: {clinic.name}</h5>
             </Col>
+          </Row>
+          <Row className="margin">
+            <Col s={12}>Current location: {currentPlace}</Col>
+          </Row>
+          <Row className="margin">
+            <Field
+              type="text"
+              size={12}
+              value="AAA"
+              onAutocomplete={this.onPlacesAutoComplete}
+              name="location"
+              component={PlacesAutocomplete}
+              identifier="location"
+              icon="add_location"
+              label="Location"
+            />
           </Row>
           <Row className="margin">
             <Field
@@ -161,6 +205,7 @@ const mapStateToProps = state => {
   return {
     clinic: state.clinic.currentClinic,
     procedures: state.procedure.procedures,
+    places: state.place.places,
     initialValues: state.clinic.currentClinic
   };
 };
@@ -177,6 +222,7 @@ ClinicInfoForm = connect(
     addProcedureToClinic,
     removeProcedureFromClinic,
     getProcedures,
+    getPlaces,
     updateClinic
   } // bind account loading action creator
 )(ClinicInfoForm);

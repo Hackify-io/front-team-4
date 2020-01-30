@@ -9,7 +9,7 @@ import { MAIN_COLOR_FONT } from './../../utils/colors';
 
 class PlacesAutocomplete extends Component {
   render() {
-    const { onAutocomplete, places } = this.props;
+    const { onAutocomplete, places, size } = this.props;
     let placesData = {};
     if (places) {
       places.forEach(p => {
@@ -28,7 +28,7 @@ class PlacesAutocomplete extends Component {
     return places ? (
       <Autocomplete
         id="placesAutocomplete"
-        className={`${MAIN_COLOR_FONT} s3`}
+        className={`${MAIN_COLOR_FONT} s${size}`}
         icon={<Icon>map</Icon>}
         options={options}
         placeholder="Location..."

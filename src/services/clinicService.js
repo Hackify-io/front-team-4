@@ -142,6 +142,7 @@ class ClinicService {
       clinic.description = editedClinic.description;
       clinic.address = editedClinic.address;
       clinic.telephone = editedClinic.telephone;
+      clinic.location = editedClinic.location;
       await Medical.put(`/clinics/${clinicId}`, clinic);
       const updatedResponse = await Medical.get(`/clinics/${clinicId}`);
       return updatedResponse.data.result;
