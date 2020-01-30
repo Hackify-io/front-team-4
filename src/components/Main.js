@@ -9,7 +9,7 @@ import { setCurrentUser, logoutUser } from './../actions/authActions';
 import Navbar from './Layout/LayoutNav';
 import Footer from './Layout/LayoutFooter';
 import Login from './Auth/Login';
-import UserRegister from './Auth/UserRegister';
+import RegisterUser from './Auth/RegisterUser';
 import Landing from './Landing';
 import Clinic from './Clinic/Clinic';
 import Appointment from './Appointment';
@@ -56,7 +56,7 @@ class Main extends Component {
         <Navbar />
         <Switch>
           <Route exact path={LOGIN_URL} component={Login} />
-          <Route exact path={REGISTER_URL} component={UserRegister} />
+          <Route exact path={REGISTER_URL} component={RegisterUser} />
           <Route exact path={MAIN_APP_URL} component={Landing} />
           <PrivateRoute
             path={MAIN_APP_URL + CLINICS_URL + '/:clinicId/appointment'}
