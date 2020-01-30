@@ -41,7 +41,7 @@ class RegisterUserForm extends Component {
             component={IconTextInput}
             identifier="firstname"
             icon="person_outline"
-            label="firstname"
+            label="Firstname"
           />
         </Row>
         <Row className="margin">
