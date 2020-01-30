@@ -23,12 +23,13 @@ export const submitAppointment = appointment => {
   ClinicService.submitAppointment(appointment);
 };
 
-export const getClinics = (procedure, place) => {
-  const clinics = ClinicService.getClinics(procedure, place);
-  return {
+export const getClinics = (procedure, place) => async dispatch => {
+  const clinics = await ClinicService.getClinics(procedure, place);
+  console.log(clinics);
+  return dispatch({
     type: GET_FILTERED_CLINICS,
     payload: clinics
-  };
+  });
 };
 
 export const addProcedureToClinic = (

@@ -8,11 +8,11 @@ export default class ClinicList extends Component {
       ? clinics.map(c => {
           return (
             <Link
-              key={c.id}
-              to={`/clinic/${c.id}`}
+              key={c._id}
+              to={`/clinic/${c._id}`}
               className={`btn btn-large ${PRIMARY_BUTTON_COLOR} center-align`}
             >
-              {c.id}
+              {c.name}
             </Link>
           );
         })

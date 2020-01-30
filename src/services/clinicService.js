@@ -94,10 +94,20 @@ class ClinicService {
     return dummyClinic;
   }
 
-  static getClinics(procedure, place) {
-    //const clinic = getClinic('Medical');
-    const clinics = [];
-    return clinics;
+  static async getClinics(procedure, place) {
+    const data = {
+      procedure: procedure._id,
+      location: place._id
+    };
+    try {
+      const getResponse = await Medical.get(`/clinics`, {
+        params: data
+      });
+      const clinic = getResponse.data.result;
+      return clinic;
+    } catch (err) {
+      return null;
+    }
   }
   static submitAppointment(userId, clinicId, appointment) {
     return null;
