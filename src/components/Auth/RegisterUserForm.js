@@ -3,8 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Row, Col, Button } from 'react-materialize';
 import IconTextInput from '../common/Inputs/IconTextInput';
 
-// another project
-import { validateRegisterClinicInput } from '../../validations/admin/auth/registerClinicFormValidator';
+import { validateRegisterUserInput } from '../../validations/auth/registerUserFormValidator';
 import UserGenderSelect from '../Auth/UserGenderSelect';
 
 class RegisterUserForm extends Component {
@@ -25,7 +24,7 @@ class RegisterUserForm extends Component {
         </Row>
         <Row className="margin">
           <Field
-            type="text"
+            type="email"
             name="email"
             size="12"
             component={IconTextInput}
@@ -58,7 +57,7 @@ class RegisterUserForm extends Component {
         </Row>
         <Row className="margin">
           <Field
-            type="text"
+            type="number"
             name="age"
             size="12"
             component={IconTextInput}
@@ -68,8 +67,17 @@ class RegisterUserForm extends Component {
           />
         </Row>
         <Row className="margin">
-          {/* TODO: add identifier, icon */}
-          <Field name="gender" component={UserGenderSelect} size="12" />
+          {/* TODO: icon */}
+          <Field
+            name="gender"
+            identifier="gender"
+            component={UserGenderSelect}
+            label="Gender"
+          >
+            <option disabled>Please select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </Field>
         </Row>
         <Row className="margin">
           <Field
@@ -106,7 +114,7 @@ class RegisterUserForm extends Component {
 }
 
 const validate = formValues => {
-  return validateRegisterClinicInput(formValues);
+  return validateRegisterUserInput(formValues);
 };
 
 export default reduxForm({
