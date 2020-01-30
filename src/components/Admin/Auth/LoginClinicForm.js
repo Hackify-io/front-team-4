@@ -26,7 +26,7 @@ class LoginClinicForm extends Component {
           <Field
             type="text"
             name="email"
-            size="12"
+            size={12}
             component={IconTextInput}
             identifier="email"
             icon="person_outline"
@@ -38,7 +38,7 @@ class LoginClinicForm extends Component {
             type="password"
             name="password"
             password
-            size="12"
+            size={12}
             component={IconTextInput}
             identifier="password"
             icon="lock_outline"

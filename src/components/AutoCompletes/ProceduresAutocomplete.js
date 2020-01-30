@@ -8,7 +8,7 @@ import { MAIN_COLOR_FONT } from './../../utils/colors';
 
 class ProceduresAutocomplete extends Component {
   render() {
-    const { onAutocomplete, procedures } = this.props;
+    const { onAutocomplete, procedures, size } = this.props;
     let procedureData = {};
     if (procedures) {
       procedures.forEach(p => {
@@ -25,7 +25,7 @@ class ProceduresAutocomplete extends Component {
     return procedures ? (
       <Autocomplete
         id="proceduresAutocomplete"
-        className={`${MAIN_COLOR_FONT} s5`}
+        className={`${MAIN_COLOR_FONT} s${size}`}
         icon={<Icon>healing</Icon>}
         options={options}
         placeholder="Find your treatment..."

@@ -27,8 +27,14 @@ class SearchFields extends Component {
   render() {
     return (
       <Row className=" center-align valign-wrapper">
-        <ProceduresAutocomplete onAutocomplete={this.onProcedureAutoComplete} />
-        <PlacesAutocomplete onAutocomplete={this.onPlacesAutoComplete} />
+        <ProceduresAutocomplete
+          size={5}
+          onAutocomplete={this.onProcedureAutoComplete}
+        />
+        <PlacesAutocomplete
+          size={5}
+          onAutocomplete={this.onPlacesAutoComplete}
+        />
         <Col s={2}>
           <Button onClick={this.onSearchSubmit}>Search</Button>
         </Col>

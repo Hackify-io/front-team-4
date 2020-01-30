@@ -94,41 +94,68 @@ class ClinicService {
     return dummyClinic;
   }
 
-  static getClinics(procedure, place) {
-    //const clinic = getClinic('Medical');
-    const clinics = [];
-    return clinics;
+  static async getClinics(procedure, place) {
+    const data = {
+      procedure: procedure._id,
+      location: place._id
+    };
+    try {
+      const getResponse = await Medical.get(`/clinics`, {
+        params: data
+      });
+      const clinic = getResponse.data.result;
+      return clinic;
+    } catch (err) {
+      return null;
+    }
   }
   static submitAppointment(userId, clinicId, appointment) {
     return null;
   }
 
   static async addProcedure(clinicId, procedureId) {
-    console.log(clinicId, procedureId);
-    // try {
-    //   //Get CurrentClinic
-    //   const getResponse = await Medical.get(`/clinics/${clinicId}`);
-    //   let clinic = getResponse.data.result;
-    //   if (clinic.procedures.find(p => p === procedureId)) {
-    //     return clinic;
-    //   }
-    //   //Add Procedure to Clinic
-    //   clinic.procedures = [...clinic.procedures, procedureId];
-    //   const updateResponse = await Medical.put(`/clinics/${clinicId}`, clinic);
-    //   return updateResponse;
-    // } catch (err) {
-    //   return null;
-    // }
+    try {
+      //Get CurrentClinic
+      const getResponse = await Medical.get(`/clinics/${clinicId}`);
+      let clinic = getResponse.data.result;
+      if (clinic.procedures.find(p => p === procedureId)) {
+        return clinic;
+      }
+      //Add Procedure to Clinic
+      clinic.procedures = [...clinic.procedures, procedureId];
+      await Medical.put(`/clinics/${clinicId}`, clinic);
+      const updatedResponse = await Medical.get(`/clinics/${clinicId}`);
+      return updatedResponse.data.result;
+    } catch (err) {
+      return null;
+    }
   }
 
   static async removeProcedure(clinicId, procedureId) {
-    console.log(clinicId, procedureId);
     try {
       const getResponse = await Medical.get(`/clinics/${clinicId}`);
       let clinic = getResponse.data.result;
       clinic.procedures = clinic.procedures.filter(p => p._id !== procedureId);
-      const updateResponse = await Medical.put(`/clinics/${clinicId}`, clinic);
-      return updateResponse.data.result;
+      await Medical.put(`/clinics/${clinicId}`, clinic);
+      const updatedResponse = await Medical.get(`/clinics/${clinicId}`);
+      return updatedResponse.data.result;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  static async edit(editedClinic) {
+    const clinicId = editedClinic._id;
+    try {
+      const getResponse = await Medical.get(`/clinics/${clinicId}`);
+      let clinic = getResponse.data.result;
+      clinic.description = editedClinic.description;
+      clinic.address = editedClinic.address;
+      clinic.telephone = editedClinic.telephone;
+      clinic.location = editedClinic.location;
+      await Medical.put(`/clinics/${clinicId}`, clinic);
+      const updatedResponse = await Medical.get(`/clinics/${clinicId}`);
+      return updatedResponse.data.result;
     } catch (err) {
       return null;
     }

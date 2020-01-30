@@ -17,19 +17,17 @@ import { MAIN_COLOR_CLASS } from './../utils/colors';
 class Landing extends Component {
   async componentDidMount() {
     await this.props.getPlaces();
-    this.props.getProcedures();
+    await this.props.getProcedures();
   }
 
-  onSearchSubmit = (procedure, place) => {
-    this.props.getClinics(procedure, place.place);
+  onSearchSubmit = async (procedure, place) => {
+    await this.props.getClinics(procedure, place.place);
   };
   render() {
     const { filteredClinics } = this.props;
     return (
       <Fragment>
-        <Section name="slider">
-          <FeatureSlider />
-        </Section>
+        <Section name="slider">{/* <FeatureSlider /> */}</Section>
         <Section name="search" className={MAIN_COLOR_CLASS}>
           <SearchFields onSearchClick={this.onSearchSubmit} />
         </Section>

@@ -4,7 +4,7 @@ export default class ClinicInfo extends Component {
   render() {
     return (
       <div>
-        <h1>Clinic Info</h1>
+        <h2>Edit the clinic info</h2>
         <ClinicInfoForm />
       </div>
     );
