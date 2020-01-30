@@ -102,6 +102,37 @@ class ClinicService {
   static submitAppointment(userId, clinicId, appointment) {
     return null;
   }
+
+  static async addProcedure(clinicId, procedureId) {
+    console.log(clinicId, procedureId);
+    // try {
+    //   //Get CurrentClinic
+    //   const getResponse = await Medical.get(`/clinics/${clinicId}`);
+    //   let clinic = getResponse.data.result;
+    //   if (clinic.procedures.find(p => p === procedureId)) {
+    //     return clinic;
+    //   }
+    //   //Add Procedure to Clinic
+    //   clinic.procedures = [...clinic.procedures, procedureId];
+    //   const updateResponse = await Medical.put(`/clinics/${clinicId}`, clinic);
+    //   return updateResponse;
+    // } catch (err) {
+    //   return null;
+    // }
+  }
+
+  static async removeProcedure(clinicId, procedureId) {
+    console.log(clinicId, procedureId);
+    try {
+      const getResponse = await Medical.get(`/clinics/${clinicId}`);
+      let clinic = getResponse.data.result;
+      clinic.procedures = clinic.procedures.filter(p => p._id !== procedureId);
+      const updateResponse = await Medical.put(`/clinics/${clinicId}`, clinic);
+      return updateResponse.data.result;
+    } catch (err) {
+      return null;
+    }
+  }
 }
 
 export default ClinicService;

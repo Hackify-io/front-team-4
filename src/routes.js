@@ -9,3 +9,5 @@ export const CLINICS_URL = MAIN_APP_URL + '/clinic';
 export const ADMIN_MAIN_APP_URL = '/admin';
 export const ADMIN_REGISTER_URL = ADMIN_MAIN_APP_URL + '/register';
 export const ADMIN_LOGIN_URL = ADMIN_MAIN_APP_URL + '/login';
+export const ADMIN_EDIT_CLINIC = ADMIN_MAIN_APP_URL + '/edit';
+export const ADMIN_APPOINTMENTS_CLINIC = ADMIN_MAIN_APP_URL + '/appointments';

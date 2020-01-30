@@ -1,11 +1,11 @@
 //Import Modules
-import React, { Component } from "react";
-import { Caption, Slide, Slider, Button } from "react-materialize";
+import React, { Component } from 'react';
+import { Caption, Slide, Slider, Button } from 'react-materialize';
 
 //Import Components
 
 //Import Utils
-import { MAIN_COLOR_FONT } from "../utils/colors";
+import { MAIN_COLOR_FONT } from '../utils/colors';
 class FeatureSlider extends Component {
   render() {
     return (
@@ -19,7 +19,12 @@ class FeatureSlider extends Component {
         }}
       >
         <Slide
-          image={<img alt="" src="http://lorempixel.com/780/580/nature/2" />}
+          image={
+            <img
+              alt=""
+              src="https://images.unsplash.com/photo-1502759683299-cdcd6974244f?auto=format&fit=crop&w=440&h=220&q=60"
+            />
+          }
         >
           <Caption placement="left">
             <h3>IMSS Funeraria</h3>
@@ -29,7 +34,12 @@ class FeatureSlider extends Component {
           </Caption>
         </Slide>
         <Slide
-          image={<img alt="" src="https://lorempixel.com/780/580/nature/3" />}
+          image={
+            <img
+              alt=""
+              src="https://images.unsplash.com/photo-1502759683299-cdcd6974244f?auto=format&fit=crop&w=440&h=220&q=60"
+            />
+          }
         >
           <Caption placement="right">
             <h3>Cardio Mex</h3>
@@ -39,7 +49,12 @@ class FeatureSlider extends Component {
           </Caption>
         </Slide>
         <Slide
-          image={<img alt="" src="https://lorempixel.com/580/250/nature/4" />}
+          image={
+            <img
+              alt=""
+              src="https://images.unsplash.com/photo-1502759683299-cdcd6974244f?auto=format&fit=crop&w=440&h=220&q=60"
+            />
+          }
         >
           <Caption placement="center">
             <h3>Medica del mar</h3>
