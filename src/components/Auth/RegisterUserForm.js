@@ -26,7 +26,7 @@ class RegisterUserForm extends Component {
           <Field
             type="email"
             name="email"
-            size="12"
+            size={12}
             component={IconTextInput}
             identifier="email"
             icon="person_outline"
@@ -37,7 +37,7 @@ class RegisterUserForm extends Component {
           <Field
             type="text"
             name="firstname"
-            size="12"
+            size={12}
             component={IconTextInput}
             identifier="firstname"
             icon="person_outline"
@@ -48,7 +48,7 @@ class RegisterUserForm extends Component {
           <Field
             type="text"
             name="lastname"
-            size="12"
+            size={12}
             component={IconTextInput}
             identifier="lastname"
             icon="person_outline"
@@ -57,9 +57,9 @@ class RegisterUserForm extends Component {
         </Row>
         <Row className="margin">
           <Field
-            type="number"
+            type="text"
             name="age"
-            size="12"
+            size={12}
             component={IconTextInput}
             identifier="age"
             icon="person_outline"
@@ -74,7 +74,9 @@ class RegisterUserForm extends Component {
             component={UserGenderSelect}
             label="Gender"
           >
-            <option disabled>Please select</option>
+            <option disabled value="">
+              Please select
+            </option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </Field>
@@ -84,7 +86,7 @@ class RegisterUserForm extends Component {
             type="password"
             password
             name="password"
-            size="6"
+            size={6}
             component={IconTextInput}
             identifier="password"
             icon="lock_outline"
@@ -94,7 +96,7 @@ class RegisterUserForm extends Component {
             type="password"
             password
             name="confirmPassword"
-            size="6"
+            size={6}
             component={IconTextInput}
             identifier="confirmPassword"
             icon="lock_outline"

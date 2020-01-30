@@ -3,7 +3,7 @@ import { Select } from 'react-materialize';
 
 class DropdownSelect extends Component {
   render() {
-    const { align, children, ...rest } = this.props;
+    const { align, children, handleSelect, input, ...rest } = this.props;
     return (
       <Select
         options={{
@@ -24,6 +24,8 @@ class DropdownSelect extends Component {
             outDuration: 25
           }
         }}
+        onChange={handleSelect}
+        {...input}
         {...rest}
       >
         {children}
