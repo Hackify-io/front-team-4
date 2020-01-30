@@ -5,14 +5,14 @@ import { Section, Row, Col } from 'react-materialize';
 
 //copied
 import { registerClinic } from '../../actions/authActions';
-import { ADMIN_MAIN_APP_URL } from '../../routes';
+import { MAIN_APP_URL } from '../../routes';
 import '../Admin/Auth/RegisterClinic.css';
 
 import RegisterUserForm from '../Auth/RegisterUserForm';
 
 class RegisterUser extends Component {
   onSubmit = async formValues => {
-    console.log(formValues, ADMIN_MAIN_APP_URL);
+    console.log(formValues, MAIN_APP_URL);
     //await this.props.registerUser(formValues);
     //this.props.history.push(ADMIN_MAIN_APP_URL);
   };
