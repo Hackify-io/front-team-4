@@ -1,9 +1,4 @@
-import {
-  GET_CLINIC,
-  GET_APPOINTMENTS,
-  GET_FILTERED_CLINICS,
-  UPDATE_CLINIC
-} from './';
+import { GET_CLINIC, GET_APPOINTMENTS, GET_FILTERED_CLINICS } from './';
 import ClinicService from './../services/clinicService';
 
 // Get Clinics
@@ -42,7 +37,7 @@ export const addProcedureToClinic = (
 ) => async dispatch => {
   const clinic = await ClinicService.addProcedure(clinicId, procedureId);
   return dispatch({
-    type: UPDATE_CLINIC,
+    type: GET_CLINIC,
     payload: clinic
   });
 };
@@ -52,6 +47,14 @@ export const removeProcedureFromClinic = (
   procedureId
 ) => async dispatch => {
   const clinic = await ClinicService.removeProcedure(clinicId, procedureId);
+  return dispatch({
+    type: GET_CLINIC,
+    payload: clinic
+  });
+};
+
+export const updateClinic = editedClinic => async dispatch => {
+  const clinic = await ClinicService.edit(editedClinic);
   return dispatch({
     type: GET_CLINIC,
     payload: clinic

@@ -17,7 +17,7 @@ import { MAIN_COLOR_CLASS } from './../utils/colors';
 class Landing extends Component {
   async componentDidMount() {
     await this.props.getPlaces();
-    this.props.getProcedures();
+    await this.props.getProcedures();
   }
 
   onSearchSubmit = (procedure, place) => {
