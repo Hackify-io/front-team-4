@@ -3,10 +3,9 @@ import { Select } from 'react-materialize';
 
 class DropdownSelect extends Component {
   render() {
-    const { placeholder, align, items } = this.props;
+    const { align, children, ...rest } = this.props;
     return (
       <Select
-        onChange={function noRefCheck() {}}
         options={{
           classes: '',
           dropdownOptions: {
@@ -25,15 +24,12 @@ class DropdownSelect extends Component {
             outDuration: 25
           }
         }}
-        label={placeholder}
-        value=""
+        {...rest}
       >
-        <option disabled>Please select</option>
-        {items.map(item => (
-          <option value="item">{item}</option>
-        ))}
+        {children}
       </Select>
     );
   }
 }
+
 export default DropdownSelect;
