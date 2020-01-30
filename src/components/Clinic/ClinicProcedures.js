@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Icon, Row, Col } from "react-materialize";
+import React, { Component, Fragment } from 'react';
+import { Icon, Row, Col } from 'react-materialize';
 class ClinicProcedures extends Component {
   renderProcedures = () => {
     const { procedures } = this.props;
@@ -15,7 +15,14 @@ class ClinicProcedures extends Component {
     });
   };
   render() {
-    return <Row>{this.renderProcedures()}</Row>;
+    return (
+      <Fragment>
+        <Row>
+          <h5>Our Procedures:</h5>
+        </Row>
+        <Row>{this.renderProcedures()}</Row>
+      </Fragment>
+    );
   }
 }
 

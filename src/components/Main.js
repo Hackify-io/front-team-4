@@ -59,16 +59,12 @@ class Main extends Component {
           <Route exact path={REGISTER_URL} component={RegisterUser} />
           <Route exact path={MAIN_APP_URL} component={Landing} />
           <PrivateRoute
-            path={MAIN_APP_URL + CLINICS_URL + '/:clinicId/appointment'}
+            path={CLINICS_URL + '/:clinicId/appointment'}
             privateRole="member"
             loginUrl={LOGIN_URL}
             component={Appointment}
           />
-          <Route
-            exact
-            path={MAIN_APP_URL + CLINICS_URL + '/:clinicId'}
-            component={Clinic}
-          />
+          <Route exact path={CLINICS_URL + '/:clinicId'} component={Clinic} />
         </Switch>
         <Footer />
       </Fragment>

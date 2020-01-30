@@ -8,21 +8,26 @@ import { MAIN_COLOR_FONT } from './../../utils/colors';
 
 class ProceduresAutocomplete extends Component {
   render() {
-    const { onAutocomplete, procedures, size } = this.props;
+    const { onAutocomplete, procedures, proceduresDefault, size } = this.props;
+    const componentProcedure = proceduresDefault
+      ? proceduresDefault
+      : procedures;
     let procedureData = {};
-    if (procedures) {
-      procedures.forEach(p => {
+    if (componentProcedure) {
+      componentProcedure.forEach(p => {
         procedureData[p.name] = null;
       });
     }
     const options = {
       data: procedureData,
       onAutocomplete: procedure => {
-        const selectedProcedure = procedures.find(p => p.name === procedure);
+        const selectedProcedure = componentProcedure.find(
+          p => p.name === procedure
+        );
         onAutocomplete(selectedProcedure);
       }
     };
-    return procedures ? (
+    return componentProcedure ? (
       <Autocomplete
         id="proceduresAutocomplete"
         className={`${MAIN_COLOR_FONT} s${size}`}
