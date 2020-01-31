@@ -6,6 +6,8 @@ import {
   submitAppointment
 } from './../actions/clinicActions';
 import { DatePicker, TimePicker, Row, Col, Button } from 'react-materialize';
+import history from './../history';
+import { CLINICS_URL } from './../routes';
 import ProceduresAutocomplete from './AutoCompletes/ProceduresAutocomplete';
 
 class Appointment extends Component {
@@ -39,15 +41,22 @@ class Appointment extends Component {
     });
   };
 
-  onAppointmentSubmit = () => {
+  onAppointmentSubmit = async () => {
     const { selectedProcedure, date, time } = this.state;
-    let newAppointment = {
-      selectedProcedure,
-      date,
-      time
-    };
-    console.log(newAppointment);
-    // this.props.submitAppointment(newAppointment);
+    const { clinic, user } = this.props;
+
+    if ((selectedProcedure, date, time, clinic, user)) {
+      const dateValue = new Date(date);
+      let newAppointment = {
+        userId: user.id,
+        clinicId: clinic._id,
+        procedure: selectedProcedure._id,
+        date: dateValue,
+        time
+      };
+      await this.props.submitAppointment(clinic._id, newAppointment);
+      history.push(`${CLINICS_URL}/${clinic._id}`);
+    }
   };
 
   render() {
@@ -163,7 +172,7 @@ class Appointment extends Component {
                     this.onTimeSelect(time);
                   },
                   showClearBtn: false,
-                  twelveHour: true,
+                  twelveHour: false,
                   vibrate: true
                 }}
               />
@@ -183,7 +192,8 @@ class Appointment extends Component {
 const mapStateToProps = state => {
   return {
     appointments: state.clinic.appointments,
-    clinic: state.clinic.currentClinic
+    clinic: state.clinic.currentClinic,
+    user: state.auth.user
   };
 };
 export default connect(mapStateToProps, {

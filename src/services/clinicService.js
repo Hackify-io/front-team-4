@@ -1,5 +1,4 @@
 import Medical from './../api/Medical';
-//import { getClinic } from '../actions/clinicActions';
 
 class ClinicService {
   static async login(login) {
@@ -109,8 +108,16 @@ class ClinicService {
       return null;
     }
   }
-  static submitAppointment(userId, clinicId, appointment) {
-    return null;
+  static async submitAppointment(id, appointment) {
+    try {
+      const createResponse = await Medical.post(
+        `clinics/${id}/appointments`,
+        appointment
+      );
+      return createResponse;
+    } catch (err) {
+      return null;
+    }
   }
 
   static async addProcedure(clinicId, procedureId) {

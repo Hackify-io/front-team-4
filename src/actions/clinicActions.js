@@ -19,13 +19,17 @@ export const getAppointments = id => {
   };
 };
 
-export const submitAppointment = appointment => {
-  ClinicService.submitAppointment(appointment);
+export const submitAppointment = (id, appointment) => async dispatch => {
+  await ClinicService.submitAppointment(id, appointment);
+  const appointments = await ClinicService.getAppointments(id);
+  return dispatch({
+    type: GET_APPOINTMENTS,
+    payload: appointments
+  });
 };
 
 export const getClinics = (procedure, place) => async dispatch => {
   const clinics = await ClinicService.getClinics(procedure, place);
-  console.log(clinics);
   return dispatch({
     type: GET_FILTERED_CLINICS,
     payload: clinics

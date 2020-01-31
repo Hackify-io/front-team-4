@@ -4,12 +4,16 @@ import { Row, Col, Card, CardTitle, Icon } from 'react-materialize';
 import { CLINICS_URL } from './../routes';
 export default class ClinicCard extends Component {
   render() {
-    const { clinic, key } = this.props;
+    const { clinic } = this.props;
     return (
-      <Row key={key}>
+      <Row>
         <Col s={12}>
           <Card
-            actions={[<Link to={`${CLINICS_URL}/${clinic._id}`}>Visit</Link>]}
+            actions={[
+              <Link key="1" to={`${CLINICS_URL}/${clinic._id}`}>
+                Visit
+              </Link>
+            ]}
             closeIcon={<Icon>close</Icon>}
             header={
               <CardTitle
