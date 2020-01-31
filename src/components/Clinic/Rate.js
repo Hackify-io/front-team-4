@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Icon } from "react-materialize";
+import React, { Component } from 'react';
+import { Icon } from 'react-materialize';
 
 export default class Rate extends Component {
   renderCompleteStars = number => {

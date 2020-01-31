@@ -8,7 +8,7 @@ import { getPlaces } from './../actions/placeActions';
 import { getClinics } from './../actions/clinicActions';
 //Import Components
 import Section from './common/Section';
-import FeatureSlider from './FeatureSlider';
+//import FeatureSlider from './FeatureSlider';
 import SearchFields from './SearchFields';
 import ClinicList from './ClinicList';
 

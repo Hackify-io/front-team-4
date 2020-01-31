@@ -1,5 +1,4 @@
 import Medical from './../api/Medical';
-//import { getClinic } from '../actions/clinicActions';
 
 class ClinicService {
   static async login(login) {
@@ -35,25 +34,16 @@ class ClinicService {
     }
   }
 
-  static getAppointments(clinicId) {
-    const appointments = [
-      {
-        id: 'Medical',
-        date: new Date('January 20 2020 12:00'),
-        status: 'Pending'
-      },
-      {
-        id: 'Medical',
-        date: new Date('January 20 2020 14:00'),
-        status: 'Accepted'
-      },
-      {
-        id: 'Other',
-        date: new Date('January 20 1980 19:00'),
-        status: 'Accepted'
-      }
-    ];
-    return appointments.filter(a => a.id === clinicId);
+  static async getAppointments(clinicId) {
+    try {
+      const getResponse = await Medical.get(
+        `/clinics/${clinicId}/appointments`
+      );
+      const appointments = getResponse.data.result;
+      return appointments;
+    } catch (err) {
+      return null;
+    }
   }
 
   static async getClinic(id) {
@@ -109,8 +99,31 @@ class ClinicService {
       return null;
     }
   }
-  static submitAppointment(userId, clinicId, appointment) {
-    return null;
+  static async submitAppointment(id, appointment) {
+    try {
+      const createResponse = await Medical.post(
+        `clinics/${id}/appointments`,
+        appointment
+      );
+      return createResponse;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  static async changeAppointmentStatus(id, status) {
+    try {
+      //Get CurrentClinic
+      const getResponse = await Medical.get(`/appointments/${id}`);
+      let appointment = getResponse.data.result;
+      //Add Procedure to Clinic
+      appointment.status = status;
+      await Medical.put(`/appointments/${appointment._id}`, appointment);
+      const updatedResponse = await Medical.get(`/appointments/${id}`);
+      return updatedResponse.data.result;
+    } catch (err) {
+      return null;
+    }
   }
 
   static async addProcedure(clinicId, procedureId) {

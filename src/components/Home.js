@@ -3,7 +3,6 @@ import { Col, Row, Button } from 'react-materialize';
 import { Link } from 'react-router-dom';
 export default class Home extends Component {
   render() {
-    console.log('also home');
     return (
       <div
         className="teal lighten-3 valign-wrapper"

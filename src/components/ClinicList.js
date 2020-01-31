@@ -1,27 +1,18 @@
 import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import { PRIMARY_BUTTON_COLOR } from './../utils/colors';
+import ClinicCard from './ClinicCard';
 export default class ClinicList extends Component {
   renderClinics = () => {
     const { clinics } = this.props;
     return clinics
       ? clinics.map(c => {
-          return (
-            <Link
-              key={c._id}
-              to={`/clinic/${c._id}`}
-              className={`btn btn-large ${PRIMARY_BUTTON_COLOR} center-align`}
-            >
-              {c.name}
-            </Link>
-          );
+          return <ClinicCard key={c._id} clinic={c} />;
         })
       : null;
   };
   render() {
     return (
       <Fragment>
-        <h1>Search Results</h1>
+        <h3>Search Results</h3>
         {this.renderClinics()}
       </Fragment>
     );
