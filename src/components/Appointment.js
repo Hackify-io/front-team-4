@@ -45,7 +45,15 @@ class Appointment extends Component {
     const { selectedProcedure, date, time } = this.state;
     const { clinic, user } = this.props;
 
-    if ((selectedProcedure, date, time, clinic, user)) {
+    if (
+      selectedProcedure &&
+      date &&
+      time &&
+      clinic &&
+      user &&
+      user.id &&
+      user.email
+    ) {
       const dateValue = new Date(date);
       let newAppointment = {
         userId: user.id,

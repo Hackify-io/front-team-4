@@ -58,6 +58,17 @@ export const removeProcedureFromClinic = (
   });
 };
 
+export const changeAppointmentStatus = (id, status) => async dispatch => {
+  const appointment = await ClinicService.changeAppointmentStatus(id, status);
+  const appointments = await ClinicService.getAppointments(
+    appointment.clinicId
+  );
+  return dispatch({
+    type: GET_APPOINTMENTS,
+    payload: appointments
+  });
+};
+
 export const updateClinic = editedClinic => async dispatch => {
   const clinic = await ClinicService.edit(editedClinic);
   return dispatch({

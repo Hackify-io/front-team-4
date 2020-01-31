@@ -111,6 +111,21 @@ class ClinicService {
     }
   }
 
+  static async changeAppointmentStatus(id, status) {
+    try {
+      //Get CurrentClinic
+      const getResponse = await Medical.get(`/appointments/${id}`);
+      let appointment = getResponse.data.result;
+      //Add Procedure to Clinic
+      appointment.status = status;
+      await Medical.put(`/appointments/${appointment._id}`, appointment);
+      const updatedResponse = await Medical.get(`/appointments/${id}`);
+      return updatedResponse.data.result;
+    } catch (err) {
+      return null;
+    }
+  }
+
   static async addProcedure(clinicId, procedureId) {
     try {
       //Get CurrentClinic
