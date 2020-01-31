@@ -11,12 +11,12 @@ export const getClinic = id => async dispatch => {
 };
 
 // Get Appointments
-export const getAppointments = id => {
-  const appointments = ClinicService.getAppointments(id);
-  return {
+export const getAppointments = id => async dispatch => {
+  const appointments = await ClinicService.getAppointments(id);
+  return dispatch({
     type: GET_APPOINTMENTS,
     payload: appointments
-  };
+  });
 };
 
 export const submitAppointment = (id, appointment) => async dispatch => {

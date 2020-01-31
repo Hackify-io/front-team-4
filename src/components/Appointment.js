@@ -49,6 +49,7 @@ class Appointment extends Component {
       const dateValue = new Date(date);
       let newAppointment = {
         userId: user.id,
+        userName: user.email,
         clinicId: clinic._id,
         procedure: selectedProcedure._id,
         date: dateValue,
