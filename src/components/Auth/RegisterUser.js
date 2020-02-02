@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Section, Row, Col } from 'react-materialize';
 
-//copied
-import { registerClinic } from '../../actions/authActions';
+import { registerUser } from '../../actions/authActions';
 import { MAIN_APP_URL } from '../../routes';
 import '../Admin/Auth/RegisterClinic.css';
 
@@ -12,9 +11,8 @@ import RegisterUserForm from '../Auth/RegisterUserForm';
 
 class RegisterUser extends Component {
   onSubmit = async formValues => {
-    console.log(formValues, MAIN_APP_URL);
-    //await this.props.registerUser(formValues);
-    //this.props.history.push(ADMIN_MAIN_APP_URL);
+    await this.props.registerUser(formValues);
+    this.props.history.push(MAIN_APP_URL);
   };
 
   render() {
@@ -41,7 +39,7 @@ class RegisterUser extends Component {
 }
 
 RegisterUser.propTypes = {
-  // registerUser: PropTypes.func.isRequired,
+  registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -49,4 +47,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { registerClinic })(RegisterUser);
+export default connect(mapStateToProps, { registerUser })(RegisterUser);
