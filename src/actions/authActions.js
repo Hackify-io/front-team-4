@@ -83,4 +83,6 @@ export const registerClinic = register => async dispatch => {
     createdUser: register.name
   };
   await ClinicService.create(newClinic);
+  localStorage.setItem('jwt', '');
+  dispatch(setCurrentUser({}));
 };
