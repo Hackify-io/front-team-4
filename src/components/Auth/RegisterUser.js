@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Section, Row, Col } from 'react-materialize';
 
 import { registerUser } from '../../actions/authActions';
-import { MAIN_APP_URL } from '../../routes';
+import { LOGIN_URL } from '../../routes';
 import '../Admin/Auth/RegisterClinic.css';
 
 import RegisterUserForm from '../Auth/RegisterUserForm';
@@ -12,7 +12,7 @@ import RegisterUserForm from '../Auth/RegisterUserForm';
 class RegisterUser extends Component {
   onSubmit = async formValues => {
     await this.props.registerUser(formValues);
-    this.props.history.push(MAIN_APP_URL);
+    this.props.history.push(LOGIN_URL);
   };
 
   render() {
