@@ -9,6 +9,8 @@ export const validateRegisterUserInput = data => {
   data.lastname = isRequired(data.lastname);
   data.password = isRequired(data.password);
   data.confirmPassword = isRequired(data.confirmPassword);
+  // data.age = data.age;
+  // data.gender = data.gender;
 
   if (validator.isEmpty(data.email)) {
     errors.email = 'Email field is required';
@@ -39,7 +41,7 @@ export const validateRegisterUserInput = data => {
   }
 
   //TODO
-  //vaidations for number
+  //validations for number
   // if (validator.isEmpty(data.age)) {
   //   errors.age = 'Age field is required';
   // }
