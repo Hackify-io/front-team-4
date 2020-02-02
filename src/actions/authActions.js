@@ -57,12 +57,22 @@ export const setCurrentUser = user => {
 // Log out user
 export const logoutUser = () => dispatch => {
   // Set the Auth State to Initial State
-  //localStorage.removeItem('jwt');
+  localStorage.removeItem('jwt');
   dispatch(setCurrentUser({}));
 };
 
-export const register = register => async dispatch => {
-  await UserService.register(register);
+export const registerUser = register => async dispatch => {
+  const registerResponse = await UserService.register(register);
+  const newUser = {
+    loginId: registerResponse.data.result._id,
+    name: register.firstname,
+    lastname: register.lastname,
+    age: register.age,
+    gender: register.gender,
+    createdUser: register.firstname
+  };
+  await UserService.create(newUser);
+  localStorage.removeItem('jwt');
 };
 
 export const registerClinic = register => async dispatch => {
