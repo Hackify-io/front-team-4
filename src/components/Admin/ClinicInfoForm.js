@@ -111,10 +111,11 @@ class ClinicInfoForm extends Component {
 
   renderClinicForm = () => {
     const { clinic, places } = this.props;
-    let searchPlace =
-      places.length !== 0
+    let searchPlace = clinic.location
+      ? places.length !== 0
         ? places.find(p => p.place._id === clinic.location._id)
-        : null;
+        : null
+      : null;
     let currentPlace = searchPlace ? searchPlace.display : null;
     return (
       <div>

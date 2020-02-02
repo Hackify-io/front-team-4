@@ -63,6 +63,7 @@ export const logoutUser = () => dispatch => {
 
 export const register = register => async dispatch => {
   await UserService.register(register);
+  dispatch(setCurrentUser({}));
 };
 
 export const registerClinic = register => async dispatch => {
@@ -73,4 +74,6 @@ export const registerClinic = register => async dispatch => {
     createdUser: register.name
   };
   await ClinicService.create(newClinic);
+  localStorage.setItem('jwt', '');
+  dispatch(setCurrentUser({}));
 };
