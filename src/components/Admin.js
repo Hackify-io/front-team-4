@@ -63,8 +63,20 @@ class Main extends Component {
       <Fragment>
         <Navbar />
         <Switch>
-          <Route exact path={ADMIN_LOGIN_URL} component={LoginClinic} />
-          <Route exact path={ADMIN_REGISTER_URL} component={RegisterClinic} />
+          <PrivateRoute
+            needAuth={false}
+            exact
+            loginUrl={ADMIN_MAIN_APP_URL}
+            path={ADMIN_LOGIN_URL}
+            component={LoginClinic}
+          />
+          <PrivateRoute
+            needAuth={false}
+            exact
+            loginUrl={ADMIN_MAIN_APP_URL}
+            path={ADMIN_REGISTER_URL}
+            component={RegisterClinic}
+          />
           <PrivateRoute
             privateRole="clinic"
             loginUrl={ADMIN_LOGIN_URL}
