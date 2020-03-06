@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Col, Row, Button } from 'react-materialize';
+import { Col, Row } from 'react-materialize';
+import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 export default class Home extends Component {
   render() {
@@ -15,17 +16,13 @@ export default class Home extends Component {
           <Col s={12}>
             <Row>
               <Col s={6}>
-                <Button>
-                  <Link className="white-text" to="/main">
+                <Button as={Link} to="/main" primary>
                     USER
-                  </Link>
                 </Button>
               </Col>
               <Col s={6}>
-                <Button>
-                  <Link className="white-text" to="/admin">
+                <Button as={Link} to="/admin" primary>
                     CLINIC
-                  </Link>
                 </Button>
               </Col>
             </Row>

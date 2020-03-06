@@ -48,6 +48,20 @@ class LoginClinicForm extends Component {
         <Row>
           <Col className="input-field" s={12}>
             <Button waves="light" className="extended">
+              Loginas
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="input-field" s={12}>
+            <Button waves="light" className="extended">
+              Login
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="input-field" s={12}>
+            <Button waves="light" className="extended">
               Login
             </Button>
           </Col>

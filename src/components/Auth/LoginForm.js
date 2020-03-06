@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Row, Col, Button } from 'react-materialize';
+import FacebookLoginButton from './../common/Inputs/SocialLogins/FacebookLoginButton';
+import GoogleLoginButton from './../common/Inputs/SocialLogins/GoogleLoginButton';
 import IconTextInput from '../common/Inputs/IconTextInput';
 import { validateLoginInput } from '../../validations/auth/loginFormValidator';
 
@@ -48,6 +50,15 @@ class LoginForm extends Component {
             <Button waves="light" className="extended">
               Login
             </Button>
+          </Col>
+          <Col s={12}>
+            Or login with a social account
+          </Col>
+          <Col className="input-field" s={12}>
+            <FacebookLoginButton/>
+          </Col>
+          <Col className="input-field" s={12}>
+            <GoogleLoginButton/>
           </Col>
         </Row>
       </form>

@@ -1,6 +1,6 @@
 //Import Modules
 import React, { Component, Fragment } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import history from './../history';
 import store from './../store';
 import jwt_decode from 'jwt-decode';
