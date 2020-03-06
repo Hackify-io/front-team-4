@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.1",
     "classnames": "^2.2.6",
+    "firebase": "^7.10.0",
     "gulp": "^4.0.2",
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",

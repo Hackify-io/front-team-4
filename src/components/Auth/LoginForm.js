@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Row, Col, Button } from 'react-materialize';
+import { Row, Col } from 'react-materialize';
+import { Button } from 'semantic-ui-react';
 import FacebookLoginButton from './../common/Inputs/SocialLogins/FacebookLoginButton';
 import GoogleLoginButton from './../common/Inputs/SocialLogins/GoogleLoginButton';
 import IconTextInput from '../common/Inputs/IconTextInput';
@@ -47,7 +48,7 @@ class LoginForm extends Component {
         </Row>
         <Row>
           <Col className="input-field" s={12}>
-            <Button waves="light" className="extended">
+            <Button primary>
               Login
             </Button>
           </Col>
