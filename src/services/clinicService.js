@@ -99,6 +99,7 @@ class ClinicService {
       return null;
     }
   }
+  
   static async submitAppointment(id, appointment) {
     try {
       const createResponse = await Medical.post(
