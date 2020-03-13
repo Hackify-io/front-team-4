@@ -9,6 +9,11 @@
     ]
   },
   "hosting": {
+    "site": "medicalfront",
+    "rewrites": [ {
+      "source": "**",
+      "destination": "/index.html"
+    } ],
     "public": "build",
     "ignore": [
       "firebase.json",

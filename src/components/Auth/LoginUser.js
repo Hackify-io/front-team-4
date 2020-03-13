@@ -1,6 +1,7 @@
 //Import Modules
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withFirebase } from './../firebase'
 import { Button, NavItem } from "react-materialize";
 //Import Utils
 import { MAIN_COLOR_FONT } from "./../../utils/colors";
@@ -8,6 +9,7 @@ import { logoutUser } from "../../actions/authActions";
 class LoginUser extends Component {
   onLogoutClick = () => {
     this.props.logoutUser();
+    this.props.firebase.doSignOut();
   };
   render() {
     const { currentUser } = this.props;
@@ -27,4 +29,4 @@ const mapStateToProps = state => {
     currentUser: state.auth.user.name
   };
 };
-export default connect(mapStateToProps, { logoutUser })(LoginUser);
+export default withFirebase(connect(mapStateToProps, { logoutUser })(LoginUser));

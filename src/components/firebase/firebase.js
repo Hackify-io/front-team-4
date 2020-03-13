@@ -24,6 +24,7 @@ class Firebase {
     /* Social Sign In Method Provider */
     this.emailProvider = new app.auth.EmailAuthProvider();
     this.googleProvider = new app.auth.GoogleAuthProvider();
+    this.facebookProvider = new app.auth.FacebookAuthProvider();
   }
 
   // Auth API Functions
@@ -33,33 +34,19 @@ class Firebase {
   doSignInWithEmailAndPassword = (email, password) =>
     this.auth.signInWithEmailAndPassword(email, password);
 
+  doSignInWithGoogle = () => 
+    this.auth.signInWithPopup(this.googleProvider);
+
+  doSignInWithFacebook = () =>
+    this.auth.signInWithPopup(this.facebookProvider);
+    
   doSignOut = () => this.auth.signOut();
 
-  doSignInWithGoogle = () => this.auth.signInWithPopup(this.googleProvider);
-
+  
   onAuthUserListener = (next, fallback) =>
-    this.auth.onAuthStateChanged(authUser => {
-      if (authUser) {
-        this.user(authUser.uid)
-          .once('value')
-          .then(snapshot => {
-            const dbUser = snapshot.val();
-
-            // default empty roles
-            if (!dbUser.roles) {
-              dbUser.roles = [];
-            }
-
-            // merge auth and db user
-            authUser = {
-              uid: authUser.uid,
-              email: authUser.email,
-              emailVerified: authUser.emailVerified,
-              providerData: authUser.providerData,
-              ...dbUser
-            };
-            next(authUser);
-          });
+    this.auth.onAuthStateChanged(authUser => {      
+      if (authUser) {;
+        next(authUser);
       } else {
         fallback();
       }

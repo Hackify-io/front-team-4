@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Row, Col } from 'react-materialize';
 import { Button } from 'semantic-ui-react';
@@ -14,6 +14,7 @@ class LoginForm extends Component {
 
   render() {
     return (
+      <Fragment>
       <form
         className="login-form"
         onSubmit={this.props.handleSubmit(this.onSubmit)}
@@ -48,21 +49,24 @@ class LoginForm extends Component {
         </Row>
         <Row>
           <Col className="input-field" s={12}>
-            <Button primary>
+            <Button primary fluid>
               Login
             </Button>
           </Col>
-          <Col s={12}>
-            Or login with a social account
-          </Col>
-          <Col className="input-field" s={12}>
-            <FacebookLoginButton/>
-          </Col>
-          <Col className="input-field" s={12}>
-            <GoogleLoginButton/>
-          </Col>
         </Row>
       </form>
+      <Row>
+        <Col s={12}>
+          Or login with a social account
+        </Col>
+        <Col className="input-field" s={12} >
+          <FacebookLoginButton onButtonClick={console.log}/>
+        </Col>
+        <Col className="input-field" s={12}>
+          <GoogleLoginButton onButtonClick={console.log}/>
+        </Col>
+      </Row>
+    </Fragment>
     );
   }
 }

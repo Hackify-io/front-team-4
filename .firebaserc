@@ -1,5 +1,14 @@
 {
   "projects": {
-    "default": "medicaltravel-26f49"
+    "default": "medicalfront"
+  },
+  "targets": {
+    "medicaltravel-26f49": {
+      "hosting": {
+        "front": [
+          "medicalfront"
+        ]
+      }
+    }
   }
 }

@@ -25,6 +25,17 @@ export const loginUser = loginData => async dispatch => {
   }
 };
 
+export const partialSocialLogin = authUser => async dispatch => {
+  const {uid, displayName, email} = authUser;
+  const user = {
+    id: uid,
+    role: 'PartialUser',
+    name: displayName,
+    lastname: email
+  }
+  dispatch(setCurrentUser(user));
+}
+
 export const loginClinic = loginData => async dispatch => {
   let loginResponse = await ClinicService.login(loginData);
   if (loginResponse) {
