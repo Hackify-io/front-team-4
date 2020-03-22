@@ -1,5 +1,5 @@
-import { GET_PLACES } from './';
-import PlaceService from './../services/placeService';
+import { GET_PLACES } from "./";
+import PlaceService from "./../services/placeService";
 
 // Get Places
 export const getPlaces = () => async dispatch => {
@@ -8,7 +8,7 @@ export const getPlaces = () => async dispatch => {
     ? places.map(p => {
         return {
           place: p,
-          display: `${p.city} ${p.state} - ${p.country}`
+          display: `${p.city} ${p.state}`
         };
       })
     : null;

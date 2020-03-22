@@ -1,9 +1,9 @@
 //Import Modules
-import React, { Component } from 'react';
-import { Row, Col, Button } from 'react-materialize';
+import React, { Component } from "react";
+import { Row, Col, Button } from "react-materialize";
 //Import Components
-import PlacesAutocomplete from './AutoCompletes/PlacesAutocomplete';
-import ProceduresAutocomplete from './AutoCompletes/ProceduresAutocomplete';
+import PlacesAutocomplete from "./AutoCompletes/PlacesAutocomplete";
+import ProceduresAutocomplete from "./AutoCompletes/ProceduresAutocomplete";
 
 class SearchFields extends Component {
   state = {
@@ -11,6 +11,7 @@ class SearchFields extends Component {
     selectedProcedure: null
   };
   onPlacesAutoComplete = place => {
+    console.log(place);
     this.setState({ selectedPlace: place });
   };
   onProcedureAutoComplete = procedure => {
