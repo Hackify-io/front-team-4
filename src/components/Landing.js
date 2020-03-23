@@ -12,6 +12,7 @@ import Section from "./common/Section";
 import SearchFields from "./SearchFields";
 import ClinicList from "./ClinicList";
 import SearchClinicForm from "./Landing/SearchClinicForm";
+import SearchClinic from './Landing/SearchClinic';
 //Import Utils
 import { MAIN_COLOR_CLASS } from "./../utils/colors";
 class Landing extends Component {
@@ -34,6 +35,9 @@ class Landing extends Component {
 
         <Section name="clinic-Form">
           <SearchClinicForm />
+        </Section>
+        <Section name="clinic-Form2">
+          <SearchClinic />
         </Section>
         <Section name="clinic-List">
           <ClinicList clinics={filteredClinics} />
