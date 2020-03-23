@@ -22,6 +22,7 @@ class ClinicCarouselWidget extends React.Component {
   };
 
   render() {
+    console.log(this.props);
     const settings = {
       className: "center",
       centerMode: true,
@@ -39,6 +40,10 @@ class ClinicCarouselWidget extends React.Component {
   }
 }
 const mapStateToProps = state => {
-  return { places: state.place.places };
+  return {
+    clinic: state.clinic,
+    place: state.place,
+    specialty: state.procedure
+  };
 };
 export default connect(mapStateToProps, {})(ClinicCarouselWidget);
