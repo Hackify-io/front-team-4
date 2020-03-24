@@ -12,8 +12,8 @@ import {
 } from './../../actions/clinicActions';
 import { getProcedures } from './../../actions/procedureActions';
 import { getPlaces } from './../../actions/placeActions';
-import ProceduresAutocomplete from './../AutoCompletes/ProceduresAutocomplete';
-import PlacesAutocomplete from './../AutoCompletes/PlacesAutocomplete';
+import ProceduresAutocomplete from './../common/Inputs/AutoCompletes/SpecialtyAutoComplete';
+import PlacesAutocomplete from './../common/Inputs/AutoCompletes/PlacesAutoComplete';
 
 class ClinicInfoForm extends Component {
   state = {

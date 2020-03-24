@@ -9,9 +9,7 @@ import { getClinics } from "./../actions/clinicActions";
 //Import Components
 import Section from "./common/Section";
 //import FeatureSlider from './FeatureSlider';
-import SearchFields from "./SearchFields";
 import ClinicList from "./ClinicList";
-import SearchClinicForm from "./Landing/SearchClinicForm";
 //import Widgets
 import RenderSpecialtyWidget from "./Widgets/RenderSpecialtyWidget";
 import SearchClinic from './Landing/SearchClinic';
@@ -32,13 +30,6 @@ class Landing extends Component {
     return (
       <Fragment>
         <Section name="slider">{/* <FeatureSlider /> */}</Section>
-        <Section name="search" className={MAIN_COLOR_CLASS}>
-          <SearchFields onSearchClick={this.onSearchSubmit} />
-        </Section>
-
-        <Section name="clinic-Form">
-          <SearchClinicForm />
-        </Section>
        <Section name="specialty-Widgets">
           <RenderSpecialtyWidget numberOfColumns={4} />
         <Section/>
