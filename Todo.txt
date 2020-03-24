@@ -1,3 +1,2 @@
 -onAutoComplete muestra "No results" al seleccionar el autocomplete despues de seleccionar una accion.
--Realizar css para DoctorWidget para que quite el borde de las cartas
--Pasar la data completa para el carousel
+-Specialty Cards images are forzed to keep 1:1 Ratio. Provided Imaged must be cropped into 1:1 Ratio
