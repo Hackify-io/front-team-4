@@ -12,8 +12,10 @@ import Section from "./common/Section";
 import SearchFields from "./SearchFields";
 import ClinicList from "./ClinicList";
 import SearchClinicForm from "./Landing/SearchClinicForm";
+//import Widgets
+import RenderSpecialtyWidget from "./Widgets/RenderSpecialtyWidget";
 import SearchClinic from './Landing/SearchClinic';
-import ClinicCarouselWidget from "./Widgets/ClinicCarouselWidget";
+
 //Import Utils
 import { MAIN_COLOR_CLASS } from "./../utils/colors";
 class Landing extends Component {
@@ -37,10 +39,11 @@ class Landing extends Component {
         <Section name="clinic-Form">
           <SearchClinicForm />
         </Section>
-        <Section name="new-form"/>
+       <Section name="specialty-Widgets">
+          <RenderSpecialtyWidget numberOfColumns={4} />
+        <Section/>
+      <Section name="new-form"/>
           <SearchClinic/>
-        <Section name="clinic-Carousel">
-          <ClinicCarouselWidget />
         </Section>
         <Section name="clinic-List">
           <ClinicList clinics={filteredClinics} />

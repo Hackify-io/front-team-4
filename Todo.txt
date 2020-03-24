@@ -1,1 +1,3 @@
 -onAutoComplete muestra "No results" al seleccionar el autocomplete despues de seleccionar una accion.
+-Specialty Cards images are forzed to keep 1:1 Ratio. Provided Imaged must be cropped into 1:1 Ratio
+-Realizar el css de la carta del doctor para que no muestre el borde .-Dante
