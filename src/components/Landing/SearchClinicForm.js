@@ -31,7 +31,7 @@ class SearchClinicForm extends Component {
   render() {
     const { places, specialties } = this.props;
     return (
-      <Segment compact>
+      <Segment>
         <Form>
           <Form.Group>
             <PlacesAutoComplete
