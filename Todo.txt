@@ -1,1 +1,3 @@
 -onAutoComplete muestra "No results" al seleccionar el autocomplete despues de seleccionar una accion.
+-Realizar css para DoctorWidget para que quite el borde de las cartas
+-Pasar la data completa para el carousel
