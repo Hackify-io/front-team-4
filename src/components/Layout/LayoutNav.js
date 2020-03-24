@@ -1,39 +1,73 @@
 //Import Modules
 import React, { Component } from "react";
-import { Navbar, Icon } from "react-materialize";
+import { Menu, Segment, Responsive, Container } from "semantic-ui-react";
 
-//Import Components
-import LoginNav from "./../Auth/LoginNav";
-
-//Import Utils
-import { MAIN_COLOR_CLASS } from "./../../utils/colors";
 class LayoutNav extends Component {
+  state = { fixed: true, activeItem: "home" };
+
+  hideFixedMenu = () => this.setState({ fixed: false });
+  showFixedMenu = () => this.setState({ fixed: true });
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  getWidth = () => {
+    const isSSR = typeof window === "undefined";
+
+    return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth;
+  };
   render() {
+    const { fixed, activeItem } = this.state;
     return (
-      <Navbar
-        alignLinks="right"
-        fixed
-        className={MAIN_COLOR_CLASS}
-        brand={
-          <a className="brand-logo" href="/">
-            Medical Travel
-          </a>
-        }
-        menuIcon={<Icon>menu</Icon>}
-        options={{
-          draggable: true,
-          edge: "left",
-          inDuration: 250,
-          onCloseEnd: null,
-          onCloseStart: null,
-          onOpenEnd: null,
-          onOpenStart: null,
-          outDuration: 200,
-          preventScrolling: true
-        }}
+      <Responsive
+        getWidth={this.getWidth}
+        minWidth={Responsive.onlyTablet.minWidth}
       >
-        <LoginNav />
-      </Navbar>
+        <Segment textAlign="center">
+          <Menu fixed={fixed ? "top" : null}></Menu>
+          <Menu fixed={fixed ? "top" : null} pointing secondary>
+            <Container>
+              <Menu.Item
+                as="a"
+                active={activeItem === "home"}
+                name="home"
+                onClick={this.handleItemClick}
+              >
+                Home
+              </Menu.Item>
+              <Menu.Item
+                name="doctor"
+                active={activeItem === "doctor"}
+                as="a"
+                onClick={this.handleItemClick}
+              >
+                Doctor
+              </Menu.Item>
+              <Menu.Item
+                as="a"
+                name="category"
+                active={activeItem === "category"}
+                onClick={this.handleItemClick}
+              >
+                Category
+              </Menu.Item>
+              <Menu.Item
+                as="a"
+                name="dashboard"
+                active={activeItem === "dashboard"}
+                onClick={this.handleItemClick}
+              >
+                Dashboard
+              </Menu.Item>
+              <Menu.Item
+                as="a"
+                name="clinic"
+                active={activeItem === "clinic"}
+                onClick={this.handleItemClick}
+              >
+                Clinic
+              </Menu.Item>
+            </Container>
+          </Menu>
+        </Segment>
+      </Responsive>
     );
   }
 }
