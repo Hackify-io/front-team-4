@@ -1,3 +1,23 @@
 /*******************************
     User Variable Overrides
 *******************************/
+
+@itemTextColor: @teal;
+
+@secondaryPointingHeaderColor: @teal;
+@secondaryPointingBorderColor: @teal;
+@secondaryPointingHoverTextColor: @teal;
+@secondaryPointingActiveTextColor: @teal;
+
+@secondaryInvertedColor: @teal;
+
+@secondaryInvertedHoverBackground: @transparentWhite;
+@secondaryInvertedHoverColor: @tealHover;
+
+@secondaryInvertedActiveBackground: @strongTransparentWhite;
+@secondaryInvertedActiveColor: @tealHover;
+
+@dropdownItemColor: @teal;
+@invertedSelectionDropdownColor: @teal;
+@iconMenuInvertedItemColor: @teal;
+@invertedItemTextColor: @teal;

@@ -10,6 +10,7 @@
 /*---  Colors  ---*/
 @black            : #525b5b;
 @teal: #13777a;
+@grey: #f3f3f3;
 
 /*--- Colored Backgrounds ---*/
 @tealBackground   : #13777a;
