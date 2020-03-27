@@ -29,11 +29,16 @@ class Landing extends Component {
     const { filteredClinics } = this.props;
     return (
       <Fragment>
-        <Section name="slider">{/* <FeatureSlider /> */}</Section>
-       <Section name="specialty-Widgets">
+        <Section name="slider">
+          {/* <FeatureSlider /> */}
+        </Section>
+        <Section name="specialty-Widgets">
           <RenderSpecialtyWidget numberOfColumns={4} />
-        <Section/>
-      <Section name="new-form"/>
+        </Section>
+        <Section name="specialty-Widgets">
+          <RenderSpecialtyWidget numberOfColumns={4} />
+        </Section>
+        <Section name="new-form">
           <SearchClinic/>
         </Section>
         <Section name="clinic-List">

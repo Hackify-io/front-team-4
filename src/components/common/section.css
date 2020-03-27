@@ -1,0 +1,7 @@
+section:nth-child(even) { background: #dfe8e8 }
+section:nth-child(odd) { background: #ffffff}
+
+section{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

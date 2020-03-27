@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import cx from "classnames";
 import propTypes from "prop-types";
-
+import './section.css'
 class Section extends Component {
   render() {
     const { name, header, className, ...other } = this.props;
