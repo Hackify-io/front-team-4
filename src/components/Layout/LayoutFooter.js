@@ -11,6 +11,7 @@ class LayoutFooter extends Component {
     return (
       <Responsive 
         as={Segment}
+        color={"teal"}
         inverted vertical style={{ padding: '5em 0em' }}
         onUpdate={this.handleOnUpdate}
       >
