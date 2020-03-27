@@ -9,7 +9,8 @@ export default class ClinicWidget extends Component {
       rate,
       serviceRate,
       numReviews,
-      timeOfWait
+      hoursWait,
+      minutesWait
     } = this.props;
     return (
       <Card className="widthCard">
@@ -24,9 +25,9 @@ export default class ClinicWidget extends Component {
           <Grid divided="vertically">
             <Grid.Column floated="left" width={6}>
               <Icon name="clock outline" />
-              {timeOfWait}
+              {hoursWait}:{minutesWait}
             </Grid.Column>
-            <Grid.Column floated="right" width={6}>
+            {/* <Grid.Column floated="right" width={6}>
               <Grid.Column floated="left">
                 <span className="color">{serviceRate}</span>
                 <br />
@@ -35,7 +36,7 @@ export default class ClinicWidget extends Component {
               <Grid.Column floated="right">
                 <Label color="blue">{rate}</Label>
               </Grid.Column>
-            </Grid.Column>
+            </Grid.Column> */}
           </Grid>
         </Card.Content>
       </Card>

@@ -9,13 +9,13 @@ import { getClinics } from "./../actions/clinicActions";
 //Import Components
 import Section from "./common/Section";
 //import FeatureSlider from './FeatureSlider';
+// import ClinicCarouselWidget from "././Widgets/ClinicCarouselWidget";
 import ClinicList from "./ClinicList";
 //import Widgets
 import RenderSpecialtyWidget from "./Widgets/RenderSpecialtyWidget";
-import SearchClinic from './Landing/SearchClinic';
+import SearchClinic from "./Landing/SearchClinic";
 
 //Import Utils
-import { MAIN_COLOR_CLASS } from "./../utils/colors";
 class Landing extends Component {
   async componentDidMount() {
     await this.props.getPlaces();
@@ -29,18 +29,19 @@ class Landing extends Component {
     const { filteredClinics } = this.props;
     return (
       <Fragment>
-        <Section name="slider">
-          {/* <FeatureSlider /> */}
-        </Section>
-        <Section name="specialty-Widgets">
-          <RenderSpecialtyWidget numberOfColumns={4} />
-        </Section>
-        <Section name="specialty-Widgets">
-          <RenderSpecialtyWidget numberOfColumns={4} />
-        </Section>
         <Section name="new-form">
-          <SearchClinic/>
+          <SearchClinic />
         </Section>
+        {/* <Section name="slider">
+          <ClinicCarouselWidget />
+        </Section> */}
+        <Section name="specialty-Widgets">
+          <RenderSpecialtyWidget numberOfColumns={4} />
+        </Section>
+        <Section name="specialty-Widgets">
+          <RenderSpecialtyWidget numberOfColumns={4} />
+        </Section>
+
         <Section name="clinic-List">
           <ClinicList clinics={filteredClinics} />
         </Section>

@@ -1,4 +1,9 @@
-import { GET_CLINIC, GET_APPOINTMENTS, GET_FILTERED_CLINICS } from "./";
+import {
+  GET_CLINIC,
+  GET_APPOINTMENTS,
+  GET_FILTERED_CLINICS,
+  GET_FEATURED_CLINICS
+} from "./";
 import ClinicService from "./../services/clinicService";
 
 // Get Clinics
@@ -28,10 +33,15 @@ export const submitAppointment = (id, appointment) => async dispatch => {
   });
 };
 
+export const getFeaturedClinics = () => async dispatch => {
+  const clinics = await ClinicService.getClinics();
+  return dispatch({
+    type: GET_FEATURED_CLINICS,
+    payload: clinics
+  });
+};
 export const getClinics = (specialty, location) => async dispatch => {
-  console.log(specialty, location);
   const clinics = await ClinicService.getClinics(specialty, location);
-  console.log(clinics);
   return dispatch({
     type: GET_FILTERED_CLINICS,
     payload: clinics

@@ -85,10 +85,13 @@ class ClinicService {
   }
 
   static async getClinics(specialty, place) {
-    const data = {
-      specialty: specialty.id,
-      location: place.id
+    let data = {};
+    data = {
+      ...data,
+      ...(specialty ? { specialty: specialty.id } : {}),
+      ...(place ? { location: place.id } : {})
     };
+
     try {
       const getResponse = await Medical.get(`/clinics`, {
         params: data

@@ -1,13 +1,15 @@
 import {
   GET_CLINIC,
   GET_APPOINTMENTS,
-  GET_FILTERED_CLINICS
-} from '../actions/';
+  GET_FILTERED_CLINICS,
+  GET_FEATURED_CLINICS
+} from "../actions/";
 
 const initialState = {
   currentClinic: null,
   appointments: [],
-  filteredClinics: []
+  filteredClinics: [],
+  featuredClinics: []
 };
 
 export default function(state = initialState, action) {
@@ -17,6 +19,12 @@ export default function(state = initialState, action) {
         ...state,
         currentClinic: action.payload
       };
+    case GET_FEATURED_CLINICS: {
+      return {
+        ...state,
+        featuredClinics: action.payload
+      };
+    }
     case GET_APPOINTMENTS:
       return {
         ...state,

@@ -7,25 +7,24 @@ import DatePicker from "./../core/DatePicker";
 import { getClinics } from "./../../actions/clinicActions";
 class SearchClinicForm extends Component {
   state = {
-    SelectedPlace: null,
-    SelectedSpecialty: null,
-    startDate: null,
-    endDate: null
+    selectedPlace: null,
+    selectedSpecialty: null,
+    selectedDay: null
   };
   handlePlacesAutoComplete = places => {
-    this.setState({ SelectedPlace: places });
+    this.setState({ selectedPlace: places });
   };
   handleSpecialtiesAutoComplete = specialties => {
-    this.setState({ SelectedSpecialty: specialties });
+    this.setState({ selectedSpecialty: specialties });
   };
 
-  handleDateSelect = (start, end) => {
-    this.setState({ startDate: start, endDate: end });
+  handleDateSelect = selectedDay => {
+    this.setState({ selectedDay: selectedDay });
   };
   onSearchClick = async () => {
     const { getClinics } = this.props;
-    const { SelectedPlace, SelectedSpecialty } = this.state;
-    await getClinics(SelectedSpecialty, SelectedPlace);
+    const { selectedPlace, selectedSpecialty } = this.state;
+    await getClinics(selectedSpecialty, selectedPlace);
   };
 
   render() {
