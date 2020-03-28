@@ -9,7 +9,6 @@ export default class DatePicker extends Component {
     return (
       <SingleDatePicker
         date={this.state.date} // momentPropTypes.momentObj or null
-        onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
         focused={this.state.focused} // PropTypes.bool
         onDateChange={date => {
           const cleanSelectedDay = date ? date._d : null;

@@ -69,7 +69,7 @@ class Appointment extends Component {
   };
 
   render() {
-    const { clinic } = this.props;
+    //const { clinic } = this.props;
     return (
       <div>
         <Grid.Row>Set Your Appointment</Grid.Row>

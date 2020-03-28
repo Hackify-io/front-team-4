@@ -1,6 +1,6 @@
 //Import Modules
 import React, { Component } from "react";
-import { Menu, Segment, Responsive, Container } from "semantic-ui-react";
+import { Responsive } from "semantic-ui-react";
 import SecondaryNav from './SecondaryNav';
 import PrimaryNav from './PrimaryNav';
 class LayoutNav extends Component {
@@ -15,7 +15,6 @@ class LayoutNav extends Component {
     return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth;
   };
   render() {
-    const { fixed, activeItem } = this.state;
     return (
       <Responsive
         getWidth={this.getWidth}

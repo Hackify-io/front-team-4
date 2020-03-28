@@ -7,7 +7,6 @@ class LayoutFooter extends Component {
   render() {
     const {width} = this.state;
     const textAlign = width <= Responsive.onlyMobile.maxWidth ? 'center' : '';
-    console.log(width, textAlign, Responsive.onlyMobile.maxWidth);
     return (
       <Responsive 
         as={Segment}
