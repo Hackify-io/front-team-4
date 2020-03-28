@@ -1,56 +1,79 @@
 import React from "react";
 import { connect } from "react-redux";
-import Slider from "react-slick";
-import { getFeaturedClinics } from "./../../actions/clinicActions";
 import ClinicWidget from "./ClinicWidget";
-import "./../../../node_modules/slick-carousel/slick/slick.css";
-import "./../../../node_modules/slick-carousel/slick/slick-theme.css";
+import { getFeaturedClinics } from "./../../actions/clinicActions";
+import OwlCarousel from "react-owl-carousel2";
+import "./../common/models/owl.theme.default.css";
+import "./../common/models/style.css";
 class ClinicCarouselWidget extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      itemNo: 3,
+      loop: true,
+
+      rewind: true,
+      center: true,
+      autoplay: true,
+      responsiveClass: "true",
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 3
+        },
+        1000: {
+          items: 5
+        }
+      }
+    };
+  }
+
   async componentDidMount() {
     await this.props.getFeaturedClinics();
   }
   renderCards = () => {
     const { clinic } = this.props;
-    let carouselClinics = [...clinic];
-    const minSize = 5;
-    console.log(clinic.length);
-    if (clinic.length > 0) {
-      for (let i = clinic.length; i <= minSize; i++) {
-        carouselClinics.push(clinic[0]);
-      }
-    }
-    return carouselClinics.map(clinic => (
-      <ClinicWidget
-        name={clinic.name}
-        img={clinic.images[0]}
-        description={clinic.description}
-        //  rate={clinic.rating}
-        //  serviceRate={clinic.serviceRate}
-        //  numReviews={clinic.numReviews}
-        hoursWait={clinic.averageTime.hours}
-        minutesWait={clinic.averageTime.minutes}
-      />
+
+    return clinic.map((clinic, index) => (
+      <div key={index} className="item">
+        <ClinicWidget
+          name={clinic.name}
+          img={clinic.images[0]}
+          description={clinic.description}
+          rate={clinic.rates[0].value}
+          //  serviceRate={clinic.serviceRate}
+          numReviews={clinic.reviews.length}
+          hoursWait={clinic.averageTime.hours}
+          minutesWait={clinic.averageTime.minutes}
+        />
+      </div>
     ));
   };
 
   render() {
-    const settings = {
-      className: "center",
-      centerMode: true,
-      infinite: true,
-      centerPadding: "360px",
-      slidesToShow: 2,
-      speed: 500,
-      dots: true
+    const options = {
+      items: this.state.itemNo,
+      loop: this.state.loop,
+      center: this.state.center,
+      rewind: this.state.rewind,
+      autoplay: this.state.autoplay,
+      responsiveClass: this.state.responsiveClass,
+      responsive: this.state.responsive
     };
 
     return (
       <div>
-        <Slider {...settings}>{this.renderCards()}</Slider>
+        <OwlCarousel ref="car" options={options}>
+          {this.renderCards()}
+        </OwlCarousel>
       </div>
     );
   }
 }
+
 const mapStateToProps = state => {
   return {
     clinic: state.clinic.featuredClinics

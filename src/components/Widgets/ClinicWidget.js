@@ -27,16 +27,16 @@ export default class ClinicWidget extends Component {
               <Icon name="clock outline" />
               {hoursWait}:{minutesWait}
             </Grid.Column>
-            {/* <Grid.Column floated="right" width={6}>
+            <Grid.Column floated="right" width={6}>
               <Grid.Column floated="left">
-                <span className="color">{serviceRate}</span>
+                {/* <span className="color">{serviceRate}</span> */}
                 <br />
                 {numReviews}
               </Grid.Column>
               <Grid.Column floated="right">
                 <Label color="blue">{rate}</Label>
               </Grid.Column>
-            </Grid.Column> */}
+            </Grid.Column>
           </Grid>
         </Card.Content>
       </Card>
