@@ -10,12 +10,10 @@ class ClinicCarouselWidget extends React.Component {
     super(props, context);
 
     this.state = {
-      itemNo: 3,
       loop: true,
-
       rewind: true,
       center: true,
-      autoplay: true,
+      autoplay: false,
       responsiveClass: "true",
       responsive: {
         0: {
@@ -33,11 +31,11 @@ class ClinicCarouselWidget extends React.Component {
 
   async componentDidMount() {
     await this.props.getFeaturedClinics();
+    this.renderCards();
   }
   renderCards = () => {
     const { clinic } = this.props;
-
-    return clinic.map((clinic, index) => (
+    const cards = clinic.map((clinic, index) => (
       <div key={index} className="item">
         <ClinicWidget
           name={clinic.name}
@@ -51,11 +49,12 @@ class ClinicCarouselWidget extends React.Component {
         />
       </div>
     ));
+
+    this.setState({ items: cards });
   };
 
   render() {
     const options = {
-      items: this.state.itemNo,
       loop: this.state.loop,
       center: this.state.center,
       rewind: this.state.rewind,
@@ -67,7 +66,7 @@ class ClinicCarouselWidget extends React.Component {
     return (
       <div>
         <OwlCarousel ref="car" options={options}>
-          {this.renderCards()}
+          {this.state.items}
         </OwlCarousel>
       </div>
     );
