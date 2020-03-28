@@ -2,9 +2,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withFirebase } from './../firebase'
-import { Button, NavItem } from "react-materialize";
+import {Dropdown} from 'semantic-ui-react';
+import AvatarMenuItem from './../Layout/AvatarMenuItem';
 //Import Utils
-import { MAIN_COLOR_FONT } from "./../../utils/colors";
 import { logoutUser } from "../../actions/authActions";
 class LoginUser extends Component {
   onLogoutClick = () => {
@@ -12,21 +12,20 @@ class LoginUser extends Component {
     this.props.firebase.doSignOut();
   };
   render() {
-    const { currentUser } = this.props;
+    const { userAvatar } = this.props;
+    const defaultImage = "https://biblioteca.acropolis.org/wp-content/uploads/2019/12/roble.jpg";
+    const avatar = userAvatar ? userAvatar: defaultImage;
     return (
-      <NavItem>
-        {currentUser}
-        <Button onClick={this.onLogoutClick} className={MAIN_COLOR_FONT}>
-          Logout
-        </Button>
-      </NavItem>
+      <AvatarMenuItem image={avatar}>
+        <Dropdown.Item onClick={this.onLogoutClick}>Logout</Dropdown.Item>
+      </AvatarMenuItem>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.auth.user.name
+    userAvatar: state.auth.user.data.avatar
   };
 };
 export default withFirebase(connect(mapStateToProps, { logoutUser })(LoginUser));

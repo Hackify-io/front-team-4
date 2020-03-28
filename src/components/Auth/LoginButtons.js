@@ -1,11 +1,9 @@
 //Import Modules
-import React, { Component } from 'react';
-import { NavItem, Button, Col, Row } from 'react-materialize';
+import React, { Component, Fragment } from 'react';
+import { Menu } from 'semantic-ui-react';
 import history from './../../history';
 import { LOGIN_URL, REGISTER_URL } from '../../routes';
 
-//Import Utils
-import { MAIN_COLOR_FONT } from './../../utils/colors';
 class LoginButtons extends Component {
   handleLogin() {
     history.push(LOGIN_URL);
@@ -17,20 +15,21 @@ class LoginButtons extends Component {
 
   render() {
     return (
-      <NavItem>
-        <Row>
-          <Col s={5}>
-            <Button className={MAIN_COLOR_FONT} onClick={this.handleLogin}>
-              Login
-            </Button>
-          </Col>
-          <Col s={5}>
-            <Button className={MAIN_COLOR_FONT} onClick={this.handleOnRegister}>
-              Register
-            </Button>
-          </Col>
-        </Row>
-      </NavItem>
+      <Fragment>
+        <Menu.Item
+          name='signin'
+          onClick={this.handleLogin}
+          >
+            Sign In
+        </Menu.Item>
+        <Menu.Item
+          name='signup'
+          onClick={this.handleOnRegister}
+          >
+            Register
+        </Menu.Item>
+      </Fragment>
+      
     );
   }
 }
