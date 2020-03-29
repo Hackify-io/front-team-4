@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import ClinicWidget from "./ClinicWidget";
+import { Container } from 'semantic-ui-react';
 import { getFeaturedClinics } from "./../../actions/clinicActions";
 import OwlCarousel from "react-owl-carousel2";
 import "./../common/models/owl.theme.default.css";
@@ -10,6 +11,7 @@ class ClinicCarouselWidget extends React.Component {
     super(props, context);
 
     this.state = {
+      items:[],
       loop: true,
       rewind: true,
       center: true,
@@ -19,11 +21,8 @@ class ClinicCarouselWidget extends React.Component {
         0: {
           items: 1
         },
-        600: {
+        780: {
           items: 3
-        },
-        1000: {
-          items: 5
         }
       }
     };
@@ -36,8 +35,8 @@ class ClinicCarouselWidget extends React.Component {
   renderCards = () => {
     const { clinic } = this.props;
     const cards = clinic.map((clinic, index) => (
-      <div key={index} className="item">
         <ClinicWidget
+          key={index}
           name={clinic.name}
           img={clinic.images[0]}
           description={clinic.description}
@@ -47,7 +46,6 @@ class ClinicCarouselWidget extends React.Component {
           hoursWait={clinic.averageTime.hours}
           minutesWait={clinic.averageTime.minutes}
         />
-      </div>
     ));
 
     this.setState({ items: cards });
@@ -62,13 +60,13 @@ class ClinicCarouselWidget extends React.Component {
       responsiveClass: this.state.responsiveClass,
       responsive: this.state.responsive
     };
-
+    const { items } = this.state; 
     return (
-      <div>
+      <Container>
         <OwlCarousel ref="car" options={options}>
-          {this.state.items}
+          {items}
         </OwlCarousel>
-      </div>
+      </Container>
     );
   }
 }

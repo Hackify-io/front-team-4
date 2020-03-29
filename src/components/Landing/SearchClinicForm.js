@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Form, Button, Segment } from "semantic-ui-react";
 import PlacesAutoComplete from "./../common/Inputs/AutoCompletes/PlacesAutoComplete";
 import SpecialtyAutoComplete from "./../common/Inputs/AutoCompletes/SpecialtyAutoComplete";
-import DatePicker from "./../core/DatePicker";
 import { getClinics } from "./../../actions/clinicActions";
 class SearchClinicForm extends Component {
   state = {
@@ -32,23 +31,20 @@ class SearchClinicForm extends Component {
     return (
       <Segment>
         <Form>
-          <Form.Group>
+          <Form.Field>
             <PlacesAutoComplete
               places={places}
               onPlacesAutoComplete={this.handlePlacesAutoComplete}
             />
-          </Form.Group>
-          <Form.Group>
+          </Form.Field>
+          <Form.Field>
             <SpecialtyAutoComplete
               specialties={specialties}
               onSpecialtyAutoComplete={this.handleSpecialtiesAutoComplete}
             />
-          </Form.Group>
-          <Form.Group>
-            <DatePicker onDateSelect={this.handleDateSelect} />
-          </Form.Group>
-          <Form.Field control={Button} onClick={this.onSearchClick}>
-            Submit
+          </Form.Field>
+          <Form.Field control={Button} primary onClick={this.onSearchClick}>
+            Search
           </Form.Field>
         </Form>
       </Segment>

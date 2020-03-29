@@ -2,9 +2,10 @@ import React, { Component, Fragment } from 'react'
 import { Image, Dropdown } from 'semantic-ui-react';
 class AvatarMenuItem extends Component {
     render() {
-        const {image} = this.props;
+        const {image, displayName} = this.props;
         return (
-            <Fragment>              
+            <Fragment>
+                {displayName}              
                 <Dropdown item trigger={<Image src={image} avatar />}>
                     <Dropdown.Menu>
                         {this.props.children}

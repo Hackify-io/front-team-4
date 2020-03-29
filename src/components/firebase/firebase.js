@@ -45,7 +45,7 @@ class Firebase {
   
   onAuthUserListener = (next, fallback) =>
     this.auth.onAuthStateChanged(authUser => {      
-      if (authUser) {;
+      if (authUser) {
         next(authUser);
       } else {
         fallback();

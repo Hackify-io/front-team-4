@@ -1,7 +1,6 @@
 //Import Modules
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { Container } from "semantic-ui-react";
 //Import Services
 import { getProcedures } from "./../actions/procedureActions";
 import { getPlaces } from "./../actions/placeActions";
@@ -10,7 +9,6 @@ import { getClinics } from "./../actions/clinicActions";
 import Section from "./common/Section";
 //import FeatureSlider from './FeatureSlider';
 import ClinicCarouselWidget from "././Widgets/ClinicCarouselWidget";
-import ClinicList from "./ClinicList";
 //import Widgets
 import RenderSpecialtyWidget from "./Widgets/RenderSpecialtyWidget";
 import SearchClinic from "./Landing/SearchClinic";
@@ -26,24 +24,16 @@ class Landing extends Component {
     await this.props.getClinics(procedure, place.place);
   };
   render() {
-    const { filteredClinics } = this.props;
     return (
       <Fragment>
         <Section name="new-form">
           <SearchClinic />
         </Section>
-        <Container name="slider">
+        <Section name="clinic-carousel">
           <ClinicCarouselWidget />
-        </Container>
-        <Section name="specialty-Widgets">
-          <RenderSpecialtyWidget numberOfColumns={4} />
         </Section>
         <Section name="specialty-Widgets">
           <RenderSpecialtyWidget numberOfColumns={4} />
-        </Section>
-
-        <Section name="clinic-List">
-          <ClinicList clinics={filteredClinics} />
         </Section>
       </Fragment>
     );

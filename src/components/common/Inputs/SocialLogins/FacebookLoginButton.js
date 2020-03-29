@@ -4,6 +4,7 @@ import { withFirebase } from './../../../firebase/';
 
 class FacebookLoginButton extends Component {
     buttonClickHandler = () => {
+        console.log('Facebook Login Starting')
         this.props.firebase.doSignInWithFacebook();
     }
     render() {

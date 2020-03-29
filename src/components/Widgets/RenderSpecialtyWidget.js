@@ -8,6 +8,7 @@ class RenderSpecialtyWidget extends Component {
     const data = this.props[model];
     return data.map(specialty => (
       <SpecialtyWidget
+        key={specialty.specialty._id}
         img={specialty.specialty.imageUrl}
         specialty={specialty.specialty.name}
       />

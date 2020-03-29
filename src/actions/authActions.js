@@ -29,12 +29,18 @@ export const loginUser = loginData => async dispatch => {
 };
 
 export const partialSocialLogin = authUser => async dispatch => {
-  const {uid, displayName, email} = authUser;
+  const {uid, displayName, email, photoURL} = authUser;
   const user = {
     id: uid,
     role: 'PartialUser',
+    email:email,
     name: displayName,
-    lastname: email
+    data: {
+      id:uid,
+      name: displayName,
+      lastname: displayName,
+      avatar: photoURL
+    }
   }
   dispatch(setCurrentUser(user));
 }

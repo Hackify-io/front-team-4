@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Container, Segment, Grid, List, Header, Input, Icon, Responsive } from 'semantic-ui-react';
+import { Container, Segment, Grid, List, Header, Input, Icon, Responsive, Button } from 'semantic-ui-react';
 
 class LayoutFooter extends Component {
   state = {};
   handleOnUpdate = (e, {width}) => this.setState({width});
   render() {
     const {width} = this.state;
-    const textAlign = width <= Responsive.onlyMobile.maxWidth ? 'center' : '';
+    const textAlign = width <= Responsive.onlyMobile.maxWidth ? 'center' : 'justified';
     return (
       <Responsive 
         as={Segment}
@@ -53,11 +53,7 @@ class LayoutFooter extends Component {
                 </List>
               <Header inverted as='h4' content='Newsletter' />
               <Input
-                action={{
-                  color: 'teal',
-                  content: 'Submit',
-                }}
-                actionPosition='right'
+                action={<Button primary>Submit</Button>}
                 placeholder='Your email'
               />
               </Grid.Column>
