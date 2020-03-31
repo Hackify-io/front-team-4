@@ -11,6 +11,8 @@ import Section from "./common/Section";
 import ClinicCarouselWidget from "././Widgets/ClinicCarouselWidget";
 //import Widgets
 import RenderSpecialtyWidget from "./Widgets/RenderSpecialtyWidget";
+import RenderDoctorWidget from "./Widgets/RenderDoctorWidget";
+import RenderEventWidget from "./Widgets/RenderEventWidget";
 import SearchClinic from "./Landing/SearchClinic";
 
 //Import Utils
@@ -32,8 +34,14 @@ class Landing extends Component {
         <Section name="clinic-carousel">
           <ClinicCarouselWidget />
         </Section>
+        <Section name="doctor-Widgets">
+          <RenderDoctorWidget numberOfColumns={4} />
+        </Section>
         <Section name="specialty-Widgets">
           <RenderSpecialtyWidget numberOfColumns={4} />
+        </Section>
+        <Section name="event-Widgets">
+          <RenderEventWidget numberOfColumns={4} />
         </Section>
       </Fragment>
     );
