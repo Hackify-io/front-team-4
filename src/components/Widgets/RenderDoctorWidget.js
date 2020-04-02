@@ -26,9 +26,11 @@ class RenderDoctorWidget extends Component {
     );
   }
 }
-//Conectarlo al store para que tome la data de los doctores
+
 const mapStateToProps = state => {
-  return {};
+  return {
+    doctors: state.doctors.doctors
+  };
 };
 
 export default connect(mapStateToProps, {})(RenderDoctorWidget);

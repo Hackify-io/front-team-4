@@ -13,3 +13,9 @@ export const GET_FILTERED_CLINICS = "GET_FILTERED_CLINICS";
 export const GET_APPOINTMENTS = "GET_APPOINTMENTS";
 export const UPDATE_CLINIC = "UPDATE_CLINIC";
 export const GET_FEATURED_CLINICS = "GET_FEATURED_CLINICS";
+
+//Doctor Actions
+export const GET_DOCTORS = "GET_DOCTORS";
+
+//Event Actions
+export const GET_EVENTS = "GET_EVENTS";
