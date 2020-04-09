@@ -1,18 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Container, Card } from "semantic-ui-react";
+import { getFeaturedDoctors } from "./../../actions/doctorActions";
 import DoctorWidget from "./DoctorWidget";
 class RenderDoctorWidget extends Component {
+  async componentDidMount() {
+    await this.props.getFeaturedDoctors();
+  }
   renderCards = () => {
-    const data = this.props;
-    console.log(data);
-    // return data.map(specialty => (
-    //   <DoctorWidget
-    //     key={specialty.specialty._id}
-    //     img={specialty.specialty.imageUrl}
-    //     specialty={specialty.specialty.name}
-    //   />
-    // ));
+    const data = this.props.doctors;
+
+    let cards = [];
+    cards = data
+      ? data.map(doctor => {
+          return (
+            <DoctorWidget
+              img={doctor.pic}
+              name={doctor.name}
+              resume={doctor.degree}
+              experience={doctor.expertise}
+              location={"Sidney"}
+            />
+          );
+        })
+      : null;
+    return cards;
   };
 
   render() {
@@ -29,8 +41,10 @@ class RenderDoctorWidget extends Component {
 
 const mapStateToProps = state => {
   return {
-    doctors: state.doctors.doctors
+    doctors: state.doctors.featuredDoctors
   };
 };
 
-export default connect(mapStateToProps, {})(RenderDoctorWidget);
+export default connect(mapStateToProps, { getFeaturedDoctors })(
+  RenderDoctorWidget
+);

@@ -4,6 +4,7 @@ import placeReducer from "./placeReducer";
 import procedureReducer from "./procedureReducer";
 import clinicReducer from "./clinicReducer";
 import doctorReducer from "./doctorReducer";
+import eventReducer from "./eventReducer";
 import { reducer as formReducer } from "redux-form";
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
   procedure: procedureReducer,
   clinic: clinicReducer,
   form: formReducer,
-  doctors: doctorReducer
+  doctors: doctorReducer,
+  events: eventReducer
 });

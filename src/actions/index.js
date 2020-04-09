@@ -16,6 +16,7 @@ export const GET_FEATURED_CLINICS = "GET_FEATURED_CLINICS";
 
 //Doctor Actions
 export const GET_DOCTORS = "GET_DOCTORS";
+export const GET_FEATURED_DOCTORS = "GET_FEATURED_DOCTORS";
 
 //Event Actions
-export const GET_EVENTS = "GET_EVENTS";
+export const GET_RECENT_EVENTS = "GET_RECENT_EVENTS";

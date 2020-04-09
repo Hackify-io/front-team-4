@@ -1,8 +1,9 @@
 //Import Modules
 import React, { Component } from "react";
-import { Responsive } from "semantic-ui-react";
-import SecondaryNav from './SecondaryNav';
-import PrimaryNav from './PrimaryNav';
+import { Responsive, Icon, Button, Image } from "semantic-ui-react";
+import SecondaryNav from "./SecondaryNav";
+import PrimaryNav from "./PrimaryNav";
+import ResponsiveNav from "./ResponsiveNav";
 class LayoutNav extends Component {
   state = { fixed: true, activeItem: "home" };
 
@@ -16,13 +17,18 @@ class LayoutNav extends Component {
   };
   render() {
     return (
-      <Responsive
-        getWidth={this.getWidth}
-        minWidth={Responsive.onlyTablet.minWidth}
-      >
-        <PrimaryNav attached="top"/>
-        <SecondaryNav attached="bottom"/>
-      </Responsive>
+      <div>
+        <Responsive
+          getWidth={this.getWidth}
+          minWidth={Responsive.onlyTablet.minWidth}
+        >
+          <PrimaryNav attached="top" />
+          <SecondaryNav attached="bottom" />
+        </Responsive>
+        <Responsive maxWidth={Responsive.onlyTablet.minWidth}>
+          <ResponsiveNav />
+        </Responsive>
+      </div>
     );
   }
 }
