@@ -5,7 +5,7 @@ class ProcedureService {
     try {
       const proceduresResponse = await Medical.get("/specialties");
       if (proceduresResponse.data.isSuccess) {
-        return proceduresResponse.data.result;
+        return proceduresResponse.data.result.docs;
       }
       return null;
     } catch (err) {

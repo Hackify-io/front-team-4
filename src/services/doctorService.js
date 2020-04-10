@@ -4,7 +4,7 @@ class DoctorService {
     try {
       const doctorResponse = await Medical.get("/doctors");
       if (doctorResponse.data.isSuccess) {
-        return doctorResponse.data.result;
+        return doctorResponse.data.result.docs;
       }
       return null;
     } catch (err) {

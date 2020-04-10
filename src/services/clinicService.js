@@ -60,7 +60,7 @@ class ClinicService {
     const procedures = [
       { name: "Surgery", icon: "star" },
       { name: "Chemotaxis", icon: "star" },
-      { name: "Thooth Surgery", icon: "star" }
+      { name: "Thooth Surgery", icon: "star" },
     ];
     const dummyClinic = {
       id: id,
@@ -71,15 +71,15 @@ class ClinicService {
         {
           username: "Jhonn",
           rate: 4,
-          message: "This Clinic is clean"
+          message: "This Clinic is clean",
         },
         {
           username: "Jhonn",
           rate: 3,
-          message: "This Clinic is clean"
-        }
+          message: "This Clinic is clean",
+        },
       ],
-      procedures: procedures
+      procedures: procedures,
     };
     return dummyClinic;
   }
@@ -89,14 +89,14 @@ class ClinicService {
     data = {
       ...data,
       ...(specialty ? { specialty: specialty.id } : {}),
-      ...(place ? { location: place.id } : {})
+      ...(place ? { location: place.id } : {}),
     };
 
     try {
       const getResponse = await Medical.get(`/clinics`, {
-        params: data
+        params: data,
       });
-      const clinic = getResponse.data.result;
+      const clinic = getResponse.data.result.docs;
       return clinic;
     } catch (err) {
       return null;
@@ -135,7 +135,7 @@ class ClinicService {
       //Get CurrentClinic
       const getResponse = await Medical.get(`/clinics/${clinicId}`);
       let clinic = getResponse.data.result;
-      if (clinic.procedures.find(p => p === procedureId)) {
+      if (clinic.procedures.find((p) => p === procedureId)) {
         return clinic;
       }
       //Add Procedure to Clinic
@@ -152,7 +152,9 @@ class ClinicService {
     try {
       const getResponse = await Medical.get(`/clinics/${clinicId}`);
       let clinic = getResponse.data.result;
-      clinic.procedures = clinic.procedures.filter(p => p._id !== procedureId);
+      clinic.procedures = clinic.procedures.filter(
+        (p) => p._id !== procedureId
+      );
       await Medical.put(`/clinics/${clinicId}`, clinic);
       const updatedResponse = await Medical.get(`/clinics/${clinicId}`);
       return updatedResponse.data.result;

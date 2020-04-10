@@ -16,9 +16,7 @@ class RenderEventWidget extends Component {
             <EventWidget
               title={event.title}
               date={event.date}
-              img={
-                "https://image.shutterstock.com/image-vector/picture-vector-icon-no-image-260nw-1350441335.jpg"
-              }
+              img={event.displayImage}
               description={event.description}
             />
           );
