@@ -1,0 +1,5 @@
+.ui.card.noBorder,
+.ui.cards > .card.noBorder {
+  box-shadow: none;
+  background: #f3f3f3;
+}

@@ -14,6 +14,7 @@ import RenderSpecialtyWidget from "./Widgets/RenderSpecialtyWidget";
 import RenderDoctorWidget from "./Widgets/RenderDoctorWidget";
 import RenderEventWidget from "./Widgets/RenderEventWidget";
 import SearchClinic from "./Landing/SearchClinic";
+import PlaceWidget from "./Widgets/PlaceWidget";
 
 //Import Utils
 class Landing extends Component {
@@ -40,6 +41,7 @@ class Landing extends Component {
         <Section name="specialty-Widgets">
           <RenderSpecialtyWidget numberOfColumns={4} />
         </Section>
+        <Section name="places-widgets">{/* Aqui va las ciudades */}</Section>
         <Section name="event-Widgets">
           <RenderEventWidget numberOfColumns={4} />
         </Section>
