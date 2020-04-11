@@ -14,24 +14,33 @@ export const loginUser = loginData => async dispatch => {
     setAuthToken(token);
     // Decode Token to get Data
     const decoded = jwt_decode(token);
-    const { id, role, email } = decoded;
+    //Set User and isAuthenticated
+    const { email, id, role, userData } = decoded;
+    console.log(userData);
     const user = {
-      id: id,
-      role: role,
-      name: email,
-      lastname: email
+      id,
+      role,
+      email,
+      name: userData.name,
+      data: userData
     };
     dispatch(setCurrentUser(user));
   }
 };
 
 export const partialSocialLogin = authUser => async dispatch => {
-  const {uid, displayName, email} = authUser;
+  const {uid, displayName, email, photoURL} = authUser;
   const user = {
     id: uid,
     role: 'PartialUser',
+    email:email,
     name: displayName,
-    lastname: email
+    data: {
+      id:uid,
+      name: displayName,
+      lastname: displayName,
+      avatar: photoURL
+    }
   }
   dispatch(setCurrentUser(user));
 }

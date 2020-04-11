@@ -5,10 +5,10 @@ import {
   getClinic,
   submitAppointment
 } from './../actions/clinicActions';
-import { DatePicker, TimePicker, Row, Col, Button } from 'react-materialize';
+import { Grid, Button } from 'semantic-ui-react';
 import history from './../history';
 import { CLINICS_URL } from './../routes';
-import ProceduresAutocomplete from './AutoCompletes/ProceduresAutocomplete';
+//import SpecialtyAutoComplete from './common/Inputs/AutoCompletes/SpecialtyAutoComplete';
 
 class Appointment extends Component {
   state = {
@@ -69,11 +69,11 @@ class Appointment extends Component {
   };
 
   render() {
-    const { clinic } = this.props;
+    //const { clinic } = this.props;
     return (
       <div>
-        <Row>Set Your Appointment</Row>
-        <Row>
+        <Grid.Row>Set Your Appointment</Grid.Row>
+        {/* <Row>
           <ProceduresAutocomplete
             proceduresDefault={clinic ? clinic.procedures : null}
             onAutocomplete={this.onProcedureAutoComplete}
@@ -187,12 +187,12 @@ class Appointment extends Component {
               />
             </Col>
           </Row>
-        </Row>
-        <Row>
+        </Row>*/}
+        <Grid.Row> 
           <Button onClick={this.onAppointmentSubmit}>
             Schedule Appointment
           </Button>
-        </Row>
+        </Grid.Row>
       </div>
     );
   }

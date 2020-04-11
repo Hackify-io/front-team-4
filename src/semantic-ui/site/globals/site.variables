@@ -1,5 +1,16 @@
 /*******************************
      User Global Variables
 *******************************/
-/* @primaryColor: #002f4e; */
-@pageBackground: #eff0f1;
+@primaryColor: #54afa8;
+
+/*-------------------
+      Site Colors
+--------------------*/
+
+/*---  Colors  ---*/
+@black            : #525b5b;
+@teal: #13777a;
+@grey: #f3f3f3;
+
+/*--- Colored Backgrounds ---*/
+@tealBackground   : #13777a;

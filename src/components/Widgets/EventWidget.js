@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Card, Image, Icon, Grid } from "semantic-ui-react";
 export default class EventsCard extends Component {
   render() {
-    const { title, date, imgEvent, description } = this.props;
+    const { title, date, img, description } = this.props;
     return (
       <Card>
-        <Image src={imgEvent} wrapped ui={false} />
+        <Image src={img} wrapped ui={false} />
         <Card.Content>
           <Card.Header>
             <a href="#">{title}</a>

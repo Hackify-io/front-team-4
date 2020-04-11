@@ -3,29 +3,27 @@ import { connect } from "react-redux";
 import { Form, Button, Segment } from "semantic-ui-react";
 import PlacesAutoComplete from "./../common/Inputs/AutoCompletes/PlacesAutoComplete";
 import SpecialtyAutoComplete from "./../common/Inputs/AutoCompletes/SpecialtyAutoComplete";
-import DatePicker from "./../core/DatePicker";
 import { getClinics } from "./../../actions/clinicActions";
 class SearchClinicForm extends Component {
   state = {
-    SelectedPlace: null,
-    SelectedSpecialty: null,
-    startDate: null,
-    endDate: null
+    selectedPlace: null,
+    selectedSpecialty: null,
+    selectedDay: null
   };
   handlePlacesAutoComplete = places => {
-    this.setState({ SelectedPlace: places });
+    this.setState({ selectedPlace: places });
   };
   handleSpecialtiesAutoComplete = specialties => {
-    this.setState({ SelectedSpecialty: specialties });
+    this.setState({ selectedSpecialty: specialties });
   };
 
-  handleDateSelect = (start, end) => {
-    this.setState({ startDate: start, endDate: end });
+  handleDateSelect = selectedDay => {
+    this.setState({ selectedDay: selectedDay });
   };
   onSearchClick = async () => {
     const { getClinics } = this.props;
-    const { SelectedPlace, SelectedSpecialty } = this.state;
-    await getClinics(SelectedSpecialty, SelectedPlace);
+    const { selectedPlace, selectedSpecialty } = this.state;
+    await getClinics(selectedSpecialty, selectedPlace);
   };
 
   render() {
@@ -33,23 +31,20 @@ class SearchClinicForm extends Component {
     return (
       <Segment>
         <Form>
-          <Form.Group>
+          <Form.Field>
             <PlacesAutoComplete
               places={places}
               onPlacesAutoComplete={this.handlePlacesAutoComplete}
             />
-          </Form.Group>
-          <Form.Group>
+          </Form.Field>
+          <Form.Field>
             <SpecialtyAutoComplete
               specialties={specialties}
               onSpecialtyAutoComplete={this.handleSpecialtiesAutoComplete}
             />
-          </Form.Group>
-          <Form.Group>
-            <DatePicker onDateSelect={this.handleDateSelect} />
-          </Form.Group>
-          <Form.Field control={Button} onClick={this.onSearchClick}>
-            Submit
+          </Form.Field>
+          <Form.Field control={Button} primary onClick={this.onSearchClick}>
+            Search
           </Form.Field>
         </Form>
       </Segment>

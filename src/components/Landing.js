@@ -1,7 +1,6 @@
 //Import Modules
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-
 //Import Services
 import { getProcedures } from "./../actions/procedureActions";
 import { getPlaces } from "./../actions/placeActions";
@@ -9,15 +8,15 @@ import { getClinics } from "./../actions/clinicActions";
 //Import Components
 import Section from "./common/Section";
 //import FeatureSlider from './FeatureSlider';
-import SearchFields from "./SearchFields";
-import ClinicList from "./ClinicList";
-import SearchClinicForm from "./Landing/SearchClinicForm";
+import ClinicCarouselWidget from "././Widgets/ClinicCarouselWidget";
 //import Widgets
 import RenderSpecialtyWidget from "./Widgets/RenderSpecialtyWidget";
-import SearchClinic from './Landing/SearchClinic';
+import RenderDoctorWidget from "./Widgets/RenderDoctorWidget";
+import RenderEventWidget from "./Widgets/RenderEventWidget";
+import SearchClinic from "./Landing/SearchClinic";
+import PlaceWidget from "./Widgets/PlaceWidget";
 
 //Import Utils
-import { MAIN_COLOR_CLASS } from "./../utils/colors";
 class Landing extends Component {
   async componentDidMount() {
     await this.props.getPlaces();
@@ -28,25 +27,23 @@ class Landing extends Component {
     await this.props.getClinics(procedure, place.place);
   };
   render() {
-    const { filteredClinics } = this.props;
     return (
       <Fragment>
-        <Section name="slider">{/* <FeatureSlider /> */}</Section>
-        <Section name="search" className={MAIN_COLOR_CLASS}>
-          <SearchFields onSearchClick={this.onSearchSubmit} />
+        <Section name="new-form">
+          <SearchClinic />
         </Section>
-
-        <Section name="clinic-Form">
-          <SearchClinicForm />
+        <Section name="clinic-carousel">
+          <ClinicCarouselWidget />
         </Section>
-       <Section name="specialty-Widgets">
+        <Section name="doctor-Widgets">
+          <RenderDoctorWidget numberOfColumns={4} />
+        </Section>
+        <Section name="specialty-Widgets">
           <RenderSpecialtyWidget numberOfColumns={4} />
-        <Section/>
-      <Section name="new-form"/>
-          <SearchClinic/>
         </Section>
-        <Section name="clinic-List">
-          <ClinicList clinics={filteredClinics} />
+        <Section name="places-widgets">{/* Aqui va las ciudades */}</Section>
+        <Section name="event-Widgets">
+          <RenderEventWidget numberOfColumns={4} />
         </Section>
       </Fragment>
     );

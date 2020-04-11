@@ -1,9 +1,6 @@
 //Import Modules
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-// eslint-disable-next-line
-import M from 'materialize-css';
-import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
 //Import Config Files
 import history from './../history';

@@ -1,3 +1,15 @@
 /*******************************
     User Variable Overrides
 *******************************/
+@itemColor: @teal;
+@itemDescriptionColor: @red;
+@messageColor: @blue;
+
+@selectionTextColor: @orange;
+@inlineTextColor: @grey;
+@defaultTextColor: @teal;
+@activeItemColor: @teal;
+
+/**Dropdown Selection background Color **/
+@menuBackground: @grey;
+@itemColor: @teal;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SpecialtyWidget from "./SpecialtyWidget";
-import { Card } from "semantic-ui-react";
+import { Container, Card } from "semantic-ui-react";
 import { connect } from "react-redux";
 class RenderSpecialtyWidget extends Component {
   renderCards = () => {
@@ -8,6 +8,7 @@ class RenderSpecialtyWidget extends Component {
     const data = this.props[model];
     return data.map(specialty => (
       <SpecialtyWidget
+        key={specialty.specialty._id}
         img={specialty.specialty.imageUrl}
         specialty={specialty.specialty.name}
       />
@@ -17,11 +18,11 @@ class RenderSpecialtyWidget extends Component {
   render() {
     const { numberOfColumns } = this.props;
     return (
-      <div>
+      <Container>
         <Card.Group stackable itemsPerRow={numberOfColumns}>
           {this.renderCards()}
         </Card.Group>
-      </div>
+      </Container>
     );
   }
 }

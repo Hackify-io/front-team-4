@@ -26,6 +26,7 @@ class Main extends Component {
   componentWillMount() {
     //Check For Token
     if (localStorage.jwt) {
+      console.log('main');
       //Decode the Token and get Info
       const decoded = jwt_decode(localStorage.jwt);
       const { role } = decoded;
@@ -39,12 +40,14 @@ class Main extends Component {
         setAuthToken(localStorage.jwt);
 
         //Set User and isAuthenticated
-        const { email, id, role } = decoded;
+        const { email, id, role, userData } = decoded;
+        console.log(userData);
         const user = {
           id,
           role,
           email,
-          name: email
+          name: userData.name,
+          data: userData
         };
         store.dispatch(setCurrentUser(user));
       }

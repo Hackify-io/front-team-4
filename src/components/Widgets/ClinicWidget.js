@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 import { Card, Icon, Image, Grid, Label } from "semantic-ui-react";
 export default class ClinicWidget extends Component {
   render() {
@@ -7,16 +8,18 @@ export default class ClinicWidget extends Component {
       img,
       description,
       rate,
-      serviceRate,
+      //serviceRate,
       numReviews,
-      timeOfWait
+      hoursWait,
+      minutesWait,
+      className
     } = this.props;
     return (
-      <Card className="widthCard">
+      <Card className={className}>
         <Image src={img} wrapped ui={false} />
         <Card.Content>
           <Card.Header>
-            <a href="#">{name}</a>
+            <Link to="#">{name}</Link>
           </Card.Header>
           <Card.Meta>{description}</Card.Meta>
         </Card.Content>
@@ -24,11 +27,11 @@ export default class ClinicWidget extends Component {
           <Grid divided="vertically">
             <Grid.Column floated="left" width={6}>
               <Icon name="clock outline" />
-              {timeOfWait}
+              {hoursWait}:{minutesWait}
             </Grid.Column>
             <Grid.Column floated="right" width={6}>
               <Grid.Column floated="left">
-                <span className="color">{serviceRate}</span>
+                {/* <span className="color">{serviceRate}</span> */}
                 <br />
                 {numReviews}
               </Grid.Column>
