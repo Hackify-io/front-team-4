@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getPlaces } from "./../../actions/placeActions";
-import { Image } from "semantic-ui-react";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getPlaces } from './../../actions/placeActions';
+import { Image } from 'semantic-ui-react';
 class PlaceWidget extends Component {
   async componentDidMount() {
     await this.props.getPlaces();
@@ -12,9 +12,9 @@ class PlaceWidget extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    places: state.place.places
+    places: state.place.places,
   };
 };
 export default connect(mapStateToProps, { getPlaces })(PlaceWidget);

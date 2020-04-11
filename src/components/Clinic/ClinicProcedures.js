@@ -3,7 +3,7 @@ import { Icon, Row, Col } from 'react-materialize';
 class ClinicProcedures extends Component {
   renderProcedures = () => {
     const { procedures } = this.props;
-    return procedures.map(p => {
+    return procedures.map((p) => {
       return (
         <Col key={p.name} s={4}>
           <Row className="center-align">

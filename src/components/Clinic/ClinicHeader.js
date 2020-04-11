@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Row, Col } from "react-materialize";
-import Rate from "./Rate";
+import React, { Component } from 'react';
+import { Row, Col } from 'react-materialize';
+import Rate from './Rate';
 class ClinicHeader extends Component {
   render() {
     const { name, rate } = this.props;

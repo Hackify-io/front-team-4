@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Row, Col, Preloader } from "react-materialize";
+import React, { Component } from 'react';
+import { Row, Col, Preloader } from 'react-materialize';
 class Spinner extends Component {
   render() {
     return (

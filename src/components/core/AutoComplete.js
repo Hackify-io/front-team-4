@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Search } from "semantic-ui-react";
+import React, { Component } from 'react';
+import { Search } from 'semantic-ui-react';
 
 const initialState = {
   isLoading: false,
   data: null,
   results: [],
-  value: "",
-  field: ""
+  value: '',
+  field: '',
 };
 
 export default class AutoComplete extends Component {
@@ -40,22 +40,22 @@ export default class AutoComplete extends Component {
     if (value.length < 1) return this.setState(initialState);
     //Filtramos de la lista de opciones
     const filteredResults = data
-      .filter(e => e[field].toUpperCase().search(value.toUpperCase()) >= 0)
-      .map(r => {
+      .filter((e) => e[field].toUpperCase().search(value.toUpperCase()) >= 0)
+      .map((r) => {
         const result = {
           id: r[model]._id,
-          title: r[field]
+          title: r[field],
         };
         return result;
       });
     //Asignar los datos filtrados al state
     this.setState({
       isLoading: false,
-      results: filteredResults
+      results: filteredResults,
     });
   };
 
-  mapDataToRender = dataElement => {
+  mapDataToRender = (dataElement) => {
     const { resultRender } = this.props;
 
     return React.cloneElement(resultRender, { ...dataElement });
@@ -70,7 +70,7 @@ export default class AutoComplete extends Component {
         onResultSelect={this.handleResultSelect}
         onSearchChange={this.handleSearchChange}
         results={results}
-        resultRenderer={data => this.mapDataToRender(data)}
+        resultRenderer={(data) => this.mapDataToRender(data)}
         value={value}
       />
     );

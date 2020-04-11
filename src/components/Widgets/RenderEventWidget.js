@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { Card } from "semantic-ui-react";
-import { connect } from "react-redux";
-import EventWidget from "./EventWidget";
-import { getRecentEvents } from "../../actions/eventActions";
+import React, { Component } from 'react';
+import { Card } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import EventWidget from './EventWidget';
+import { getRecentEvents } from '../../actions/eventActions';
 class RenderEventWidget extends Component {
   async componentDidMount() {
     await this.props.getRecentEvents();

@@ -1,17 +1,17 @@
 //Import Modules
-import React, { Component } from "react";
-import { Responsive, Icon, Button, Image } from "semantic-ui-react";
-import SecondaryNav from "./SecondaryNav";
-import PrimaryNav from "./PrimaryNav";
-import ResponsiveNav from "./ResponsiveNav";
+import React, { Component } from 'react';
+import { Responsive, Icon, Button, Image } from 'semantic-ui-react';
+import SecondaryNav from './SecondaryNav';
+import PrimaryNav from './PrimaryNav';
+import ResponsiveNav from './ResponsiveNav';
 class LayoutNav extends Component {
-  state = { fixed: true, activeItem: "home" };
+  state = { fixed: true, activeItem: 'home' };
 
   hideFixedMenu = () => this.setState({ fixed: false });
   showFixedMenu = () => this.setState({ fixed: true });
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
   getWidth = () => {
-    const isSSR = typeof window === "undefined";
+    const isSSR = typeof window === 'undefined';
 
     return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth;
   };

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Card, Image, Icon, Grid } from "semantic-ui-react";
+import React, { Component } from 'react';
+import { Card, Image, Icon, Grid } from 'semantic-ui-react';
 export default class EventsCard extends Component {
   render() {
     const { title, date, img, description } = this.props;

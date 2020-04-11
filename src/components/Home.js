@@ -17,12 +17,12 @@ export default class Home extends Component {
             <Row>
               <Col s={6}>
                 <Button as={Link} to="/main" primary>
-                    USER
+                  USER
                 </Button>
               </Col>
               <Col s={6}>
                 <Button as={Link} to="/admin" primary>
-                    CLINIC
+                  CLINIC
                 </Button>
               </Col>
             </Row>

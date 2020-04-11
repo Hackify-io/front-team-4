@@ -9,7 +9,7 @@ import './RegisterClinic.css';
 import RegisterClinicForm from '../../Admin/Auth/RegisterClinicForm';
 
 class Login extends Component {
-  onSubmit = async formValues => {
+  onSubmit = async (formValues) => {
     await this.props.registerClinic(formValues);
     this.props.history.push(ADMIN_MAIN_APP_URL);
   };
@@ -39,11 +39,11 @@ class Login extends Component {
 
 Login.propTypes = {
   registerClinic: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = (state) => ({
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps, { registerClinic })(Login);

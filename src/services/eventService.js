@@ -1,8 +1,8 @@
-import Medical from "./../api/Medical";
+import Medical from './../api/Medical';
 class EventService {
   static async getRecentEvents() {
     try {
-      const eventResponse = await Medical.get("/events");
+      const eventResponse = await Medical.get('/events');
 
       if (eventResponse.data.isSuccess) {
         return eventResponse.data.result.docs;

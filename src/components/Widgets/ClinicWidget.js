@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Link } from 'react-router-dom'
-import { Card, Icon, Image, Grid, Label } from "semantic-ui-react";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Card, Icon, Image, Grid, Label } from 'semantic-ui-react';
 export default class ClinicWidget extends Component {
   render() {
     const {
@@ -12,7 +12,7 @@ export default class ClinicWidget extends Component {
       numReviews,
       hoursWait,
       minutesWait,
-      className
+      className,
     } = this.props;
     return (
       <Card className={className}>

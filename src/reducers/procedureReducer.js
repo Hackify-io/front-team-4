@@ -1,15 +1,15 @@
-import { GET_PROCEDURES } from "../actions/";
+import { GET_PROCEDURES } from '../actions/';
 
 const initialState = {
-  procedures: []
+  procedures: [],
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case GET_PROCEDURES:
       return {
         ...state,
-        procedures: action.payload
+        procedures: action.payload,
       };
     default:
       return state;

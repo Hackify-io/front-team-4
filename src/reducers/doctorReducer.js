@@ -1,9 +1,9 @@
-import { GET_DOCTORS, GET_FEATURED_DOCTORS } from "../actions/index";
+import { GET_DOCTORS, GET_FEATURED_DOCTORS } from '../actions/index';
 
 const initialState = {
-  doctors: []
+  doctors: [],
 };
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case GET_DOCTORS:
       return { ...state, doctors: action.payload };

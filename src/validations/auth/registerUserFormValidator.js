@@ -1,7 +1,7 @@
 import validator from 'validator';
 import { isRequired } from '../is-empty';
 
-export const validateRegisterUserInput = data => {
+export const validateRegisterUserInput = (data) => {
   let errors = {};
 
   data.email = isRequired(data.email);

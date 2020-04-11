@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Menu, Container, Dropdown } from "semantic-ui-react";
+import React, { Component } from 'react';
+import { Menu, Container, Dropdown } from 'semantic-ui-react';
 class ResponsiveNav extends Component {
   state = {};
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
@@ -31,7 +31,7 @@ class ResponsiveNav extends Component {
           </Menu.Menu>
           <Menu.Item
             name="login"
-            active={activeItem === "login"}
+            active={activeItem === 'login'}
             onClick={this.handleItemClick}
           />
         </Container>

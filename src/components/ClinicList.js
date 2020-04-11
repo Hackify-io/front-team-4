@@ -5,7 +5,7 @@ export default class ClinicList extends Component {
   renderClinics = () => {
     const { clinics } = this.props;
     return clinics
-      ? clinics.map(c => {
+      ? clinics.map((c) => {
           return <ClinicCard key={c._id} clinic={c} />;
         })
       : null;
@@ -13,7 +13,9 @@ export default class ClinicList extends Component {
   render() {
     return (
       <Fragment>
-        <Header as='h4' dividing textAlign='center' color="teal">Search Results</Header> 
+        <Header as="h4" dividing textAlign="center" color="teal">
+          Search Results
+        </Header>
         {this.renderClinics()}
       </Fragment>
     );

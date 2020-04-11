@@ -4,7 +4,7 @@ import ClinicService from './../services/clinicService';
 import setAuthToken from './../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
 
-export const loginUser = loginData => async dispatch => {
+export const loginUser = (loginData) => async (dispatch) => {
   let loginResponse = await UserService.login(loginData);
   if (loginResponse) {
     const token = loginResponse;
@@ -22,30 +22,30 @@ export const loginUser = loginData => async dispatch => {
       role,
       email,
       name: userData.name,
-      data: userData
+      data: userData,
     };
     dispatch(setCurrentUser(user));
   }
 };
 
-export const partialSocialLogin = authUser => async dispatch => {
-  const {uid, displayName, email, photoURL} = authUser;
+export const partialSocialLogin = (authUser) => async (dispatch) => {
+  const { uid, displayName, email, photoURL } = authUser;
   const user = {
     id: uid,
     role: 'PartialUser',
-    email:email,
+    email: email,
     name: displayName,
     data: {
-      id:uid,
+      id: uid,
       name: displayName,
       lastname: displayName,
-      avatar: photoURL
-    }
-  }
+      avatar: photoURL,
+    },
+  };
   dispatch(setCurrentUser(user));
-}
+};
 
-export const loginClinic = loginData => async dispatch => {
+export const loginClinic = (loginData) => async (dispatch) => {
   let loginResponse = await ClinicService.login(loginData);
   if (loginResponse) {
     const token = loginResponse;
@@ -61,27 +61,27 @@ export const loginClinic = loginData => async dispatch => {
       clinicId: clinicId,
       role: role,
       name: email,
-      lastname: email
+      lastname: email,
     };
     dispatch(setCurrentUser(user));
   }
 };
 // Set Logged in User
-export const setCurrentUser = user => {
+export const setCurrentUser = (user) => {
   return {
     type: SET_CURRENT_USER,
-    payload: user
+    payload: user,
   };
 };
 
 // Log out user
-export const logoutUser = () => dispatch => {
+export const logoutUser = () => (dispatch) => {
   // Set the Auth State to Initial State
   localStorage.removeItem('jwt');
   dispatch(setCurrentUser({}));
 };
 
-export const registerUser = register => async dispatch => {
+export const registerUser = (register) => async (dispatch) => {
   const registerResponse = await UserService.register(register);
   const newUser = {
     loginId: registerResponse.data.result._id,
@@ -89,18 +89,18 @@ export const registerUser = register => async dispatch => {
     lastname: register.lastname,
     age: register.age,
     gender: register.gender,
-    createdUser: register.firstname
+    createdUser: register.firstname,
   };
   await UserService.create(newUser);
   localStorage.removeItem('jwt');
 };
 
-export const registerClinic = register => async dispatch => {
+export const registerClinic = (register) => async (dispatch) => {
   const registerResponse = await ClinicService.register(register);
   const newClinic = {
     loginId: registerResponse.data.result._id,
     name: register.name,
-    createdUser: register.name
+    createdUser: register.name,
   };
   await ClinicService.create(newClinic);
   localStorage.setItem('jwt', '');

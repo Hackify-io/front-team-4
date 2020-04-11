@@ -1,20 +1,20 @@
 //Import Modules
-import React, { Component, Fragment } from "react";
-import { connect } from "react-redux";
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 //Import Services
-import { getProcedures } from "./../actions/procedureActions";
-import { getPlaces } from "./../actions/placeActions";
-import { getClinics } from "./../actions/clinicActions";
+import { getProcedures } from './../actions/procedureActions';
+import { getPlaces } from './../actions/placeActions';
+import { getClinics } from './../actions/clinicActions';
 //Import Components
-import Section from "./common/Section";
+import Section from './common/Section';
 //import FeatureSlider from './FeatureSlider';
-import ClinicCarouselWidget from "././Widgets/ClinicCarouselWidget";
+import ClinicCarouselWidget from '././Widgets/ClinicCarouselWidget';
 //import Widgets
-import RenderSpecialtyWidget from "./Widgets/RenderSpecialtyWidget";
-import RenderDoctorWidget from "./Widgets/RenderDoctorWidget";
-import RenderEventWidget from "./Widgets/RenderEventWidget";
-import SearchClinic from "./Landing/SearchClinic";
-import PlaceWidget from "./Widgets/PlaceWidget";
+import RenderSpecialtyWidget from './Widgets/RenderSpecialtyWidget';
+import RenderDoctorWidget from './Widgets/RenderDoctorWidget';
+import RenderEventWidget from './Widgets/RenderEventWidget';
+import SearchClinic from './Landing/SearchClinic';
+import PlaceWidget from './Widgets/PlaceWidget';
 
 //Import Utils
 class Landing extends Component {
@@ -50,13 +50,13 @@ class Landing extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    filteredClinics: state.clinic.filteredClinics
+    filteredClinics: state.clinic.filteredClinics,
   };
 };
 export default connect(mapStateToProps, {
   getPlaces,
   getProcedures,
-  getClinics
+  getClinics,
 })(Landing);

@@ -8,7 +8,7 @@ import { MAIN_COLOR_CLASS } from './../../../utils/colors';
 
 import {
   ADMIN_EDIT_CLINIC,
-  ADMIN_APPOINTMENTS_CLINIC
+  ADMIN_APPOINTMENTS_CLINIC,
 } from './../../../routes';
 
 export default class LayoutNav extends Component {
@@ -33,7 +33,7 @@ export default class LayoutNav extends Component {
           onOpenEnd: null,
           onOpenStart: null,
           outDuration: 200,
-          preventScrolling: true
+          preventScrolling: true,
         }}
       >
         <Link to={ADMIN_EDIT_CLINIC}>Edit</Link>

@@ -7,7 +7,7 @@ import { ADMIN_REGISTER_URL } from './../../../routes';
 import { validateLoginClinicInput } from '../../../validations/admin/auth/loginClinicFormValidator';
 
 class LoginClinicForm extends Component {
-  onSubmit = formValues => {
+  onSubmit = (formValues) => {
     this.props.onSubmit(formValues);
   };
 
@@ -78,11 +78,11 @@ class LoginClinicForm extends Component {
   }
 }
 
-const validate = formValues => {
+const validate = (formValues) => {
   return validateLoginClinicInput(formValues);
 };
 
 export default reduxForm({
   form: 'loginClinicForm',
-  validate
+  validate,
 })(LoginClinicForm);

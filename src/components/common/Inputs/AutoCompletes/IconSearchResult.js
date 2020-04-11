@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Icon, Header } from "semantic-ui-react";
+import React, { Component } from 'react';
+import { Icon, Header } from 'semantic-ui-react';
 export default class IconSearchResult extends Component {
   render() {
     const { title, field } = this.props;

@@ -30,7 +30,7 @@ class ClinicAppointmentCard extends Component {
                   </Button>,
                   <Button key={2} className="red" onClick={this.onRejectClick}>
                     Reject
-                  </Button>
+                  </Button>,
                 ]
               : null
           }
@@ -47,7 +47,7 @@ class ClinicAppointmentCard extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {};
 };
 

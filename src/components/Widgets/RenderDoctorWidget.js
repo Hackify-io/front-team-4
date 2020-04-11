@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Container, Card } from "semantic-ui-react";
-import { getFeaturedDoctors } from "./../../actions/doctorActions";
-import DoctorWidget from "./DoctorWidget";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Container, Card } from 'semantic-ui-react';
+import { getFeaturedDoctors } from './../../actions/doctorActions';
+import DoctorWidget from './DoctorWidget';
 class RenderDoctorWidget extends Component {
   async componentDidMount() {
     await this.props.getFeaturedDoctors();
@@ -12,14 +12,14 @@ class RenderDoctorWidget extends Component {
 
     let cards = [];
     cards = data
-      ? data.map(doctor => {
+      ? data.map((doctor) => {
           return (
             <DoctorWidget
               img={doctor.pic}
               name={doctor.name}
               resume={doctor.degree}
               experience={doctor.expertise}
-              location={"Sidney"}
+              location={'Sidney'}
             />
           );
         })
@@ -39,9 +39,9 @@ class RenderDoctorWidget extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    doctors: state.doctors.featuredDoctors
+    doctors: state.doctors.featuredDoctors,
   };
 };
 

@@ -17,7 +17,7 @@ class Clinic extends Component {
   renderClinic = () => {
     const { clinic } = this.props;
     let total = 0;
-    clinic.feedbacks.forEach(f => {
+    clinic.feedbacks.forEach((f) => {
       total = total + f.rate;
     });
     let averageRate = total / clinic.feedbacks.length;
@@ -45,9 +45,9 @@ class Clinic extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    clinic: state.clinic.currentClinic
+    clinic: state.clinic.currentClinic,
   };
 };
 export default connect(mapStateToProps, { getClinic })(Clinic);

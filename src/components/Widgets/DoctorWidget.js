@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Card, Image, Icon } from "semantic-ui-react";
-import "./doctorcard.css";
+import React, { Component } from 'react';
+import { Card, Image, Icon } from 'semantic-ui-react';
+import './doctorcard.css';
 // import "./doctorCard.css";
 export default class DoctorWidget extends Component {
   render() {

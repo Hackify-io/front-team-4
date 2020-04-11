@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 import { Icon } from 'react-materialize';
 
 export default class Rate extends Component {
-  renderCompleteStars = number => {
+  renderCompleteStars = (number) => {
     let stars = [];
     for (let i = 0; i < number; i++) {
       stars.push(<Icon key={`complete-${i}`}>star</Icon>);
     }
     return stars;
   };
-  renderIncompleteStars = number => {
+  renderIncompleteStars = (number) => {
     let stars = [];
     for (let i = 0; i < number; i++) {
       stars.push(<Icon key={`incomplete-${i}`}>star_half</Icon>);
     }
     return stars;
   };
-  renderEmptyStars = number => {
+  renderEmptyStars = (number) => {
     let stars = [];
     for (let i = 0; i < number; i++) {
       stars.push(<Icon key={`empty-${i}`}>star_border</Icon>);

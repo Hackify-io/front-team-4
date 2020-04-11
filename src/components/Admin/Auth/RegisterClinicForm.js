@@ -5,7 +5,7 @@ import IconTextInput from '../../common/Inputs/IconTextInput';
 import { validateRegisterClinicInput } from '../../../validations/admin/auth/registerClinicFormValidator';
 
 class LoginClinicForm extends Component {
-  onSubmit = formValues => {
+  onSubmit = (formValues) => {
     this.props.onSubmit(formValues);
   };
 
@@ -77,11 +77,11 @@ class LoginClinicForm extends Component {
   }
 }
 
-const validate = formValues => {
+const validate = (formValues) => {
   return validateRegisterClinicInput(formValues);
 };
 
 export default reduxForm({
   form: 'loginClinicForm',
-  validate
+  validate,
 })(LoginClinicForm);

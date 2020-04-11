@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {
   getAppointments,
   getClinic,
-  submitAppointment
+  submitAppointment,
 } from './../actions/clinicActions';
 import { Grid, Button } from 'semantic-ui-react';
 import history from './../history';
@@ -14,30 +14,30 @@ class Appointment extends Component {
   state = {
     selectedProcedure: null,
     date: null,
-    time: null
+    time: null,
   };
   async componentDidMount() {
     const { clinicId } = this.props.match.params;
     await this.props.getClinic(clinicId);
     await this.props.getAppointments(clinicId);
   }
-  onProcedureAutoComplete = procedure => {
+  onProcedureAutoComplete = (procedure) => {
     this.setState({ selectedProcedure: procedure });
   };
 
-  onTimeSelect = time => {
+  onTimeSelect = (time) => {
     this.setState({
-      time: time
+      time: time,
     });
   };
 
-  onDateSelect = date => {
+  onDateSelect = (date) => {
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
     let dt = date.getDate();
     let fullYear = year + '/' + month + '/' + dt;
     this.setState({
-      date: fullYear
+      date: fullYear,
     });
   };
 
@@ -61,7 +61,7 @@ class Appointment extends Component {
         clinicId: clinic._id,
         procedure: selectedProcedure._id,
         date: dateValue,
-        time
+        time,
       };
       await this.props.submitAppointment(clinic._id, newAppointment);
       history.push(`${CLINICS_URL}/${clinic._id}`);
@@ -188,7 +188,7 @@ class Appointment extends Component {
             </Col>
           </Row>
         </Row>*/}
-        <Grid.Row> 
+        <Grid.Row>
           <Button onClick={this.onAppointmentSubmit}>
             Schedule Appointment
           </Button>
@@ -198,15 +198,15 @@ class Appointment extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     appointments: state.clinic.appointments,
     clinic: state.clinic.currentClinic,
-    user: state.auth.user
+    user: state.auth.user,
   };
 };
 export default connect(mapStateToProps, {
   getClinic,
   getAppointments,
-  submitAppointment
+  submitAppointment,
 })(Appointment);

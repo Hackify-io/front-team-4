@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import SpecialtyWidget from "./SpecialtyWidget";
-import { Container, Card } from "semantic-ui-react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import SpecialtyWidget from './SpecialtyWidget';
+import { Container, Card } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 class RenderSpecialtyWidget extends Component {
   renderCards = () => {
-    const model = "specialty";
+    const model = 'specialty';
     const data = this.props[model];
-    return data.map(specialty => (
+    return data.map((specialty) => (
       <SpecialtyWidget
         key={specialty.specialty._id}
         img={specialty.specialty.imageUrl}
@@ -26,9 +26,9 @@ class RenderSpecialtyWidget extends Component {
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    specialty: state.procedure.procedures
+    specialty: state.procedure.procedures,
   };
 };
 

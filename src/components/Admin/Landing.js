@@ -16,10 +16,10 @@ class Landing extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     currentClinic: state.clinic.currentClinic,
-    currentUser: state.auth.user
+    currentUser: state.auth.user,
   };
 };
 export default connect(mapStateToProps, { getClinic })(Landing);

@@ -1,19 +1,19 @@
-import { GET_PROCEDURES } from "./";
-import ProcedureService from "./../services/procedureService";
+import { GET_PROCEDURES } from './';
+import ProcedureService from './../services/procedureService';
 
 // Get Procedures
-export const getProcedures = () => async dispatch => {
+export const getProcedures = () => async (dispatch) => {
   const specialties = await ProcedureService.getProcedures();
   const appSpecialties = specialties
-    ? specialties.map(s => {
+    ? specialties.map((s) => {
         return {
           specialty: s,
-          display: `${s.name}`
+          display: `${s.name}`,
         };
       })
     : null;
   return dispatch({
     type: GET_PROCEDURES,
-    payload: appSpecialties
+    payload: appSpecialties,
   });
 };

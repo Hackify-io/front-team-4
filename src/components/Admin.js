@@ -22,7 +22,7 @@ import {
   ADMIN_LOGIN_URL,
   ADMIN_REGISTER_URL,
   ADMIN_EDIT_CLINIC,
-  ADMIN_APPOINTMENTS_CLINIC
+  ADMIN_APPOINTMENTS_CLINIC,
 } from './../routes';
 
 class Main extends Component {
@@ -50,7 +50,7 @@ class Main extends Component {
           clinicId,
           role,
           email,
-          name: email
+          name: email,
         };
         store.dispatch(setCurrentUser(user));
         store.dispatch(getClinic(clinicId));

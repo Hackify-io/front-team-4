@@ -1,5 +1,5 @@
-import { GET_RECENT_EVENTS } from "./index";
-import EventService from "../services/eventService";
+import { GET_RECENT_EVENTS } from './index';
+import EventService from '../services/eventService';
 
 export const getRecentEvents = () => async (dispatch) => {
   const events = await EventService.getRecentEvents();

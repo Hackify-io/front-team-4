@@ -1,23 +1,23 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Form, Button, Segment } from "semantic-ui-react";
-import PlacesAutoComplete from "./../common/Inputs/AutoCompletes/PlacesAutoComplete";
-import SpecialtyAutoComplete from "./../common/Inputs/AutoCompletes/SpecialtyAutoComplete";
-import { getClinics } from "./../../actions/clinicActions";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Form, Button, Segment } from 'semantic-ui-react';
+import PlacesAutoComplete from './../common/Inputs/AutoCompletes/PlacesAutoComplete';
+import SpecialtyAutoComplete from './../common/Inputs/AutoCompletes/SpecialtyAutoComplete';
+import { getClinics } from './../../actions/clinicActions';
 class SearchClinicForm extends Component {
   state = {
     selectedPlace: null,
     selectedSpecialty: null,
-    selectedDay: null
+    selectedDay: null,
   };
-  handlePlacesAutoComplete = places => {
+  handlePlacesAutoComplete = (places) => {
     this.setState({ selectedPlace: places });
   };
-  handleSpecialtiesAutoComplete = specialties => {
+  handleSpecialtiesAutoComplete = (specialties) => {
     this.setState({ selectedSpecialty: specialties });
   };
 
-  handleDateSelect = selectedDay => {
+  handleDateSelect = (selectedDay) => {
     this.setState({ selectedDay: selectedDay });
   };
   onSearchClick = async () => {
@@ -52,10 +52,10 @@ class SearchClinicForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     places: state.place.places,
-    specialties: state.procedure.procedures
+    specialties: state.procedure.procedures,
   };
 };
 export default connect(mapStateToProps, { getClinics })(SearchClinicForm);

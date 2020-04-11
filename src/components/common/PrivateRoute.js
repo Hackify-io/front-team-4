@@ -12,7 +12,7 @@ const PrivateRoute = ({
 }) => (
   <Route
     {...rest}
-    render={props =>
+    render={(props) =>
       auth.isAuthenticated === needAuth && auth.user.role === privateRole ? (
         <Component {...props} />
       ) : (
@@ -22,8 +22,8 @@ const PrivateRoute = ({
   />
 );
 
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = (state) => ({
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps)(PrivateRoute);

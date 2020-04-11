@@ -18,12 +18,12 @@ class IconTextInput extends Component {
 
     const inputClassName = classnames('validate', {
       invalid: meta.error && meta.touched,
-      valid: !meta.error && meta.touched
+      valid: !meta.error && meta.touched,
     });
 
     const iconClassName = classnames('prefix', {
       'red-text': meta.error && meta.touched,
-      'green-text': !meta.error && meta.touched
+      'green-text': !meta.error && meta.touched,
     });
     return (
       <TextInput

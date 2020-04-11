@@ -1,7 +1,8 @@
-.btn.extended, .input.extended {
+.btn.extended,
+.input.extended {
   width: 100%;
 }
 
-section.section.section-clinic-carousel{
-  background-image: linear-gradient(to right, #1d77b3 , #457168);
+section.section.section-clinic-carousel {
+  background-image: linear-gradient(to right, #1d77b3, #457168);
 }

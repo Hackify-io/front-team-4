@@ -16,15 +16,15 @@ import Admin from './Admin';
 class App extends Component {
   render() {
     return (
-        <Router history={history}>
-          <div className="App-Main">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path={MAIN_APP_URL} component={Main} />
-              <Route path={ADMIN_MAIN_APP_URL} component={Admin} />
-            </Switch>
-          </div>
-        </Router>
+      <Router history={history}>
+        <div className="App-Main">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path={MAIN_APP_URL} component={Main} />
+            <Route path={ADMIN_MAIN_APP_URL} component={Admin} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

@@ -1,16 +1,16 @@
 .ui.card > .image.equalRatio {
-    width: 100%;
-    padding-top: 100%;
-    overflow: hidden;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
 }
 
 .ui.card > .image.equalRatio img {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

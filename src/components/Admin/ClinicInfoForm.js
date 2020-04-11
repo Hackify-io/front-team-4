@@ -8,7 +8,7 @@ import { ADMIN_MAIN_APP_URL } from './../../routes';
 import {
   addProcedureToClinic,
   removeProcedureFromClinic,
-  updateClinic
+  updateClinic,
 } from './../../actions/clinicActions';
 import { getProcedures } from './../../actions/procedureActions';
 import { getPlaces } from './../../actions/placeActions';
@@ -18,7 +18,7 @@ import PlacesAutocomplete from './../common/Inputs/AutoCompletes/PlacesAutoCompl
 class ClinicInfoForm extends Component {
   state = {
     selectedProcedure: null,
-    selectedPlace: null
+    selectedPlace: null,
   };
   async componentDidMount() {
     const { procedures, places } = this.props;
@@ -30,11 +30,11 @@ class ClinicInfoForm extends Component {
     }
   }
 
-  onProcedureAutoComplete = procedure => {
+  onProcedureAutoComplete = (procedure) => {
     this.setState({ selectedProcedure: procedure });
   };
 
-  onPlacesAutoComplete = place => {
+  onPlacesAutoComplete = (place) => {
     this.setState({ selectedPlace: place.place });
   };
 
@@ -44,7 +44,7 @@ class ClinicInfoForm extends Component {
     await this.props.addProcedureToClinic(clinic._id, selectedProcedure._id);
   };
 
-  onRemoveProcedureClick = procedureId => {
+  onRemoveProcedureClick = (procedureId) => {
     const { clinic } = this.props;
     this.props.removeProcedureFromClinic(clinic._id, procedureId);
   };
@@ -80,7 +80,7 @@ class ClinicInfoForm extends Component {
     const { clinic } = this.props;
     let { procedures } = clinic;
     return procedures
-      ? procedures.map(p => {
+      ? procedures.map((p) => {
           return (
             <div key={p._id} className="col">
               <span className="badge red white-text">{p.name}</span>
@@ -97,7 +97,7 @@ class ClinicInfoForm extends Component {
       : null;
   };
 
-  onSubmit = async formValues => {
+  onSubmit = async (formValues) => {
     const { description, telephone, address } = formValues;
     let { clinic } = this.props;
     const { selectedPlace } = this.state;
@@ -113,7 +113,7 @@ class ClinicInfoForm extends Component {
     const { clinic, places } = this.props;
     let searchPlace = clinic.location
       ? places.length !== 0
-        ? places.find(p => p.place._id === clinic.location._id)
+        ? places.find((p) => p.place._id === clinic.location._id)
         : null
       : null;
     let currentPlace = searchPlace ? searchPlace.display : null;
@@ -202,18 +202,18 @@ class ClinicInfoForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     clinic: state.clinic.currentClinic,
     procedures: state.procedure.procedures,
     places: state.place.places,
-    initialValues: state.clinic.currentClinic
+    initialValues: state.clinic.currentClinic,
   };
 };
 
 // Decorate with reduxForm(). It will read the initialValues prop provided by connect()
 ClinicInfoForm = reduxForm({
-  form: 'editClinicForm' // a unique identifier for this form
+  form: 'editClinicForm', // a unique identifier for this form
 })(ClinicInfoForm);
 
 // You have to connect() to any reducers that you wish to connect to yourself
@@ -224,7 +224,7 @@ ClinicInfoForm = connect(
     removeProcedureFromClinic,
     getProcedures,
     getPlaces,
-    updateClinic
+    updateClinic,
   } // bind account loading action creator
 )(ClinicInfoForm);
 

@@ -12,7 +12,7 @@ export default class ClinicCard extends Component {
             actions={[
               <Link key="1" to={`${CLINICS_URL}/${clinic._id}`}>
                 Visit
-              </Link>
+              </Link>,
             ]}
             closeIcon={<Icon>close</Icon>}
             header={

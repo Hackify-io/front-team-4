@@ -21,8 +21,8 @@ class DropdownSelect extends Component {
             onCloseStart: null,
             onOpenEnd: null,
             onOpenStart: null,
-            outDuration: 25
-          }
+            outDuration: 25,
+          },
         }}
         onChange={handleSelect}
         {...input}

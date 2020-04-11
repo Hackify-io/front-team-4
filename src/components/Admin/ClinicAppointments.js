@@ -19,8 +19,8 @@ class ClinicAppointments extends Component {
 
   renderAppointments = () => {
     const { appointments, procedures } = this.props;
-    return appointments.map(a => {
-      const currentProcedure = procedures.find(p => p._id === a.procedure);
+    return appointments.map((a) => {
+      const currentProcedure = procedures.find((p) => p._id === a.procedure);
       return (
         <ClinicAppointmentCard
           id={a._id}
@@ -43,11 +43,11 @@ class ClinicAppointments extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     appointments: state.clinic.appointments,
     clinic: state.clinic.currentClinic,
-    procedures: state.procedure.procedures
+    procedures: state.procedure.procedures,
   };
 };
 

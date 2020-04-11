@@ -1,9 +1,9 @@
-import Medical from "./../api/Medical";
+import Medical from './../api/Medical';
 
 class ProcedureService {
   static async getProcedures() {
     try {
-      const proceduresResponse = await Medical.get("/specialties");
+      const proceduresResponse = await Medical.get('/specialties');
       if (proceduresResponse.data.isSuccess) {
         return proceduresResponse.data.result.docs;
       }
